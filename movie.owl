@@ -13,7 +13,42 @@
 #################################################################
 
 ###  https://schema.org/actor
-<https://schema.org/actor> rdf:type owl:ObjectProperty .
+<https://schema.org/actor> rdf:type owl:ObjectProperty ;
+                           rdfs:domain <https://schema.org/Movie> ;
+                           rdfs:range <https://schema.org/Person> .
+
+
+###  https://schema.org/author
+<https://schema.org/author> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/contentRating
+<https://schema.org/contentRating> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/countryOfOrigin
+<https://schema.org/countryOfOrigin> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/director
+<https://schema.org/director> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/duration
+<https://schema.org/duration> rdf:type owl:ObjectProperty ;
+                              rdfs:domain <https://schema.org/Movie> .
+
+
+###  https://schema.org/productionCompany
+<https://schema.org/productionCompany> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/review
+<https://schema.org/review> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/trailer
+<https://schema.org/trailer> rdf:type owl:ObjectProperty .
 
 
 #################################################################

@@ -22,12 +22,32 @@
 <https://schema.org/author> rdf:type owl:ObjectProperty .
 
 
+###  https://schema.org/character
+<https://schema.org/character> rdf:type owl:ObjectProperty .
+
+
 ###  https://schema.org/contentRating
 <https://schema.org/contentRating> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/countryOfOrigin
 <https://schema.org/countryOfOrigin> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/creator
+<https://schema.org/creator> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/dateCreated
+<https://schema.org/dateCreated> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/dateModified
+<https://schema.org/dateModified> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/datePublished
+<https://schema.org/datePublished> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/director
@@ -39,8 +59,32 @@
                               rdfs:domain <https://schema.org/Movie> .
 
 
+###  https://schema.org/hasPart
+<https://schema.org/hasPart> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/image
+<https://schema.org/image> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/keywords
+<https://schema.org/keywords> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/mainEntityOfPage
+<https://schema.org/mainEntityOfPage> rdf:type owl:ObjectProperty .
+
+
 ###  https://schema.org/productionCompany
 <https://schema.org/productionCompany> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/publisher
+<https://schema.org/publisher> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/releasedEvent
+<https://schema.org/releasedEvent> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/review

@@ -4,9 +4,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/> .
+@base <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/> .
 
-<https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/> rdf:type owl:Ontology .
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
@@ -88,6 +88,12 @@
 <https://schema.org/trailer> rdf:type owl:ObjectProperty ;
                              rdfs:domain <https://schema.org/Movie> ;
                              rdfs:range <https://schema.org/VideoObject> .
+
+
+###  https://schema.org/workPresented
+<https://schema.org/workPresented> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://schema.org/ScreeningEvent> ;
+                                   rdfs:range <https://schema.org/Movie> .
 
 
 #################################################################
@@ -190,6 +196,10 @@
 <https://schema.org/url> rdf:type owl:DatatypeProperty .
 
 
+###  https://schema.org/videoFormat
+<https://schema.org/videoFormat> rdf:type owl:DatatypeProperty .
+
+
 ###  https://schema.org/worstRating
 <https://schema.org/worstRating> rdf:type owl:DatatypeProperty .
 
@@ -254,17 +264,17 @@
 #    Individuals
 #################################################################
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/Gal_Gadot
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/Gal_Gadot
 :Gal_Gadot rdf:type owl:NamedIndividual ;
            <https://schema.org/name> "Gal Gadot" .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/Kristen_Wiig
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/Kristen_Wiig
 :Kristen_Wiig rdf:type owl:NamedIndividual ;
               <https://schema.org/name> "Kristen Wiig" .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/Mujer_Maravilla_1984
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/Mujer_Maravilla_1984
 :Mujer_Maravilla_1984 rdf:type owl:NamedIndividual ,
                                <https://schema.org/Movie> ;
                       <https://schema.org/actor> :Gal_Gadot ,

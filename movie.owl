@@ -19,79 +19,107 @@
 
 
 ###  https://schema.org/aggregateRating
-<https://schema.org/aggregateRating> rdf:type owl:ObjectProperty .
+<https://schema.org/aggregateRating> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <https://schema.org/Movie> ;
+                                     rdfs:range <https://schema.org/AggregateRating> .
 
 
 ###  https://schema.org/author
-<https://schema.org/author> rdf:type owl:ObjectProperty .
-
-
-###  https://schema.org/character
-<https://schema.org/character> rdf:type owl:ObjectProperty .
-
-
-###  https://schema.org/contentRating
-<https://schema.org/contentRating> rdf:type owl:ObjectProperty .
+<https://schema.org/author> rdf:type owl:ObjectProperty ;
+                            rdfs:domain <https://schema.org/Movie> ;
+                            rdfs:range <https://schema.org/Person> .
 
 
 ###  https://schema.org/creator
-<https://schema.org/creator> rdf:type owl:ObjectProperty .
-
-
-###  https://schema.org/datePublished
-<https://schema.org/datePublished> rdf:type owl:ObjectProperty .
+<https://schema.org/creator> rdf:type owl:ObjectProperty ;
+                             rdfs:domain <https://schema.org/Movie> ;
+                             rdfs:range <https://schema.org/Person> .
 
 
 ###  https://schema.org/director
-<https://schema.org/director> rdf:type owl:ObjectProperty .
+<https://schema.org/director> rdf:type owl:ObjectProperty ;
+                              rdfs:domain <https://schema.org/Movie> ;
+                              rdfs:range <https://schema.org/Person> .
 
 
-###  https://schema.org/genre
-<https://schema.org/genre> rdf:type owl:ObjectProperty .
-
-
-###  https://schema.org/hasPart
-<https://schema.org/hasPart> rdf:type owl:ObjectProperty .
-
-
-###  https://schema.org/image
-<https://schema.org/image> rdf:type owl:ObjectProperty .
-
-
-###  https://schema.org/keywords
-<https://schema.org/keywords> rdf:type owl:ObjectProperty .
-
-
-###  https://schema.org/mainEntityOfPage
-<https://schema.org/mainEntityOfPage> rdf:type owl:ObjectProperty .
+###  https://schema.org/location
+<https://schema.org/location> rdf:type owl:ObjectProperty ;
+                              rdfs:domain <https://schema.org/PublicationEvent> ;
+                              rdfs:range <https://schema.org/Country> .
 
 
 ###  https://schema.org/productionCompany
-<https://schema.org/productionCompany> rdf:type owl:ObjectProperty .
+<https://schema.org/productionCompany> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <https://schema.org/Movie> ;
+                                       rdfs:range <https://schema.org/Organization> .
 
 
 ###  https://schema.org/publisher
-<https://schema.org/publisher> rdf:type owl:ObjectProperty .
+<https://schema.org/publisher> rdf:type owl:ObjectProperty ;
+                               rdfs:domain <https://schema.org/Movie> ;
+                               rdfs:range <https://schema.org/Organization> .
 
 
 ###  https://schema.org/releasedEvent
-<https://schema.org/releasedEvent> rdf:type owl:ObjectProperty .
+<https://schema.org/releasedEvent> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://schema.org/Movie> ;
+                                   rdfs:range <https://schema.org/PublicationEvent> .
 
 
 ###  https://schema.org/review
-<https://schema.org/review> rdf:type owl:ObjectProperty .
+<https://schema.org/review> rdf:type owl:ObjectProperty ;
+                            rdfs:domain <https://schema.org/Movie> ;
+                            rdfs:range <https://schema.org/Review> .
+
+
+###  https://schema.org/reviewRating
+<https://schema.org/reviewRating> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <https://schema.org/Review> ;
+                                  rdfs:range <https://schema.org/Rating> .
+
+
+###  https://schema.org/thumbnail
+<https://schema.org/thumbnail> rdf:type owl:ObjectProperty ;
+                               rdfs:domain <https://schema.org/VideoObject> ;
+                               rdfs:range <https://schema.org/ImageObject> .
 
 
 ###  https://schema.org/trailer
-<https://schema.org/trailer> rdf:type owl:ObjectProperty .
+<https://schema.org/trailer> rdf:type owl:ObjectProperty ;
+                             rdfs:domain <https://schema.org/Movie> ;
+                             rdfs:range <https://schema.org/VideoObject> .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
+###  https://schema.org/bestRating
+<https://schema.org/bestRating> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/character
+<https://schema.org/character> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/contentRating
+<https://schema.org/contentRating> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/contentUrl
+<https://schema.org/contentUrl> rdf:type owl:DatatypeProperty .
+
+
 ###  https://schema.org/countryOfOrigin
 <https://schema.org/countryOfOrigin> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/dateCreated
+<https://schema.org/dateCreated> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/datePublished
+<https://schema.org/datePublished> rdf:type owl:DatatypeProperty .
 
 
 ###  https://schema.org/description
@@ -102,8 +130,68 @@
 <https://schema.org/duration> rdf:type owl:DatatypeProperty .
 
 
+###  https://schema.org/embedUrl
+<https://schema.org/embedUrl> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/genre
+<https://schema.org/genre> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/image
+<https://schema.org/image> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/keywords
+<https://schema.org/keywords> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/mainEntityOfPage
+<https://schema.org/mainEntityOfPage> rdf:type owl:DatatypeProperty .
+
+
 ###  https://schema.org/name
 <https://schema.org/name> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/ratingCount
+<https://schema.org/ratingCount> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/ratingValue
+<https://schema.org/ratingValue> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/reviewBody
+<https://schema.org/reviewBody> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/reviewCount
+<https://schema.org/reviewCount> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/sameAs
+<https://schema.org/sameAs> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/startDate
+<https://schema.org/startDate> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/thumbnailUrl
+<https://schema.org/thumbnailUrl> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/uploadDate
+<https://schema.org/uploadDate> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/url
+<https://schema.org/url> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/worstRating
+<https://schema.org/worstRating> rdf:type owl:DatatypeProperty .
 
 
 #################################################################
@@ -112,10 +200,6 @@
 
 ###  https://schema.org/AggregateRating
 <https://schema.org/AggregateRating> rdf:type owl:Class .
-
-
-###  https://schema.org/Clip
-<https://schema.org/Clip> rdf:type owl:Class .
 
 
 ###  https://schema.org/Country
@@ -184,7 +268,8 @@
 :Mujer_Maravilla_1984 rdf:type owl:NamedIndividual ,
                                <https://schema.org/Movie> ;
                       <https://schema.org/actor> :Gal_Gadot ,
-                                                 :Kristen_Wiig .
+                                                 :Kristen_Wiig ;
+                      <https://schema.org/character> "Mujer Maravilla" .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

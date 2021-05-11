@@ -8,7 +8,13 @@ def main():
         tree = load(movie_file)
 
     knowledge_graph = Graph()
-    knowledge_graph.namespace_manager.bind("", movie_ontology)
+    knowledge_graph.namespace_manager.bind(
+        "",
+        Namespace(
+            "https://raw.githubusercontent.com/fdioguardi/"
+            + "scenarios_ontology/master/movie.ttl#"
+        ),
+    )
     graph_from_tree(
         tree,
         None,
@@ -20,8 +26,7 @@ def main():
         knowledge_graph,
     )
 
-
-print(knowledge_graph.serialize(format="turtle").decode("utf-8"))
+    print(knowledge_graph.serialize(format="turtle").decode("utf-8"))
 
 
 def graph_from_tree(
@@ -33,7 +38,9 @@ def graph_from_tree(
     node.pop("@context", None)
     if "@type" in node.keys():
         individual = name_individual(node, parent_node, movie_ontology)
-        knowledge_graph.add((individual, RDF.type, schema[node["@type"]]))
+        knowledge_graph.add(
+            (individual, RDF.type, schema[node["@type"]])
+        )
 
     add_children(node, schema, movie_ontology, knowledge_graph, individual)
 
@@ -44,18 +51,28 @@ def name_individual(node, parent, base_iri):
     if node["@type"] in [
         "Person",
         "Movie",
-        "Organization",
         "VideoObject",
         "AggregateRating",
         "Country",
     ]:
         iri = node["name"]
 
+    elif node["@type"] == "Organization":
+        if "name" in node.keys():
+            iri = node["name"]
+        elif "url" in node.keys():
+            iri = node["url"]
+        else:
+            iri = node["mainEntityOfPage"]
+
     elif node["@type"] == "Review":
         iri = "review_" + node["author"]["name"] + "_" + node["dateCreated"]
 
     elif node["@type"] == "Rating":
         iri = "rating_" + name_individual(parent, None, base_iri)
+
+    elif node["@type"] == "PublicationEvent":
+        iri = "publicaionEvent_" + node["startDate"]
 
     else:
         iri = "thumbnail_" + node["contentUrl"]
@@ -65,15 +82,18 @@ def name_individual(node, parent, base_iri):
 
 def add_children(node, schema, movie_ontology, knowledge_graph, individual):
     for key, value in node.items():
+        if key == "@type":
+            continue
+
         if isinstance(value, list):
-            for element in valor:
+            for element in value:
                 knowledge_graph.add(
                     (
                         individual,
                         schema[key],
                         graph_from_tree(
                             element,
-                            node[key],
+                            node,
                             schema,
                             movie_ontology,
                             knowledge_graph,
@@ -87,7 +107,7 @@ def add_children(node, schema, movie_ontology, knowledge_graph, individual):
                     schema[key],
                     graph_from_tree(
                         value,
-                        node[key],
+                        node,
                         schema,
                         movie_ontology,
                         knowledge_graph,

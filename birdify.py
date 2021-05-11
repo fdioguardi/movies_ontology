@@ -24,46 +24,75 @@ def main():
 print(knowledge_graph.serialize(format="turtle").decode("utf-8"))
 
 
-def graph_from_tree(node, parent_node, schema, movie_ontology, knowledge_graph):
+def graph_from_tree(
+    node, parent_node, schema, movie_ontology, knowledge_graph
+):
     if not isinstance(node, dict):
         return Literal(node)
 
     node.pop("@context", None)
     if "@type" in node.keys():
         individual = name_individual(node, parent_node, movie_ontology)
-        knowledge_graph.add(
-            (individual, RDF.type, schema[node["@type"]])
-        )
+        knowledge_graph.add((individual, RDF.type, schema[node["@type"]]))
 
-    add_children(node, schema, knowledge_graph, individual)
+    add_children(node, schema, movie_ontology, knowledge_graph, individual)
 
     return individual
 
 
 def name_individual(node, parent, base_iri):
-    tipo = node["@type"]
-    iri = ""
-    if tipo in ["Person", "Movie", "Organization", "VideoObject", "AggregateRating", "Country"]:
-        iri = base_iri[node['name'].replace(" ", "_")]
-    elif tipo == "Review":
-        iri = base_iri["review_" + node['author']['name'].replace(" ", "_") + "_" + node['dateCreated'].replace(" ", "_")]
-    elif tipo == "Rating":
-        iri = base_iri["rating_" + name_individual(parent, None, base_iri)]
+    if node["@type"] in [
+        "Person",
+        "Movie",
+        "Organization",
+        "VideoObject",
+        "AggregateRating",
+        "Country",
+    ]:
+        iri = node["name"]
+
+    elif node["@type"] == "Review":
+        iri = "review_" + node["author"]["name"] + "_" + node["dateCreated"]
+
+    elif node["@type"] == "Rating":
+        iri = "rating_" + name_individual(parent, None, base_iri)
+
     else:
-        iri = base_iri["thumbnail_" + node["contentUrl"].replace(" ", "_")]
-    return iri
+        iri = "thumbnail_" + node["contentUrl"]
+
+    return base_iri[iri.replace(" ", "_")]
 
 
-def add_children(node, schema, knowledge_graph, individual):
+def add_children(node, schema, movie_ontology, knowledge_graph, individual):
     for key, value in node.items():
         if isinstance(value, list):
             for element in valor:
                 knowledge_graph.add(
-                    (individual, schema[key], graph_from_tree(element))
+                    (
+                        individual,
+                        schema[key],
+                        graph_from_tree(
+                            element,
+                            node[key],
+                            schema,
+                            movie_ontology,
+                            knowledge_graph,
+                        ),
+                    )
                 )
         else:
             knowledge_graph.add(
-                (individual, schema[key], graph_from_tree(valor))
+                (
+                    individual,
+                    schema[key],
+                    graph_from_tree(
+                        value,
+                        node[key],
+                        schema,
+                        movie_ontology,
+                        knowledge_graph,
+                    ),
+                )
             )
 
 

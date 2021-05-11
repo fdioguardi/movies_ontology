@@ -27,6 +27,35 @@ def main():
     )
 
     print(knowledge_graph.serialize(format="turtle").decode("utf-8"))
+    
+    with open("movies_2021-04-04-22_33_33.json") as movies_file:
+        movies_json = load(movies_file)
+
+    graph_from_tp1(
+        movies_json["MUJER MARAVILLA 1984"]["Horarios"],
+        Namespace("https://schema.org/"),
+        Namespace(
+            "https://raw.githubusercontent.com/fdioguardi/"
+            + "scenarios_ontology/master/movie.ttl#"
+        ),
+        knowledge_graph,
+    )
+
+
+def graph_from_tp1(node, schema, movie_ontology, knowledge_graph):
+    for key, value in node.items():
+        if isinstance(value, list):
+            cinema_name = key.split(" - ")[0].strip().replace(" ", "_") #literal de movietheatre
+            movie_format = key.split(" - ")[1].strip().replace(" ", "_") #literal screeningevent
+            
+            individual = movie_ontology[key.split(" - ")[0].strip().replace(" ", "_")]
+            knowledge_graph.add(
+                (individual, RDF.type, schema["MovieTheatre"])
+            )
+            # key.split(" - ")[1].strip() --> esto tiene el format
+            individual = "funcion_" + key.split(" - ")[0].strip()
+        else:
+            pass
 
 
 def graph_from_tree(
@@ -43,7 +72,6 @@ def graph_from_tree(
         )
 
     add_children(node, schema, movie_ontology, knowledge_graph, individual)
-
     return individual
 
 

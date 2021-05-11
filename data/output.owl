@@ -1,0 +1,1296 @@
+@prefix : <https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/> .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/location
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/location> rdf:type owl:ObjectProperty ;
+                                                                                                  rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                                  rdfs:domain <https://schema.org/ScreeningEvent> ;
+                                                                                                  rdfs:range <https://schema.org/MovieTheater> .
+
+
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/workPresented
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/workPresented> rdf:type owl:ObjectProperty ;
+                                                                                                       rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                                       rdfs:domain <https://schema.org/ScreeningEvent> ;
+                                                                                                       rdfs:range <https://schema.org/Movie> .
+
+
+###  https://schema.org/actor
+<https://schema.org/actor> rdf:type owl:ObjectProperty ;
+                           rdfs:domain <https://schema.org/Movie> ;
+                           rdfs:range <https://schema.org/Person> .
+
+
+###  https://schema.org/aggregateRating
+<https://schema.org/aggregateRating> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <https://schema.org/Movie> ;
+                                     rdfs:range <https://schema.org/AggregateRating> .
+
+
+###  https://schema.org/author
+<https://schema.org/author> rdf:type owl:ObjectProperty ;
+                            rdfs:domain <https://schema.org/Movie> ;
+                            rdfs:range <https://schema.org/Person> .
+
+
+###  https://schema.org/creator
+<https://schema.org/creator> rdf:type owl:ObjectProperty ;
+                             rdfs:domain <https://schema.org/Movie> ;
+                             rdfs:range <https://schema.org/Person> .
+
+
+###  https://schema.org/director
+<https://schema.org/director> rdf:type owl:ObjectProperty ;
+                              rdfs:domain <https://schema.org/Movie> ;
+                              rdfs:range <https://schema.org/Person> .
+
+
+###  https://schema.org/event
+<https://schema.org/event> rdf:type owl:ObjectProperty ;
+                           rdfs:domain <https://schema.org/MovieTheater> ;
+                           rdfs:range <https://schema.org/ScreeningEvent> .
+
+
+###  https://schema.org/eventSchedule
+<https://schema.org/eventSchedule> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://schema.org/ScreeningEvent> ;
+                                   rdfs:range <https://schema.org/Schedule> .
+
+
+###  https://schema.org/location
+<https://schema.org/location> rdf:type owl:ObjectProperty ;
+                              rdfs:domain <https://schema.org/PublicationEvent> ;
+                              rdfs:range <https://schema.org/Country> .
+
+
+###  https://schema.org/productionCompany
+<https://schema.org/productionCompany> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <https://schema.org/Movie> ;
+                                       rdfs:range <https://schema.org/Organization> .
+
+
+###  https://schema.org/publisher
+<https://schema.org/publisher> rdf:type owl:ObjectProperty ;
+                               rdfs:domain <https://schema.org/Movie> ;
+                               rdfs:range <https://schema.org/Organization> .
+
+
+###  https://schema.org/releasedEvent
+<https://schema.org/releasedEvent> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://schema.org/Movie> ;
+                                   rdfs:range <https://schema.org/PublicationEvent> .
+
+
+###  https://schema.org/review
+<https://schema.org/review> rdf:type owl:ObjectProperty ;
+                            rdfs:domain <https://schema.org/Movie> ;
+                            rdfs:range <https://schema.org/Review> .
+
+
+###  https://schema.org/reviewRating
+<https://schema.org/reviewRating> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <https://schema.org/Review> ;
+                                  rdfs:range <https://schema.org/Rating> .
+
+
+###  https://schema.org/thumbnail
+<https://schema.org/thumbnail> rdf:type owl:ObjectProperty ;
+                               rdfs:domain <https://schema.org/VideoObject> ;
+                               rdfs:range <https://schema.org/ImageObject> .
+
+
+###  https://schema.org/trailer
+<https://schema.org/trailer> rdf:type owl:ObjectProperty ;
+                             rdfs:domain <https://schema.org/Movie> ;
+                             rdfs:range <https://schema.org/VideoObject> .
+
+
+###  https://schema.org/workPresented
+<https://schema.org/workPresented> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://schema.org/ScreeningEvent> ;
+                                   rdfs:range <https://schema.org/Movie> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://schema.org/bestRating
+<https://schema.org/bestRating> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <https://schema.org/AggregateRating> ;
+                                rdfs:range xsd:double ,
+                                           xsd:integer .
+
+
+###  https://schema.org/character
+<https://schema.org/character> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <https://schema.org/Movie> ;
+                               rdfs:range xsd:string .
+
+
+###  https://schema.org/contentRating
+<https://schema.org/contentRating> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <https://schema.org/Movie> ;
+                                   rdfs:range xsd:string .
+
+
+###  https://schema.org/contentUrl
+<https://schema.org/contentUrl> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <https://schema.org/ImageObject> ;
+                                rdfs:range xsd:string .
+
+
+###  https://schema.org/countryOfOrigin
+<https://schema.org/countryOfOrigin> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <https://schema.org/Movie> ;
+                                     rdfs:range xsd:string .
+
+
+###  https://schema.org/dateCreated
+<https://schema.org/dateCreated> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://schema.org/Review> ;
+                                 rdfs:range xsd:dateTime .
+
+
+###  https://schema.org/description
+<https://schema.org/description> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://schema.org/AggregateRating> ,
+                                             <https://schema.org/Movie> ,
+                                             <https://schema.org/VideoObject> ;
+                                 rdfs:range xsd:string .
+
+
+###  https://schema.org/duration
+<https://schema.org/duration> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <https://schema.org/Movie> ,
+                                          <https://schema.org/ScreeningEvent> ;
+                              rdfs:range xsd:dateTimeStamp .
+
+
+###  https://schema.org/embedUrl
+<https://schema.org/embedUrl> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <https://schema.org/VideoObject> ;
+                              rdfs:range xsd:string .
+
+
+###  https://schema.org/endTime
+<https://schema.org/endTime> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain <https://schema.org/Schedule> ;
+                             rdfs:range xsd:dateTime .
+
+
+###  https://schema.org/genre
+<https://schema.org/genre> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain <https://schema.org/Movie> ;
+                           rdfs:range xsd:string .
+
+
+###  https://schema.org/image
+<https://schema.org/image> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain <https://schema.org/Movie> ;
+                           rdfs:range xsd:string .
+
+
+###  https://schema.org/keywords
+<https://schema.org/keywords> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <https://schema.org/Movie> ;
+                              rdfs:range xsd:string .
+
+
+###  https://schema.org/mainEntityOfPage
+<https://schema.org/mainEntityOfPage> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain <https://schema.org/Organization> ,
+                                                  <https://schema.org/Person> ;
+                                      rdfs:range xsd:string .
+
+
+###  https://schema.org/name
+<https://schema.org/name> rdf:type owl:DatatypeProperty ;
+                          rdfs:domain <https://schema.org/AggregateRating> ,
+                                      <https://schema.org/Country> ,
+                                      <https://schema.org/Movie> ,
+                                      <https://schema.org/MovieTheater> ,
+                                      <https://schema.org/Organization> ,
+                                      <https://schema.org/Person> ,
+                                      <https://schema.org/VideoObject> ;
+                          rdfs:range xsd:Name .
+
+
+###  https://schema.org/ratingCount
+<https://schema.org/ratingCount> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://schema.org/AggregateRating> ;
+                                 rdfs:range xsd:integer .
+
+
+###  https://schema.org/ratingValue
+<https://schema.org/ratingValue> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://schema.org/AggregateRating> ,
+                                             <https://schema.org/Review> ;
+                                 rdfs:range xsd:double ,
+                                            xsd:integer .
+
+
+###  https://schema.org/reviewBody
+<https://schema.org/reviewBody> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <https://schema.org/Review> ;
+                                rdfs:range xsd:string .
+
+
+###  https://schema.org/reviewCount
+<https://schema.org/reviewCount> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://schema.org/AggregateRating> ;
+                                 rdfs:range xsd:integer .
+
+
+###  https://schema.org/sameAs
+<https://schema.org/sameAs> rdf:type owl:DatatypeProperty ;
+                            rdfs:domain <https://schema.org/Person> ;
+                            rdfs:range xsd:anyURI .
+
+
+###  https://schema.org/startDate
+<https://schema.org/startDate> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <https://schema.org/PublicationEvent> ;
+                               rdfs:range xsd:dateTime .
+
+
+###  https://schema.org/startTime
+<https://schema.org/startTime> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <https://schema.org/Schedule> ;
+                               rdfs:range xsd:dateTime .
+
+
+###  https://schema.org/thumbnailUrl
+<https://schema.org/thumbnailUrl> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <https://schema.org/VideoObject> ;
+                                  rdfs:range xsd:string .
+
+
+###  https://schema.org/uploadDate
+<https://schema.org/uploadDate> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <https://schema.org/VideoObject> ;
+                                rdfs:range xsd:dateTime .
+
+
+###  https://schema.org/url
+<https://schema.org/url> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain <https://schema.org/Organization> ,
+                                     <https://schema.org/Person> ,
+                                     <https://schema.org/Review> ;
+                         rdfs:range xsd:string .
+
+
+###  https://schema.org/videoFormat
+<https://schema.org/videoFormat> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://schema.org/ScreeningEvent> ;
+                                 rdfs:range xsd:string .
+
+
+###  https://schema.org/worstRating
+<https://schema.org/worstRating> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://schema.org/AggregateRating> ,
+                                             <https://schema.org/Rating> ;
+                                 rdfs:range xsd:double ,
+                                            xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://schema.org/AggregateRating
+<https://schema.org/AggregateRating> rdf:type owl:Class .
+
+
+###  https://schema.org/Country
+<https://schema.org/Country> rdf:type owl:Class .
+
+
+###  https://schema.org/ImageObject
+<https://schema.org/ImageObject> rdf:type owl:Class .
+
+
+###  https://schema.org/Movie
+<https://schema.org/Movie> rdf:type owl:Class .
+
+
+###  https://schema.org/MovieTheater
+<https://schema.org/MovieTheater> rdf:type owl:Class .
+
+
+###  https://schema.org/Organization
+<https://schema.org/Organization> rdf:type owl:Class .
+
+
+###  https://schema.org/Person
+<https://schema.org/Person> rdf:type owl:Class .
+
+
+###  https://schema.org/PublicationEvent
+<https://schema.org/PublicationEvent> rdf:type owl:Class .
+
+
+###  https://schema.org/Rating
+<https://schema.org/Rating> rdf:type owl:Class .
+
+
+###  https://schema.org/Review
+<https://schema.org/Review> rdf:type owl:Class .
+
+
+###  https://schema.org/Schedule
+<https://schema.org/Schedule> rdf:type owl:Class .
+
+
+###  https://schema.org/ScreeningEvent
+<https://schema.org/ScreeningEvent> rdf:type owl:Class .
+
+
+###  https://schema.org/VideoObject
+<https://schema.org/VideoObject> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+@prefix : <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#> .
+@prefix ns1: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Wonder_Woman_1984 a ns1:Movie ;
+    ns1:actor :Alex_Delescu,
+        :Amr_Waked,
+        :Amreen_N._Yaqoob,
+        :Bern_Collaco,
+        :Brittney_Aleah,
+        :Chris_Pine,
+        :Chris_Silcox,
+        :Connie_Nielsen,
+        :Ella_Walker,
+        :Gabriella_Wilde,
+        :Gal_Gadot,
+        :Jamaal_Burcher,
+        :Jamal_Alkhaldi,
+        :Jeff_Moore,
+        :Joel_Morris,
+        :John_Gettier,
+        :Jonathan_Ajayi,
+        :Julian_Ferro,
+        :Justin_Sisk,
+        :Kaila_Ingram,
+        :Kristen_Wiig,
+        :Kristoffer_Polaha,
+        :Lilly_Aspell,
+        :Lolita_Marie,
+        :Lynda_Carter,
+        :Lyon_Beckwith,
+        :Manoj_Anand,
+        :Marisol_Correa,
+        :Marla_Aaron_Wapner,
+        :Monica_Haynes,
+        :Natasha_Rothwell,
+        :Oakley_Bull,
+        :Paul_Ron_Cruz,
+        :Pedro_Pascal,
+        :Penelope_Kapudija,
+        :Ravi_Patel,
+        :Rick_Kelvin_Branch,
+        :Robin_Wright,
+        :Sia_Alipour,
+        :Sonia_Goswami,
+        :Spencer_Trinwith,
+        :Tessa_Bonham_Jones,
+        :Thomas_Clay_Strickland ;
+    ns1:aggregateRating :AggregateRating_0,
+        :AggregateRating_1,
+        :AggregateRating_2,
+        :Tomatometer ;
+    ns1:author :Patty_Jenkins ;
+    ns1:character "Antiope",
+        "Barbara Minerva / Cheetah",
+        "Diana Prince / Wonder Woman",
+        "Hippolyta",
+        "Steve Trevor" ;
+    ns1:contentRating "PG-13" ;
+    ns1:countryOfOrigin "EE.UU." ;
+    ns1:creator :Dave_Callaham,
+        :Geoff_Johns,
+        :Patty_Jenkins,
+        :William_Moulton_Marston,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0002663/>,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0028338/>,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0038332/>,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0283444/>,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0728674/> ;
+    ns1:description """&#39;Wonder Woman 1984&#39; llegará a la pantalla grande el próximo 5 de junio de 2020, de nuevo con la actriz israelí Gal Gadot en el papel de la Mujer Maravilla y Patty Jenkins detrás de las cámaras. La secuela de &#39;Wonder Woman&#39; contará además con el regreso de Chris Pine (&#39;Star Trek. Más allá&#39;) como Steve Trevor. La película sigue a Diana en su vida durante los años 80 en Estados Unidos. En esta ocasión, Diana se enfrentará a nuevos enemigos. Su principal antagonista es la arqueóloga británica Barbara Minerva, que será interpretada por Kristen Wigg (&#39;Cazafantasmas&#39;). La científica tiene un alter ego, la villana Cheetah que tiene una fuerza y agilidad sobrehumanas. Otro enemigo a tener en cuenta será el empresario Maxwel Lord, interpretado por Pedro Pascal (&#39;The Mandalorian&#39;). Este personaje es un arrogante con la habilidad de manipular a otros a su antojo. En los cómics, Max Lord tiene poderes mentales. También aparecen en esta cinta las guerreras amazonas Antiope (Robin Wright) y la Reina Hippolyta (Connie Nielsen).\r
+\r
+La trama de esta película es una gran misterio. El guión está basado en una historia escrita por Patty Jenkins, Geoff Johns (&#39;The Flash&#39;, &#39;Aquaman&#39;) y Dave Callaham (&#39;Zombieland: Mata y remata&#39;). Se espera que tenga protagonismo la tecnología y la vigilancia, teniendo en cuenta el título que hace referencia a la distopía de &#39;1984&#39; de George Orwell.""",
+        "Fast forward to the 1980s as Wonder Woman’s next big screen adventure finds her facing two all-new foes: Max Lord and The Cheetah.",
+        "Wonder Woman 1984 is a movie starring Gal Gadot, Chris Pine, and Kristen Wiig. Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient..." ;
+    ns1:director :Patty_Jenkins ;
+    ns1:duration "PT151M",
+        "PT2H31M" ;
+    ns1:genre "Acción",
+        "Action",
+        "Action & Adventure",
+        "Adventure",
+        "Aventura",
+        "Fantasy",
+        "Fantasía",
+        "Science Fiction & Fantasy" ;
+    ns1:image :ImageObject_0,
+        "https://m.media-amazon.com/images/M/MV5BYTlhNzJjYzYtNGU3My00ZDI5LTgzZDUtYzllYjU1ZmU0YTgwXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_.jpg",
+        "https://resizing.flixster.com/m8G6eIbecl1KNYf1yd2lt2F5yX8=/740x380/v1.bjsyNTUxODM4O2o7MTg4Mzk7MTIwMDs0MTIyOzIzMTI",
+        "https://static.metacritic.com/images/products/movies/4/9d1a4650bb42f43a0a781bfa70a7772d.jpg" ;
+    ns1:keywords "sequel,superhero,dc extended universe,dc comics,one woman army" ;
+    ns1:name "Wonder Woman 1984" ;
+    ns1:productionCompany :Warner_Bros._Pictures ;
+    ns1:publisher :Warner_Bros._Pictures ;
+    ns1:releasedEvent :PublicationEvent_2020-12-18 ;
+    ns1:review :Review_Amy_Nicholson_2021-01-04T03:37:14-08:00,
+        :Review_Andrew_Galdi_2021-03-11T06:02:25-08:00,
+        :Review_Avaryl_Halley_2021-03-11T05:51:39-08:00,
+        :Review_Brian_Gill_2021-02-10T06:48:34-08:00,
+        :Review_Dan_Tabor_2021-02-05T01:55:00-08:00,
+        :Review_David_Bax_2021-03-23T10:02:10-07:00,
+        :Review_David_Sims_2020-12-28T07:45:33-08:00,
+        :Review_Eddie_Harrison_2021-02-07T19:57:42-08:00,
+        :Review_Eric_Marchen_2021-02-17T02:36:51-08:00,
+        :Review_Ian_Simmons_2021-02-05T19:46:31-08:00,
+        :Review_Jake_Wilson_2020-12-28T07:49:06-08:00,
+        :Review_Jennifer_Ouellette_2021-02-11T02:38:41-08:00,
+        :Review_John_McDonald_2021-01-31T18:14:33-08:00,
+        :Review_Kevin_Carr_2021-04-03T14:11:59-07:00,
+        :Review_Mark_Jackson_2021-02-02T10:00:09-08:00,
+        :Review_Mark_Meszoros_2021-02-13T23:57:56-08:00,
+        :Review_Matt_Neal_2021-01-31T17:01:54-08:00,
+        :Review_Nina_Garin_2021-03-01T08:14:02-08:00,
+        :Review_Rafer_Guzman_2021-01-04T04:59:29-08:00,
+        :Review_Sarah_Ward_2021-02-21T08:36:54-08:00,
+        :Review_Sheri_Flanders_2021-02-01T04:29:30-08:00,
+        :Review_Stephen_Romei_2020-12-29T12:09:48-08:00,
+        :Review_Tony_Medley_2021-02-22T06:02:11-08:00,
+        :Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00,
+        :Review_leila-horo_2021-02-28 ;
+    ns1:trailer :Stream_on_HBO_Max_for_a_Limited_Time,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Wonder_Woman_1984_(Trailer_2)> .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#ABC_Radio_(Australia)> a ns1:Organization ;
+    ns1:name "ABC Radio (Australia)" ;
+    ns1:url "https://www.rottentomatoes.com/source-2397" .
+
+:AggregateRating_0 a ns1:AggregateRating ;
+    ns1:bestRating "10.0" ;
+    ns1:ratingCount 199059 ;
+    ns1:ratingValue "5.4" ;
+    ns1:worstRating "1.0" .
+
+:AggregateRating_1 a ns1:AggregateRating ;
+    ns1:bestRating "100" ;
+    ns1:ratingCount "57" ;
+    ns1:ratingValue "60" ;
+    ns1:worstRating "0" .
+
+:AggregateRating_2 a ns1:AggregateRating ;
+    ns1:bestRating "10" ;
+    ns1:ratingCount "20" ;
+    ns1:ratingValue "7,6" ;
+    ns1:worstRating "0" .
+
+:Alex_Delescu a ns1:Person ;
+    ns1:name "Alex Delescu" ;
+    ns1:url "https://www.metacritic.com/person/alex-delescu" .
+
+:Amr_Waked a ns1:Person ;
+    ns1:name "Amr Waked" ;
+    ns1:url "https://www.metacritic.com/person/amr-waked" .
+
+:Amreen_N._Yaqoob a ns1:Person ;
+    ns1:name "Amreen N. Yaqoob" ;
+    ns1:url "https://www.metacritic.com/person/amreen-n-yaqoob" .
+
+:Amy_Nicholson a ns1:Person ;
+    ns1:name "Amy Nicholson" ;
+    ns1:url "https://www.rottentomatoes.com/critic/amy-nicholson" .
+
+:Andrew_Galdi a ns1:Person ;
+    ns1:name "Andrew Galdi" ;
+    ns1:url "https://www.rottentomatoes.com/critic/andrew-galdi" .
+
+:Ars_Technica a ns1:Organization ;
+    ns1:name "Ars Technica" ;
+    ns1:url "https://www.rottentomatoes.com/source-2985" .
+
+:Australian_Financial_Review a ns1:Organization ;
+    ns1:name "Australian Financial Review" ;
+    ns1:url "https://www.rottentomatoes.com/source-3199" .
+
+:Avaryl_Halley a ns1:Person ;
+    ns1:name "Avaryl Halley" ;
+    ns1:url "https://www.rottentomatoes.com/critic/avaryl-halley" .
+
+:Battleship_Pretension a ns1:Organization ;
+    ns1:name "Battleship Pretension" ;
+    ns1:url "https://www.rottentomatoes.com/source-3090" .
+
+:Bern_Collaco a ns1:Person ;
+    ns1:name "Bern Collaco" ;
+    ns1:url "https://www.metacritic.com/person/bern-collaco" .
+
+:Brian_Gill a ns1:Person ;
+    ns1:name "Brian Gill" ;
+    ns1:url "https://www.rottentomatoes.com/critic/brian-gill" .
+
+:Brittney_Aleah a ns1:Person ;
+    ns1:name "Brittney Aleah" ;
+    ns1:url "https://www.metacritic.com/person/brittney-aleah" .
+
+:Chicago_Reader a ns1:Organization ;
+    ns1:name "Chicago Reader" ;
+    ns1:url "https://www.rottentomatoes.com/source-66" .
+
+:Chris_Pine a ns1:Person ;
+    ns1:image "https://resizing.flixster.com/kXDRe1jUWEU8UFkdf8JhRPMUG8s=/660x990/v1.bjs3NTYxMDQ7ajsxODgxODsxMjAwOzY2MDs5OTA" ;
+    ns1:mainEntityOfPage "https://www.ecartelera.com/personas/chris-pine/" ;
+    ns1:name "Chris Pine" ;
+    ns1:sameAs "https://www.rottentomatoes.com/celebrity/christopher_pine" ;
+    ns1:url "https://www.imdb.com/name/nm1517976/",
+        "https://www.metacritic.com/person/chris-pine" .
+
+:Chris_Silcox a ns1:Person ;
+    ns1:name "Chris Silcox" ;
+    ns1:url "https://www.metacritic.com/person/chris-silcox" .
+
+:Concrete_Playground a ns1:Organization ;
+    ns1:name "Concrete Playground" ;
+    ns1:url "https://www.rottentomatoes.com/source-2298" .
+
+:Connie_Nielsen a ns1:Person ;
+    ns1:image "https://resizing.flixster.com/9Pu5qp5qfehIlclgv8tIbVPGlr0=/2938x3500/v1.cjs1MDM1NztqOzE4NzY1OzEyMDA7MjkzODszNTAw" ;
+    ns1:mainEntityOfPage "https://www.ecartelera.com/personas/connie-nielsen/" ;
+    ns1:name "Connie Nielsen" ;
+    ns1:sameAs "https://www.rottentomatoes.com/celebrity/connie_nielsen" ;
+    ns1:url "https://www.metacritic.com/person/connie-nielsen" .
+
+:CreativeWork_0 a ns1:CreativeWork ;
+    ns1:url "https://www.imdb.com/title/tt7126948/" .
+
+:Dan_Tabor a ns1:Person ;
+    ns1:name "Dan Tabor" ;
+    ns1:url "https://www.rottentomatoes.com/critic/dan-tabor" .
+
+:Dave_Callaham a ns1:Person ;
+    ns1:name "Dave Callaham" ;
+    ns1:url "https://www.imdb.com/name/nm1709264/" .
+
+:David_Bax a ns1:Person ;
+    ns1:name "David Bax" ;
+    ns1:url "https://www.rottentomatoes.com/critic/david-bax" .
+
+:David_Sims a ns1:Person ;
+    ns1:name "David Sims" ;
+    ns1:url "https://www.rottentomatoes.com/critic/david-sims" .
+
+:ES a ns1:Country ;
+    ns1:name "ES" .
+
+:Eddie_Harrison a ns1:Person ;
+    ns1:name "Eddie Harrison" ;
+    ns1:url "https://www.rottentomatoes.com/critic/eddie-harrison" .
+
+:Ella_Walker a ns1:Person ;
+    ns1:name "Ella Walker" ;
+    ns1:url "https://www.metacritic.com/person/ella-walker" .
+
+:Epoch_Times a ns1:Organization ;
+    ns1:name "Epoch Times" ;
+    ns1:url "https://www.rottentomatoes.com/source-2771" .
+
+:Eric_Marchen a ns1:Person ;
+    ns1:name "Eric Marchen" ;
+    ns1:url "https://www.rottentomatoes.com/critic/eric-marchen" .
+
+:Fat_Guys_at_the_Movies a ns1:Organization ;
+    ns1:name "Fat Guys at the Movies" ;
+    ns1:url "https://www.rottentomatoes.com/source-2722" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#FilmWeek_(KPCC_-_NPR_Los_Angeles)> a ns1:Organization ;
+    ns1:name "FilmWeek (KPCC - NPR Los Angeles)" ;
+    ns1:url "https://www.rottentomatoes.com/source-3509" .
+
+:Gabriella_Wilde a ns1:Person ;
+    ns1:name "Gabriella Wilde" ;
+    ns1:url "https://www.metacritic.com/person/gabriella-wilde" .
+
+:Gal_Gadot a ns1:Person ;
+    ns1:image "https://resizing.flixster.com/QUtKfz3anQMHFQQruCGKVWbv1Kc=/633x704/v1.cjs0Mjc1NjtwOzE4NzY1OzEyMDA7NjMzOzcwNA" ;
+    ns1:mainEntityOfPage "https://www.ecartelera.com/personas/gal-gadot/" ;
+    ns1:name "Gal Gadot" ;
+    ns1:sameAs "https://www.rottentomatoes.com/celebrity/gal-gadot" ;
+    ns1:url "https://www.imdb.com/name/nm2933757/",
+        "https://www.metacritic.com/person/gal-gadot" .
+
+:Geoff_Johns a ns1:Person ;
+    ns1:name "Geoff Johns" ;
+    ns1:url "https://www.imdb.com/name/nm0424315/" .
+
+:Ian_Simmons a ns1:Person ;
+    ns1:name "Ian Simmons" ;
+    ns1:url "https://www.rottentomatoes.com/critic/ian-simmons" .
+
+:ImageObject_0 a ns1:ImageObject ;
+    ns1:url "https://img.ecartelera.com/carteles/13100/13170/009_p.jpg" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#ImageObject_https://m.media-amazon.com/images/M/MV5BZjQ0NGM2NGMtMDE1Yi00YzQyLWI1ZWYtMmQ2OWEzZTA5YjEyXkEyXkFqcGdeQWRvb2xpbmhk._V1_.jpg> a ns1:ImageObject ;
+    ns1:contentUrl "https://m.media-amazon.com/images/M/MV5BZjQ0NGM2NGMtMDE1Yi00YzQyLWI1ZWYtMmQ2OWEzZTA5YjEyXkEyXkFqcGdeQWRvb2xpbmhk._V1_.jpg" .
+
+:Jake_Wilson a ns1:Person ;
+    ns1:name "Jake Wilson" ;
+    ns1:url "https://www.rottentomatoes.com/critic/jake-wilson" .
+
+:Jamaal_Burcher a ns1:Person ;
+    ns1:name "Jamaal Burcher" ;
+    ns1:url "https://www.metacritic.com/person/jamaal-burcher" .
+
+:Jamal_Alkhaldi a ns1:Person ;
+    ns1:name "Jamal Alkhaldi" ;
+    ns1:url "https://www.metacritic.com/person/jamal-alkhaldi" .
+
+:Jeff_Moore a ns1:Person ;
+    ns1:name "Jeff Moore" ;
+    ns1:url "https://www.metacritic.com/person/jeff-moore" .
+
+:Jennifer_Ouellette a ns1:Person ;
+    ns1:name "Jennifer Ouellette" ;
+    ns1:url "https://www.rottentomatoes.com/critic/jennifer-ouellette" .
+
+:Joel_Morris a ns1:Person ;
+    ns1:name "Joel Morris" ;
+    ns1:url "https://www.metacritic.com/person/joel-morris" .
+
+:John_Gettier a ns1:Person ;
+    ns1:name "John Gettier" ;
+    ns1:url "https://www.metacritic.com/person/john-gettier" .
+
+:John_McDonald a ns1:Person ;
+    ns1:name "John McDonald" ;
+    ns1:url "https://www.rottentomatoes.com/critic/john-mcdonald" .
+
+:Jonathan_Ajayi a ns1:Person ;
+    ns1:name "Jonathan Ajayi" ;
+    ns1:url "https://www.metacritic.com/person/jonathan-ajayi" .
+
+:Julian_Ferro a ns1:Person ;
+    ns1:name "Julian Ferro" ;
+    ns1:url "https://www.metacritic.com/person/julian-ferro" .
+
+:Justin_Sisk a ns1:Person ;
+    ns1:name "Justin Sisk" ;
+    ns1:url "https://www.metacritic.com/person/justin-sisk" .
+
+:Kaila_Ingram a ns1:Person ;
+    ns1:name "Kaila Ingram" ;
+    ns1:url "https://www.metacritic.com/person/kaila-ingram" .
+
+:Kevin_Carr a ns1:Person ;
+    ns1:name "Kevin Carr" ;
+    ns1:url "https://www.rottentomatoes.com/critic/kevin-carr" .
+
+:Kicking_the_Seat a ns1:Organization ;
+    ns1:name "Kicking the Seat" ;
+    ns1:url "https://www.rottentomatoes.com/source-3892" .
+
+:Kristen_Wiig a ns1:Person ;
+    ns1:image "https://resizing.flixster.com/P6P3MFr8YZqj_iCOIh7GxeYrPLg=/2000x2083/v1.cjs0OTMxNjtqOzE4NzY1OzEyMDA7MjAwMDsyMDgz" ;
+    ns1:mainEntityOfPage "https://www.ecartelera.com/personas/kristen-wiig/" ;
+    ns1:name "Kristen Wiig" ;
+    ns1:sameAs "https://www.rottentomatoes.com/celebrity/kristen_wiig" ;
+    ns1:url "https://www.imdb.com/name/nm1325419/",
+        "https://www.metacritic.com/person/kristen-wiig" .
+
+:Kristoffer_Polaha a ns1:Person ;
+    ns1:name "Kristoffer Polaha" ;
+    ns1:url "https://www.metacritic.com/person/kristoffer-polaha" .
+
+:Lilly_Aspell a ns1:Person ;
+    ns1:name "Lilly Aspell" ;
+    ns1:url "https://www.metacritic.com/person/lilly-aspell" .
+
+:Lolita_Marie a ns1:Person ;
+    ns1:name "Lolita Marie" ;
+    ns1:url "https://www.metacritic.com/person/lolita-marie" .
+
+:Lynda_Carter a ns1:Person ;
+    ns1:name "Lynda Carter" ;
+    ns1:url "https://www.metacritic.com/person/lynda-carter" .
+
+:Lyon_Beckwith a ns1:Person ;
+    ns1:name "Lyon Beckwith" ;
+    ns1:url "https://www.metacritic.com/person/lyon-beckwith" .
+
+:Mad_About_Movies_Podcast a ns1:Organization ;
+    ns1:name "Mad About Movies Podcast" ;
+    ns1:url "https://www.rottentomatoes.com/source-3256" .
+
+:Manoj_Anand a ns1:Person ;
+    ns1:name "Manoj Anand" ;
+    ns1:url "https://www.metacritic.com/person/manoj-anand" .
+
+:Marisol_Correa a ns1:Person ;
+    ns1:name "Marisol Correa" ;
+    ns1:url "https://www.metacritic.com/person/marisol-correa" .
+
+:Mark_Jackson a ns1:Person ;
+    ns1:name "Mark Jackson" ;
+    ns1:url "https://www.rottentomatoes.com/critic/mark-jackson" .
+
+:Mark_Meszoros a ns1:Person ;
+    ns1:name "Mark Meszoros" ;
+    ns1:url "https://www.rottentomatoes.com/critic/mark-meszoros" .
+
+:Marla_Aaron_Wapner a ns1:Person ;
+    ns1:name "Marla Aaron Wapner" ;
+    ns1:url "https://www.metacritic.com/person/marla-aaron-wapner" .
+
+:Matt_Neal a ns1:Person ;
+    ns1:name "Matt Neal" ;
+    ns1:url "https://www.rottentomatoes.com/critic/matt-neal" .
+
+:Monica_Haynes a ns1:Person ;
+    ns1:name "Monica Haynes" ;
+    ns1:url "https://www.metacritic.com/person/monica-haynes" .
+
+:Natasha_Rothwell a ns1:Person ;
+    ns1:name "Natasha Rothwell" ;
+    ns1:url "https://www.metacritic.com/person/natasha-rothwell" .
+
+:Newsday a ns1:Organization ;
+    ns1:name "Newsday" ;
+    ns1:url "https://www.rottentomatoes.com/source-338" .
+
+:Nina_Garin a ns1:Person ;
+    ns1:name "Nina Garin" ;
+    ns1:url "https://www.rottentomatoes.com/critic/nina-garin" .
+
+:Oakley_Bull a ns1:Person ;
+    ns1:name "Oakley Bull" ;
+    ns1:url "https://www.metacritic.com/person/oakley-bull" .
+
+:Paul_Ron_Cruz a ns1:Person ;
+    ns1:name "Paul Ron Cruz" ;
+    ns1:url "https://www.metacritic.com/person/paul-ron-cruz" .
+
+:Pedro_Pascal a ns1:Person ;
+    ns1:image "https://resizing.flixster.com/uEke7o3H4ngITX7oLEYgZox9q2A=/220x196/v1.cjs0NDAwMDtqOzE4NzY1OzEyMDA7MjIwOzE5Ng" ;
+    ns1:mainEntityOfPage "https://www.ecartelera.com/personas/pedro-pascal/" ;
+    ns1:name "Pedro Pascal" ;
+    ns1:sameAs "https://www.rottentomatoes.com/celebrity/pedro_pascal" ;
+    ns1:url "https://www.imdb.com/name/nm0050959/",
+        "https://www.metacritic.com/person/pedro-pascal" .
+
+:Penelope_Kapudija a ns1:Person ;
+    ns1:name "Penelope Kapudija" ;
+    ns1:url "https://www.metacritic.com/person/penelope-kapudija" .
+
+:Phawker a ns1:Organization ;
+    ns1:name "Phawker" ;
+    ns1:url "https://www.rottentomatoes.com/source-3631" .
+
+:PublicationEvent_2020-12-18 a ns1:PublicationEvent ;
+    ns1:location :ES ;
+    ns1:startDate "2020-12-18" .
+
+:Rafer_Guzman a ns1:Person ;
+    ns1:name "Rafer Guzman" ;
+    ns1:url "https://www.rottentomatoes.com/critic/rafer-guzman" .
+
+:Rating_Review_Amy_Nicholson_2021-01-04T03:37:14-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Andrew_Galdi_2021-03-11T06:02:25-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue -1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Avaryl_Halley_2021-03-11T05:51:39-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue -1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Brian_Gill_2021-02-10T06:48:34-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Dan_Tabor_2021-02-05T01:55:00-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_David_Bax_2021-03-23T10:02:10-07:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_David_Sims_2020-12-28T07:45:33-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Eddie_Harrison_2021-02-07T19:57:42-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue -1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Eric_Marchen_2021-02-17T02:36:51-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue -1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Ian_Simmons_2021-02-05T19:46:31-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Jake_Wilson_2020-12-28T07:49:06-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Jennifer_Ouellette_2021-02-11T02:38:41-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_John_McDonald_2021-01-31T18:14:33-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue -1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Kevin_Carr_2021-04-03T14:11:59-07:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Mark_Jackson_2021-02-02T10:00:09-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue -1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Mark_Meszoros_2021-02-13T23:57:56-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Matt_Neal_2021-01-31T17:01:54-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue -1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Nina_Garin_2021-03-01T08:14:02-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Rafer_Guzman_2021-01-04T04:59:29-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Sarah_Ward_2021-02-21T08:36:54-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue -1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Sheri_Flanders_2021-02-01T04:29:30-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Stephen_Romei_2020-12-29T12:09:48-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Tony_Medley_2021-02-22T06:02:11-08:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue -1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00 a ns1:Rating ;
+    ns1:bestRating "1" ;
+    ns1:ratingValue 1 ;
+    ns1:worstRating "-1" .
+
+:Rating_Review_leila-horo_2021-02-28 a ns1:Rating ;
+    ns1:bestRating "10" ;
+    ns1:ratingValue "3" ;
+    ns1:worstRating "1" .
+
+:Ravi_Patel a ns1:Person ;
+    ns1:name "Ravi Patel" ;
+    ns1:url "https://www.metacritic.com/person/ravi-patel" .
+
+:Review_Amy_Nicholson_2021-01-04T03:37:14-08:00 a ns1:Review ;
+    ns1:author :Amy_Nicholson ;
+    ns1:dateCreated "2021-01-04T03:37:14-08:00" ;
+    ns1:publisher <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#FilmWeek_(KPCC_-_NPR_Los_Angeles)> ;
+    ns1:reviewBody "Very sweet and very fun. I think some of the stunts are a little bit dumb, but I had a lot of watching this." ;
+    ns1:reviewRating :Rating_Review_Amy_Nicholson_2021-01-04T03:37:14-08:00 ;
+    ns1:url "https://www.scpr.org/programs/filmweek/2020/12/23/66369/filmweek-wonder-woman-1984-soul-promising-young-wo/" .
+
+:Review_Andrew_Galdi_2021-03-11T06:02:25-08:00 a ns1:Review ;
+    ns1:author :Andrew_Galdi ;
+    ns1:dateCreated "2021-03-11T06:02:25-08:00" ;
+    ns1:publisher :Movie_Bitches ;
+    ns1:reviewBody "There were just such gross failures of filmmaking..." ;
+    ns1:reviewRating :Rating_Review_Andrew_Galdi_2021-03-11T06:02:25-08:00 ;
+    ns1:url "https://youtu.be/75nDMuZMfLs" .
+
+:Review_Avaryl_Halley_2021-03-11T05:51:39-08:00 a ns1:Review ;
+    ns1:author :Avaryl_Halley ;
+    ns1:dateCreated "2021-03-11T05:51:39-08:00" ;
+    ns1:publisher :Movie_Bitches ;
+    ns1:reviewBody "At least \"Justice League\" had at the decency to be short" ;
+    ns1:reviewRating :Rating_Review_Avaryl_Halley_2021-03-11T05:51:39-08:00 ;
+    ns1:url "https://youtu.be/75nDMuZMfLs" .
+
+:Review_Brian_Gill_2021-02-10T06:48:34-08:00 a ns1:Review ;
+    ns1:author :Brian_Gill ;
+    ns1:dateCreated "2021-02-10T06:48:34-08:00" ;
+    ns1:publisher :Mad_About_Movies_Podcast ;
+    ns1:reviewBody "I have sorely missed this sort of big budget popcorn flick through this never-ending pandemic and Wonder Woman succeeds in filling that gap, though only by the slimmest of margins. " ;
+    ns1:reviewRating :Rating_Review_Brian_Gill_2021-02-10T06:48:34-08:00 ;
+    ns1:url "http://madaboutmoviespodcast.com/episodes/2020/12/29/wonder-woman-1984" .
+
+:Review_Dan_Tabor_2021-02-05T01:55:00-08:00 a ns1:Review ;
+    ns1:author :Dan_Tabor ;
+    ns1:dateCreated "2021-02-05T01:55:00-08:00" ;
+    ns1:publisher :Phawker ;
+    ns1:reviewBody "WW84 is a near perfect superhero film that outshines the original with its infectious sense of joy and optimism and nuanced deconstruction of the power of truth and how that can be a tool of good or evil. " ;
+    ns1:reviewRating :Rating_Review_Dan_Tabor_2021-02-05T01:55:00-08:00 ;
+    ns1:url "http://www.phawker.com/2020/12/23/cinema-waiting-for-gadot/" .
+
+:Review_David_Bax_2021-03-23T10:02:10-07:00 a ns1:Review ;
+    ns1:author :David_Bax ;
+    ns1:dateCreated "2021-03-23T10:02:10-07:00" ;
+    ns1:publisher :Battleship_Pretension ;
+    ns1:reviewBody "Where too many directors of these types of films use their visual effects budget to imagine new levels of destruction, Jenkins would rather show us the novel beauty of an invisible jet soaring through a sky full of fireworks." ;
+    ns1:reviewRating :Rating_Review_David_Bax_2021-03-23T10:02:10-07:00 ;
+    ns1:url "https://battleshippretension.com/wonder-woman-1984-go-ahead-and-jump-by-david-bax/" .
+
+:Review_David_Sims_2020-12-28T07:45:33-08:00 a ns1:Review ;
+    ns1:author :David_Sims ;
+    ns1:dateCreated "2020-12-28T07:45:33-08:00" ;
+    ns1:publisher :The_Atlantic ;
+    ns1:reviewBody "It's a refreshingly silly and airy adventure focused on the emotions of one character, Wonder Woman (played by Gal Gadot), and a charming end to a tiring year of cinema." ;
+    ns1:reviewRating :Rating_Review_David_Sims_2020-12-28T07:45:33-08:00 ;
+    ns1:url "https://www.theatlantic.com/culture/archive/2020/12/wonder-woman-1984-movie-review/617470/" .
+
+:Review_Eddie_Harrison_2021-02-07T19:57:42-08:00 a ns1:Review ;
+    ns1:author :Eddie_Harrison ;
+    ns1:dateCreated "2021-02-07T19:57:42-08:00" ;
+    ns1:publisher :film-authority.com ;
+    ns1:reviewBody "...a joyless dud, a bucket of sludge when we're crying out for a glass of water..." ;
+    ns1:reviewRating :Rating_Review_Eddie_Harrison_2021-02-07T19:57:42-08:00 ;
+    ns1:url "https://film-authority.com/2021/01/11/wonder-woman-1984/" .
+
+:Review_Eric_Marchen_2021-02-17T02:36:51-08:00 a ns1:Review ;
+    ns1:author :Eric_Marchen ;
+    ns1:dateCreated "2021-02-17T02:36:51-08:00" ;
+    ns1:publisher :Untitled_Movie_Podcast ;
+    ns1:reviewBody "Feels like this would be better suited for an episode of TV than a 2.5 hour film." ;
+    ns1:reviewRating :Rating_Review_Eric_Marchen_2021-02-17T02:36:51-08:00 ;
+    ns1:url "https://untitledmoviepodcast.com/reviews/2020/12/27/wonder-woman-1984" .
+
+:Review_Ian_Simmons_2021-02-05T19:46:31-08:00 a ns1:Review ;
+    ns1:author :Ian_Simmons ;
+    ns1:dateCreated "2021-02-05T19:46:31-08:00" ;
+    ns1:publisher :Kicking_the_Seat ;
+    ns1:reviewBody "I'm not usually a fan of the \"multiple villain\" thing, but I thought it was handled pretty well here." ;
+    ns1:reviewRating :Rating_Review_Ian_Simmons_2021-02-05T19:46:31-08:00 ;
+    ns1:url "https://kickseat.com/podcast/ep623-when-you-wish-upon-a-sequel-wonder-woman-1984" .
+
+:Review_Jake_Wilson_2020-12-28T07:49:06-08:00 a ns1:Review ;
+    ns1:author :Jake_Wilson ;
+    ns1:dateCreated "2020-12-28T07:49:06-08:00" ;
+    ns1:publisher <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#The_Age_(Australia)> ;
+    ns1:reviewBody "Gadot as Wonder Woman -- or Diana Prince, as she's more commonly known -- may be the single best piece of casting in a superhero role since Christopher Reeve first donned the cape and spandex of the Man of Steel." ;
+    ns1:reviewRating :Rating_Review_Jake_Wilson_2020-12-28T07:49:06-08:00 ;
+    ns1:url "https://www.theage.com.au/culture/movies/wonder-woman-1984-gal-gadot-soars-in-a-plot-that-doesn-t-aim-high-20201216-p56o4z.html" .
+
+:Review_Jennifer_Ouellette_2021-02-11T02:38:41-08:00 a ns1:Review ;
+    ns1:author :Jennifer_Ouellette ;
+    ns1:dateCreated "2021-02-11T02:38:41-08:00" ;
+    ns1:publisher :Ars_Technica ;
+    ns1:reviewBody "While Wonder Woman 1984 still has a bit of the old magic, and its leads all turn in terrific performances, the film is hampered by a frequently nonsensical plot, extraneous showy action sequences, and it's way too heavy-handed with the moralizing." ;
+    ns1:reviewRating :Rating_Review_Jennifer_Ouellette_2021-02-11T02:38:41-08:00 ;
+    ns1:url "https://arstechnica.com/gaming/2020/12/wonder-woman-1984-is-fun-but-doesnt-quite-capture-magic-of-its-predecessor/" .
+
+:Review_John_McDonald_2021-01-31T18:14:33-08:00 a ns1:Review ;
+    ns1:author :John_McDonald ;
+    ns1:dateCreated "2021-01-31T18:14:33-08:00" ;
+    ns1:publisher :Australian_Financial_Review ;
+    ns1:reviewBody "One wonders how many more films will confirm the cast-iron law that every new Hollywood movie is really about Donald Trump?" ;
+    ns1:reviewRating :Rating_Review_John_McDonald_2021-01-31T18:14:33-08:00 ;
+    ns1:url "https://www.johnmcdonald.net.au/2021/wonder-woman-1984/" .
+
+:Review_Kevin_Carr_2021-04-03T14:11:59-07:00 a ns1:Review ;
+    ns1:author :Kevin_Carr ;
+    ns1:dateCreated "2021-04-03T14:11:59-07:00" ;
+    ns1:publisher :Fat_Guys_at_the_Movies ;
+    ns1:reviewBody "It's a fun movie, and it's got a lot of fun action in it. If you can get past the goofiness, it works." ;
+    ns1:reviewRating :Rating_Review_Kevin_Carr_2021-04-03T14:11:59-07:00 ;
+    ns1:url "http://www.fatguysatthemovies.com/episode-728-lizard-vs-ape/" .
+
+:Review_Mark_Jackson_2021-02-02T10:00:09-08:00 a ns1:Review ;
+    ns1:author :Mark_Jackson ;
+    ns1:dateCreated "2021-02-02T10:00:09-08:00" ;
+    ns1:publisher :Epoch_Times ;
+    ns1:reviewBody "\"Wonder Woman\" (2017) was one of the best superhero movies ever made. It was idealistic, classy, aesthetically pleasing, and romantic, and should've kicked off a fabulous franchise. Unfortunately the sequel is a major letdown." ;
+    ns1:reviewRating :Rating_Review_Mark_Jackson_2021-02-02T10:00:09-08:00 ;
+    ns1:url "https://www.theepochtimes.com/film-review-wonder-woman-1984-a-sequel-less-wonderful_3667828.html" .
+
+:Review_Mark_Meszoros_2021-02-13T23:57:56-08:00 a ns1:Review ;
+    ns1:author :Mark_Meszoros ;
+    ns1:dateCreated "2021-02-13T23:57:56-08:00" ;
+    ns1:publisher <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#The_News-Herald_(Willoughby,_OH)> ;
+    ns1:reviewBody "There are plenty of good times to be had as we pick back up with Gal Gadot's Wonder Woman/Diana Prince six-plus decades after the World War I-set first tale." ;
+    ns1:reviewRating :Rating_Review_Mark_Meszoros_2021-02-13T23:57:56-08:00 ;
+    ns1:url "https://www.news-herald.com/entertainment/movie-reviews/wonder-woman-1984-overdoes-it-but-what-made-first-movie-successful-alive-and-well-in/article_a0eed67e-453e-11eb-9aae-8774f60e37ce.html" .
+
+:Review_Matt_Neal_2021-01-31T17:01:54-08:00 a ns1:Review ;
+    ns1:author :Matt_Neal ;
+    ns1:dateCreated "2021-01-31T17:01:54-08:00" ;
+    ns1:publisher <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#ABC_Radio_(Australia)> ;
+    ns1:reviewBody " After such a stirring debut, it's pains me to say that Wonder Woman 1984 isn't that wonderful." ;
+    ns1:reviewRating :Rating_Review_Matt_Neal_2021-01-31T17:01:54-08:00 ;
+    ns1:url "https://movies8mylife.blogspot.com/2021/02/wonder-woman-1984.html" .
+
+:Review_Nina_Garin_2021-03-01T08:14:02-08:00 a ns1:Review ;
+    ns1:author :Nina_Garin ;
+    ns1:dateCreated "2021-03-01T08:14:02-08:00" ;
+    ns1:publisher :San_Diego_Union-Tribune ;
+    ns1:reviewBody "Gadot is so skilled at bringing vulnerability to her battles - whether it's a physical fight with Maxwell Lord or an internal struggle about giving up the one thing she's ever desired. She embodies a true superhero, one who is inclusive and noble. " ;
+    ns1:reviewRating :Rating_Review_Nina_Garin_2021-03-01T08:14:02-08:00 ;
+    ns1:url "https://www.sandiegouniontribune.com/entertainment/movies/story/2020-12-24/wonder-woman-1984" .
+
+:Review_Rafer_Guzman_2021-01-04T04:59:29-08:00 a ns1:Review ;
+    ns1:author :Rafer_Guzman ;
+    ns1:dateCreated "2021-01-04T04:59:29-08:00" ;
+    ns1:publisher :Newsday ;
+    ns1:reviewBody " A serviceable sequel, elevated by its radiant leading lady and an over-the-top villain." ;
+    ns1:reviewRating :Rating_Review_Rafer_Guzman_2021-01-04T04:59:29-08:00 ;
+    ns1:url "https://www.newsday.com/entertainment/movies/wonder-woman-1984-review-1.50099436" .
+
+:Review_Sarah_Ward_2021-02-21T08:36:54-08:00 a ns1:Review ;
+    ns1:author :Sarah_Ward ;
+    ns1:dateCreated "2021-02-21T08:36:54-08:00" ;
+    ns1:publisher :Concrete_Playground ;
+    ns1:reviewBody "Wonder Woman 1984 doesn't spin the most complicated story, but it's so repetitive and meandering across its 151-minute running time that it's needlessly bulky, muddled and weighed down." ;
+    ns1:reviewRating :Rating_Review_Sarah_Ward_2021-02-21T08:36:54-08:00 ;
+    ns1:url "https://concreteplayground.com/sydney/event/wonder-woman-1984" .
+
+:Review_Sheri_Flanders_2021-02-01T04:29:30-08:00 a ns1:Review ;
+    ns1:author :Sheri_Flanders ;
+    ns1:dateCreated "2021-02-01T04:29:30-08:00" ;
+    ns1:publisher :Chicago_Reader ;
+    ns1:reviewBody "Wonder Woman 1984 is a technicolor, lighthearted romp through the era of Jazzercise, big hair, and even bigger shoulder pads." ;
+    ns1:reviewRating :Rating_Review_Sheri_Flanders_2021-02-01T04:29:30-08:00 ;
+    ns1:url "https://www.chicagoreader.com/chicago/wonder-woman-1984/Film?oid=85354160" .
+
+:Review_Stephen_Romei_2020-12-29T12:09:48-08:00 a ns1:Review ;
+    ns1:author :Stephen_Romei ;
+    ns1:dateCreated "2020-12-29T12:09:48-08:00" ;
+    ns1:publisher :The_Australian ;
+    ns1:reviewBody "I assume there will be a sequel to this sequel. If so, no complaint from me, especially if Wiig and Pascal are in it. " ;
+    ns1:reviewRating :Rating_Review_Stephen_Romei_2020-12-29T12:09:48-08:00 ;
+    ns1:url "https://www.theaustralian.com.au/arts/review/wonder-woman-a-superhero-for-these-unpredictable-times/news-story/07c2cdcdf7699c36c2fa44d8e003acb8" .
+
+:Review_Tony_Medley_2021-02-22T06:02:11-08:00 a ns1:Review ;
+    ns1:author :Tony_Medley ;
+    ns1:dateCreated "2021-02-22T06:02:11-08:00" ;
+    ns1:publisher :The_Larchmont_Chronicle ;
+    ns1:reviewBody "It is even more absurd than the first one that grossly distorted history. Gal Gadot's delivery makes Tony Curtis', \"Yonda Lies Da Castle of My Fodda,\" seem Shakespearean." ;
+    ns1:reviewRating :Rating_Review_Tony_Medley_2021-02-22T06:02:11-08:00 ;
+    ns1:url "http://www.tonymedley.com/2020/Wonder_Woman_1984.htm" .
+
+:Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00 a ns1:Review ;
+    ns1:author :Valerie_Kalfrin ;
+    ns1:dateCreated "2021-03-20T08:54:50-07:00" ;
+    ns1:publisher :Their_Own_League ;
+    ns1:reviewBody "With its message of kindness and empathy, \"Wonder Woman 1984\" offers a soothing balm in a pandemic-weary year, even if getting there is a muddled journey." ;
+    ns1:reviewRating :Rating_Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00 ;
+    ns1:url "https://intheirownleague.com/2020/12/29/review-wonder-woman-1984/" .
+
+:Review_leila-horo_2021-02-28 a ns1:Review ;
+    ns1:author :leila-horo ;
+    ns1:dateCreated "2021-02-28" ;
+    ns1:inLanguage "English" ;
+    ns1:itemReviewed :CreativeWork_0 ;
+    ns1:name "Boring" ;
+    ns1:reviewBody "So long and because it is not interesting I was sleeping. Bad acting with no character like why is she doing this stuff, always like she is interesting but she is not cool. A real waste of time!" ;
+    ns1:reviewRating :Rating_Review_leila-horo_2021-02-28 .
+
+:Rick_Kelvin_Branch a ns1:Person ;
+    ns1:name "Rick Kelvin Branch" ;
+    ns1:url "https://www.metacritic.com/person/rick-kelvin-branch" .
+
+:Robin_Wright a ns1:Person ;
+    ns1:image "https://resizing.flixster.com/s5rTePWBzCqGE8uYUIYqS52D6JU=/1000x1500/v1.bjs3NDQ4MjY7ajsxODgxODsxMjAwOzEwMDA7MTUwMA" ;
+    ns1:mainEntityOfPage "https://www.ecartelera.com/personas/robin-wright/" ;
+    ns1:name "Robin Wright" ;
+    ns1:sameAs "https://www.rottentomatoes.com/celebrity/robin_wright" ;
+    ns1:url "https://www.metacritic.com/person/robin-wright" .
+
+:San_Diego_Union-Tribune a ns1:Organization ;
+    ns1:name "San Diego Union-Tribune" ;
+    ns1:url "https://www.rottentomatoes.com/source-503" .
+
+:Sarah_Ward a ns1:Person ;
+    ns1:name "Sarah Ward" ;
+    ns1:url "https://www.rottentomatoes.com/critic/sarah-ward" .
+
+:Sheri_Flanders a ns1:Person ;
+    ns1:name "Sheri Flanders" ;
+    ns1:url "https://www.rottentomatoes.com/critic/sheri-flanders" .
+
+:Sia_Alipour a ns1:Person ;
+    ns1:name "Sia Alipour" ;
+    ns1:url "https://www.metacritic.com/person/sia-alipour" .
+
+:Sonia_Goswami a ns1:Person ;
+    ns1:name "Sonia Goswami" ;
+    ns1:url "https://www.metacritic.com/person/sonia-goswami" .
+
+:Spencer_Trinwith a ns1:Person ;
+    ns1:name "Spencer Trinwith" ;
+    ns1:url "https://www.metacritic.com/person/spencer-trinwith" .
+
+:Stephen_Romei a ns1:Person ;
+    ns1:name "Stephen Romei" ;
+    ns1:url "https://www.rottentomatoes.com/critic/stephen-romei" .
+
+:Stream_on_HBO_Max_for_a_Limited_Time a ns1:VideoObject ;
+    ns1:description "Fast forward to the 1980s as Wonder Woman’s next big screen adventure finds her facing two all-new foes: Max Lord and The Cheetah." ;
+    ns1:embedUrl "/video/imdb/vi3240214809" ;
+    ns1:name "Stream on HBO Max for a Limited Time" ;
+    ns1:thumbnail <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#ImageObject_https://m.media-amazon.com/images/M/MV5BZjQ0NGM2NGMtMDE1Yi00YzQyLWI1ZWYtMmQ2OWEzZTA5YjEyXkEyXkFqcGdeQWRvb2xpbmhk._V1_.jpg> ;
+    ns1:thumbnailUrl "https://m.media-amazon.com/images/M/MV5BZjQ0NGM2NGMtMDE1Yi00YzQyLWI1ZWYtMmQ2OWEzZTA5YjEyXkEyXkFqcGdeQWRvb2xpbmhk._V1_.jpg" ;
+    ns1:uploadDate "2020-12-07T01:51:07Z" .
+
+:Tessa_Bonham_Jones a ns1:Person ;
+    ns1:name "Tessa Bonham Jones" ;
+    ns1:url "https://www.metacritic.com/person/tessa-bonham-jones" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#The_Age_(Australia)> a ns1:Organization ;
+    ns1:name "The Age (Australia)" ;
+    ns1:url "https://www.rottentomatoes.com/source-2041" .
+
+:The_Atlantic a ns1:Organization ;
+    ns1:name "The Atlantic" ;
+    ns1:url "https://www.rottentomatoes.com/source-24" .
+
+:The_Australian a ns1:Organization ;
+    ns1:name "The Australian" ;
+    ns1:url "https://www.rottentomatoes.com/source-1964" .
+
+:The_Larchmont_Chronicle a ns1:Organization ;
+    ns1:name "The Larchmont Chronicle" ;
+    ns1:url "https://www.rottentomatoes.com/source-2992" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#The_News-Herald_(Willoughby,_OH)> a ns1:Organization ;
+    ns1:name "The News-Herald (Willoughby, OH)" ;
+    ns1:url "https://www.rottentomatoes.com/source-3916" .
+
+:Their_Own_League a ns1:Organization ;
+    ns1:name "Their Own League" ;
+    ns1:url "https://www.rottentomatoes.com/source-3607" .
+
+:Thomas_Clay_Strickland a ns1:Person ;
+    ns1:name "Thomas Clay Strickland" ;
+    ns1:url "https://www.metacritic.com/person/thomas-clay-strickland" .
+
+:Tomatometer a ns1:AggregateRating ;
+    ns1:bestRating "100" ;
+    ns1:description "The Tomatometer rating – based on the published opinions of hundreds of film and television critics – is a trusted measurement of movie and TV programming quality for millions of moviegoers. It represents the percentage of professional critic reviews that are positive for a given film or television show." ;
+    ns1:name "Tomatometer" ;
+    ns1:ratingCount "426" ;
+    ns1:ratingValue "59" ;
+    ns1:reviewCount "426" ;
+    ns1:worstRating "0" .
+
+:Tony_Medley a ns1:Person ;
+    ns1:name "Tony Medley" ;
+    ns1:url "https://www.rottentomatoes.com/critic/tony-medley" .
+
+:Untitled_Movie_Podcast a ns1:Organization ;
+    ns1:name "Untitled Movie Podcast" ;
+    ns1:url "https://www.rottentomatoes.com/source-3831" .
+
+:Valerie_Kalfrin a ns1:Person ;
+    ns1:name "Valerie Kalfrin" ;
+    ns1:url "https://www.rottentomatoes.com/critic/valerie-kalfrin" .
+
+:William_Moulton_Marston a ns1:Person ;
+    ns1:name "William Moulton Marston" ;
+    ns1:url "https://www.imdb.com/name/nm0551376/" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Wonder_Woman_1984_(Trailer_2)> a ns1:VideoObject ;
+    ns1:description "Video Clip of Wonder Woman 1984" ;
+    ns1:name "Wonder Woman 1984 (Trailer 2)" ;
+    ns1:thumbnailUrl "https://content.internetvideoarchive.com/content/hdphotos/13126/013126/013126_820x461_637413475681110755.jpg" ;
+    ns1:uploadDate "2020-11-21 17:41:36" .
+
+:film-authority.com a ns1:Organization ;
+    ns1:name "film-authority.com" ;
+    ns1:url "https://www.rottentomatoes.com/source-3904" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0002663/> a ns1:Organization ;
+    ns1:url "https://www.imdb.com/company/co0002663/" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0028338/> a ns1:Organization ;
+    ns1:url "https://www.imdb.com/company/co0028338/" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0038332/> a ns1:Organization ;
+    ns1:url "https://www.imdb.com/company/co0038332/" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0283444/> a ns1:Organization ;
+    ns1:url "https://www.imdb.com/company/co0283444/" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0728674/> a ns1:Organization ;
+    ns1:url "https://www.imdb.com/company/co0728674/" .
+
+:leila-horo a ns1:Person ;
+    ns1:name "leila-horo" .
+
+:Movie_Bitches a ns1:Organization ;
+    ns1:name "Movie Bitches" ;
+    ns1:url "https://www.rottentomatoes.com/source-3639" .
+
+:Warner_Bros._Pictures a ns1:Organization ;
+    ns1:mainEntityOfPage "https://www.ecartelera.com/empresas/warner-bros/" ;
+    ns1:name "Warner Bros. Pictures" ;
+    ns1:url "https://www.metacritic.com/company/warner-bros-pictures" .
+
+:Patty_Jenkins a ns1:Person ;
+    ns1:mainEntityOfPage "https://www.ecartelera.com/personas/patty-jenkins/" ;
+    ns1:name "Patty Jenkins" ;
+    ns1:sameAs "https://www.rottentomatoes.com/celebrity/patty_jenkins" ;
+    ns1:url "https://www.imdb.com/name/nm0420941/",
+        "https://www.metacritic.com/person/patty-jenkins" .
+

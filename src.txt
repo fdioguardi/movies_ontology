@@ -1,0 +1,13 @@
+En el archivo `requirements.txt` están todas las dependencias del programa. Se pueden instalar con `pip install -r requirements.txt`.
+
+En el archivo hay una lista de listas guardada en la variable URLS. Cada lista dentro de URLS representa los diferentes links para una misma película.
+
+Se puede dejar que URLS sea simplemente una lista de urls, si se quiere obtener información de una sola película; o agregar tantas listas de links como se quiera a URLS.
+
+Cada lista dentro de URLS debería representar links para una película distinta, es decir, si se cargasen en esta variable 2 listas con links distintos, todos para la misma película, el script no funcionaría correctamente (pisaría la información de una de las listas con los datos de la otra).
+
+
+En el archivo `main.py` se encuentra el código que inicia el script. Correr con `python main` desde la carpeta del proyecto (donde se encuentra el main.py).
+
+En el directorio `data/` se encuentra el archivo `movie.owl` que contiene la plantilla para nuestra ontología (sin los individuals) y nuestro código genera un archivo en `data/output.owl` donde se carga la misma ontología con los individuals.
+También existe el archivo `data/tp1.json`, con los datos extraídos del primer TP.

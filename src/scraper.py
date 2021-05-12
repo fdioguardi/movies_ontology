@@ -1,4 +1,5 @@
 from src.movie import Movie
+from src.birdify import graph_from_tp1
 from src.metadata import Metadata
 from functools import reduce
 from shutil import copy
@@ -30,10 +31,18 @@ class Scraper(object):
         else:
             movie_graph = Movie(Metadata(urls).get_json_dl()).to_graph()
 
-        self.save_movie(movie_graph)
-        return movie_graph
+        with open(
+            join(getcwd(), "data", "tp1.json"),
+            "r",
+            encoding="utf8",
+        ) as file:
+            movie = movie_graph + graph_from_tp1(file)
+            file.close()
 
-    def save_movie(self, movie_graph):
+        self.save_movie(movie)
+        return movie
+
+    def save_movie(self, movie):
         copy(
             join(getcwd(), "data", "movie.owl"),
             join(getcwd(), "data", "output.owl"),
@@ -43,5 +52,5 @@ class Scraper(object):
             "a",
             encoding="utf8",
         ) as file:
-            file.write(movie_graph.serialize(format="turtle").decode("utf-8"))
+            file.write(movie.serialize(format="turtle").decode("utf-8"))
             file.close()

@@ -483,7 +483,7 @@ La trama de esta película es una gran misterio. El guión está basado en una h
         :Review_Stephen_Romei_2020-12-29T12:09:48-08:00,
         :Review_Tony_Medley_2021-02-22T06:02:11-08:00,
         :Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00,
-        :Review_leila-horo_2021-02-28 ;
+        :Review_zeki-4_2021-01-02 ;
     ns1:trailer :Stream_on_HBO_Max_for_a_Limited_Time,
         <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Wonder_Woman_1984_(Trailer_2)> .
 
@@ -936,9 +936,9 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:ratingValue 1 ;
     ns1:worstRating "-1" .
 
-:Rating_Review_leila-horo_2021-02-28 a ns1:Rating ;
+:Rating_Review_zeki-4_2021-01-02 a ns1:Rating ;
     ns1:bestRating "10" ;
-    ns1:ratingValue "3" ;
+    ns1:ratingValue "4" ;
     ns1:worstRating "1" .
 
 :Ravi_Patel a ns1:Person ;
@@ -1137,14 +1137,14 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:reviewRating :Rating_Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00 ;
     ns1:url "https://intheirownleague.com/2020/12/29/review-wonder-woman-1984/" .
 
-:Review_leila-horo_2021-02-28 a ns1:Review ;
-    ns1:author :leila-horo ;
-    ns1:dateCreated "2021-02-28" ;
+:Review_zeki-4_2021-01-02 a ns1:Review ;
+    ns1:author :zeki-4 ;
+    ns1:dateCreated "2021-01-02" ;
     ns1:inLanguage "English" ;
     ns1:itemReviewed :CreativeWork_0 ;
-    ns1:name "Boring" ;
-    ns1:reviewBody "So long and because it is not interesting I was sleeping. Bad acting with no character like why is she doing this stuff, always like she is interesting but she is not cool. A real waste of time!" ;
-    ns1:reviewRating :Rating_Review_leila-horo_2021-02-28 .
+    ns1:name "So bad that I almost walked out of my own house!" ;
+    ns1:reviewBody "The first one was fun and well played out. This sequel is a total misfire. Not because it follows the trend of having women being the alpha characters and portraying men as either weak or stupid, but simply because it's a lazy effort. Except a couple of scenes, and hilarious over-the-top acting by Pedro Pascal, I found nothing here. It has \"straight-to-DVD\" written all over it." ;
+    ns1:reviewRating :Rating_Review_zeki-4_2021-01-02 .
 
 :Rick_Kelvin_Branch a ns1:Person ;
     ns1:name "Rick Kelvin Branch" ;
@@ -1275,8 +1275,8 @@ La trama de esta película es una gran misterio. El guión está basado en una h
 <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0728674/> a ns1:Organization ;
     ns1:url "https://www.imdb.com/company/co0728674/" .
 
-:leila-horo a ns1:Person ;
-    ns1:name "leila-horo" .
+:zeki-4 a ns1:Person ;
+    ns1:name "zeki-4" .
 
 :Movie_Bitches a ns1:Organization ;
     ns1:name "Movie Bitches" ;

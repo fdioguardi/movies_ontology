@@ -2,3 +2,4 @@
 venv/
 .vscode/
 individuals.txt
+__pycache__/

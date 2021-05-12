@@ -19,13 +19,6 @@
                                                                                                   rdfs:range <https://schema.org/MovieTheater> .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/workPresented
-<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/workPresented> rdf:type owl:ObjectProperty ;
-                                                                                                       rdfs:subPropertyOf owl:topObjectProperty ;
-                                                                                                       rdfs:domain <https://schema.org/ScreeningEvent> ;
-                                                                                                       rdfs:range <https://schema.org/Movie> .
-
-
 ###  https://schema.org/actor
 <https://schema.org/actor> rdf:type owl:ObjectProperty ;
                            rdfs:domain <https://schema.org/Movie> ;
@@ -206,6 +199,12 @@
 <https://schema.org/keywords> rdf:type owl:DatatypeProperty ;
                               rdfs:domain <https://schema.org/Movie> ;
                               rdfs:range xsd:string .
+
+
+###  https://schema.org/language
+<https://schema.org/language> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <https://schema.org/Movie> ;
+                              rdfs:range xsd:language .
 
 
 ###  https://schema.org/mainEntityOfPage

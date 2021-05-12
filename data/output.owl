@@ -12,20 +12,6 @@
 #    Object Properties
 #################################################################
 
-###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/location
-<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/location> rdf:type owl:ObjectProperty ;
-                                                                                                  rdfs:subPropertyOf owl:topObjectProperty ;
-                                                                                                  rdfs:domain <https://schema.org/ScreeningEvent> ;
-                                                                                                  rdfs:range <https://schema.org/MovieTheater> .
-
-
-###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/workPresented
-<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/https://schema.org/workPresented> rdf:type owl:ObjectProperty ;
-                                                                                                       rdfs:subPropertyOf owl:topObjectProperty ;
-                                                                                                       rdfs:domain <https://schema.org/ScreeningEvent> ;
-                                                                                                       rdfs:range <https://schema.org/Movie> .
-
-
 ###  https://schema.org/actor
 <https://schema.org/actor> rdf:type owl:ObjectProperty ;
                            rdfs:domain <https://schema.org/Movie> ;
@@ -70,8 +56,10 @@
 
 ###  https://schema.org/location
 <https://schema.org/location> rdf:type owl:ObjectProperty ;
-                              rdfs:domain <https://schema.org/PublicationEvent> ;
-                              rdfs:range <https://schema.org/Country> .
+                              rdfs:domain <https://schema.org/PublicationEvent> ,
+                                          <https://schema.org/ScreeningEvent> ;
+                              rdfs:range <https://schema.org/Country> ,
+                                         <https://schema.org/MovieTheater> .
 
 
 ###  https://schema.org/productionCompany
@@ -200,6 +188,13 @@
 <https://schema.org/image> rdf:type owl:DatatypeProperty ;
                            rdfs:domain <https://schema.org/Movie> ;
                            rdfs:range xsd:string .
+
+
+###  https://schema.org/inLanguage
+<https://schema.org/inLanguage> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <https://schema.org/Movie> ,
+                                            <https://schema.org/ScreeningEvent> ;
+                                rdfs:range xsd:language .
 
 
 ###  https://schema.org/keywords
@@ -369,131 +364,309 @@
 @prefix ns1: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:Wonder_Woman_1984 a ns1:Movie ;
-    ns1:actor :Alex_Delescu,
-        :Amr_Waked,
-        :Amreen_N._Yaqoob,
-        :Bern_Collaco,
-        :Brittney_Aleah,
-        :Chris_Pine,
-        :Chris_Silcox,
-        :Connie_Nielsen,
-        :Ella_Walker,
-        :Gabriella_Wilde,
-        :Gal_Gadot,
-        :Jamaal_Burcher,
-        :Jamal_Alkhaldi,
-        :Jeff_Moore,
-        :Joel_Morris,
-        :John_Gettier,
-        :Jonathan_Ajayi,
-        :Julian_Ferro,
-        :Justin_Sisk,
-        :Kaila_Ingram,
-        :Kristen_Wiig,
-        :Kristoffer_Polaha,
-        :Lilly_Aspell,
-        :Lolita_Marie,
-        :Lynda_Carter,
-        :Lyon_Beckwith,
-        :Manoj_Anand,
-        :Marisol_Correa,
-        :Marla_Aaron_Wapner,
-        :Monica_Haynes,
-        :Natasha_Rothwell,
-        :Oakley_Bull,
-        :Paul_Ron_Cruz,
-        :Pedro_Pascal,
-        :Penelope_Kapudija,
-        :Ravi_Patel,
-        :Rick_Kelvin_Branch,
-        :Robin_Wright,
-        :Sia_Alipour,
-        :Sonia_Goswami,
-        :Spencer_Trinwith,
-        :Tessa_Bonham_Jones,
-        :Thomas_Clay_Strickland ;
-    ns1:aggregateRating :AggregateRating_0,
-        :AggregateRating_1,
-        :AggregateRating_2,
-        :Tomatometer ;
-    ns1:author :Patty_Jenkins ;
-    ns1:character "Antiope",
-        "Barbara Minerva / Cheetah",
-        "Diana Prince / Wonder Woman",
-        "Hippolyta",
-        "Steve Trevor" ;
-    ns1:contentRating "PG-13" ;
-    ns1:countryOfOrigin "EE.UU." ;
-    ns1:creator :Dave_Callaham,
-        :Geoff_Johns,
-        :Patty_Jenkins,
-        :William_Moulton_Marston,
-        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0002663/>,
-        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0028338/>,
-        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0038332/>,
-        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0283444/>,
-        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0728674/> ;
-    ns1:description """&#39;Wonder Woman 1984&#39; llegará a la pantalla grande el próximo 5 de junio de 2020, de nuevo con la actriz israelí Gal Gadot en el papel de la Mujer Maravilla y Patty Jenkins detrás de las cámaras. La secuela de &#39;Wonder Woman&#39; contará además con el regreso de Chris Pine (&#39;Star Trek. Más allá&#39;) como Steve Trevor. La película sigue a Diana en su vida durante los años 80 en Estados Unidos. En esta ocasión, Diana se enfrentará a nuevos enemigos. Su principal antagonista es la arqueóloga británica Barbara Minerva, que será interpretada por Kristen Wigg (&#39;Cazafantasmas&#39;). La científica tiene un alter ego, la villana Cheetah que tiene una fuerza y agilidad sobrehumanas. Otro enemigo a tener en cuenta será el empresario Maxwel Lord, interpretado por Pedro Pascal (&#39;The Mandalorian&#39;). Este personaje es un arrogante con la habilidad de manipular a otros a su antojo. En los cómics, Max Lord tiene poderes mentales. También aparecen en esta cinta las guerreras amazonas Antiope (Robin Wright) y la Reina Hippolyta (Connie Nielsen).\r
-\r
-La trama de esta película es una gran misterio. El guión está basado en una historia escrita por Patty Jenkins, Geoff Johns (&#39;The Flash&#39;, &#39;Aquaman&#39;) y Dave Callaham (&#39;Zombieland: Mata y remata&#39;). Se espera que tenga protagonismo la tecnología y la vigilancia, teniendo en cuenta el título que hace referencia a la distopía de &#39;1984&#39; de George Orwell.""",
-        "Fast forward to the 1980s as Wonder Woman’s next big screen adventure finds her facing two all-new foes: Max Lord and The Cheetah.",
-        "Wonder Woman 1984 is a movie starring Gal Gadot, Chris Pine, and Kristen Wiig. Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient..." ;
-    ns1:director :Patty_Jenkins ;
-    ns1:duration "PT151M",
-        "PT2H31M" ;
+:CINEMA_CITY a ns1:MovieTheater ;
+    ns1:event :CINEMA_CITY_-_SALA_4D_13:00,
+        :CINEMA_CITY_-_SALA_4D_15:30,
+        :CINEMA_CITY_-_SALA_4D_18:05,
+        :CINEMA_CITY_-_SALA_4D_20:40,
+        :CINEMA_CITY_-_SALA_4D_23:10,
+        :CINEMA_CITY_-_SALA_HD_13:10,
+        :CINEMA_CITY_-_SALA_HD_13:15,
+        :CINEMA_CITY_-_SALA_HD_15:25,
+        :CINEMA_CITY_-_SALA_HD_15:40,
+        :CINEMA_CITY_-_SALA_HD_17:45,
+        :CINEMA_CITY_-_SALA_HD_18:10,
+        :CINEMA_CITY_-_SALA_HD_20:00,
+        :CINEMA_CITY_-_SALA_HD_20:30,
+        :CINEMA_CITY_-_SALA_HD_22:15,
+        :CINEMA_CITY_-_SALA_HD_23:00 ;
+    ns1:name "CINEMA CITY" .
+
+:CINEMA_OCHO a ns1:MovieTheater ;
+    ns1:event :CINEMA_OCHO_-_SALA_HD_13:00,
+        :CINEMA_OCHO_-_SALA_HD_13:15,
+        :CINEMA_OCHO_-_SALA_HD_13:45,
+        :CINEMA_OCHO_-_SALA_HD_15:20,
+        :CINEMA_OCHO_-_SALA_HD_15:40,
+        :CINEMA_OCHO_-_SALA_HD_16:45,
+        :CINEMA_OCHO_-_SALA_HD_17:50,
+        :CINEMA_OCHO_-_SALA_HD_18:05,
+        :CINEMA_OCHO_-_SALA_HD_19:45,
+        :CINEMA_OCHO_-_SALA_HD_20:15,
+        :CINEMA_OCHO_-_SALA_HD_20:20,
+        :CINEMA_OCHO_-_SALA_HD_22:30,
+        :CINEMA_OCHO_-_SALA_HD_22:45,
+        :CINEMA_OCHO_-_SALA_HD_22:50 ;
+    ns1:name "CINEMA OCHO" .
+
+:CINEMA_PARADISO a ns1:MovieTheater ;
+    ns1:event :CINEMA_PARADISO_-_SALA_HD_13:00,
+        :CINEMA_PARADISO_-_SALA_HD_13:20,
+        :CINEMA_PARADISO_-_SALA_HD_14:00,
+        :CINEMA_PARADISO_-_SALA_HD_15:15,
+        :CINEMA_PARADISO_-_SALA_HD_15:30,
+        :CINEMA_PARADISO_-_SALA_HD_15:40,
+        :CINEMA_PARADISO_-_SALA_HD_16:00,
+        :CINEMA_PARADISO_-_SALA_HD_17:30,
+        :CINEMA_PARADISO_-_SALA_HD_18:00,
+        :CINEMA_PARADISO_-_SALA_HD_19:45,
+        :CINEMA_PARADISO_-_SALA_HD_20:00,
+        :CINEMA_PARADISO_-_SALA_HD_20:30,
+        :CINEMA_PARADISO_-_SALA_HD_20:45,
+        :CINEMA_PARADISO_-_SALA_HD_22:00,
+        :CINEMA_PARADISO_-_SALA_HD_22:45,
+        :CINEMA_PARADISO_-_SALA_HD_23:00,
+        :CINEMA_PARADISO_-_SALA_HD_23:10 ;
+    ns1:name "CINEMA PARADISO" .
+
+:CINEMA_ROCHA a ns1:MovieTheater ;
+    ns1:event :CINEMA_ROCHA_-_SALA_HD_13:45,
+        :CINEMA_ROCHA_-_SALA_HD_14:00,
+        :CINEMA_ROCHA_-_SALA_HD_15:00,
+        :CINEMA_ROCHA_-_SALA_HD_16:15,
+        :CINEMA_ROCHA_-_SALA_HD_16:45,
+        :CINEMA_ROCHA_-_SALA_HD_17:40,
+        :CINEMA_ROCHA_-_SALA_HD_18:30,
+        :CINEMA_ROCHA_-_SALA_HD_19:45,
+        :CINEMA_ROCHA_-_SALA_HD_20:20,
+        :CINEMA_ROCHA_-_SALA_HD_20:45,
+        :CINEMA_ROCHA_-_SALA_HD_22:10,
+        :CINEMA_ROCHA_-_SALA_HD_23:00,
+        :CINEMA_ROCHA_-_SALA_HD_23:10 ;
+    ns1:name "CINEMA ROCHA" .
+
+:CINEMA_SAN_MARTIN a ns1:MovieTheater ;
+    ns1:event :CINEMA_SAN_MARTIN_-_SALA_HD_13:00,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_13:45,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_14:00,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_15:30,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_16:00,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_16:10,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_17:00,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_18:00,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_18:15,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_18:25,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_19:50,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_20:30,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_20:45,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_22:40,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_22:45,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_23:00,
+        :CINEMA_SAN_MARTIN_-_SALA_HD_23:10 ;
+    ns1:name "CINEMA SAN MARTIN" .
+
+:Cinépolis_Avellaneda a ns1:MovieTheater ;
+    ns1:event :CLASSIC_2D_ESPAÑOL_15:45,
+        :CLASSIC_2D_ESPAÑOL_16:30,
+        :CLASSIC_2D_ESPAÑOL_16:45,
+        :CLASSIC_2D_ESPAÑOL_17:45,
+        :CLASSIC_2D_ESPAÑOL_22:45,
+        :CLASSIC_2D_ESPAÑOL_23:00,
+        :CLASSIC_2D_SUBTITULADO_20:00 ;
+    ns1:name "Cinépolis Avellaneda" .
+
+:Cinépolis_Luján a ns1:MovieTheater ;
+    ns1:event :CLASSIC_2D_ESPAÑOL_16:10,
+        :CLASSIC_2D_ESPAÑOL_16:20,
+        :CLASSIC_2D_ESPAÑOL_23:00,
+        :CLASSIC_2D_SUBTITULADO_20:00 ;
+    ns1:name "Cinépolis Luján" .
+
+:Cinépolis_Maipú a ns1:MovieTheater ;
+    ns1:event :CLASSIC_2D_ESPAÑOL_17:45,
+        :CLASSIC_2D_ESPAÑOL_23:00,
+        :CLASSIC_2D_SUBTITULADO_22:45,
+        :GC_2D_ESPAÑOL_18:10,
+        :GC_2D_ESPAÑOL_20:20 ;
+    ns1:name "Cinépolis Maipú" .
+
+:Cinépolis_Mendoza a ns1:MovieTheater ;
+    ns1:event :CLASSIC_2D_ESPAÑOL_16:40,
+        :CLASSIC_2D_ESPAÑOL_17:00,
+        :CLASSIC_2D_ESPAÑOL_17:20,
+        :CLASSIC_2D_ESPAÑOL_17:25,
+        :CLASSIC_2D_ESPAÑOL_19:00,
+        :CLASSIC_2D_ESPAÑOL_19:50,
+        :CLASSIC_2D_ESPAÑOL_22:45,
+        :CLASSIC_2D_ESPAÑOL_23:00,
+        :CLASSIC_2D_SUBTITULADO_20:00,
+        :CLASSIC_2D_SUBTITULADO_22:40 ;
+    ns1:name "Cinépolis Mendoza" .
+
+:Cinépolis_Merlo a ns1:MovieTheater ;
+    ns1:event :CLASSIC_2D_ESPAÑOL_16:40,
+        :CLASSIC_2D_ESPAÑOL_17:10,
+        :CLASSIC_2D_ESPAÑOL_22:40,
+        :CLASSIC_2D_ESPAÑOL_23:00,
+        :CLASSIC_2D_SUBTITULADO_20:00 ;
+    ns1:name "Cinépolis Merlo" .
+
+:Cinépolis_Neuquén a ns1:MovieTheater ;
+    ns1:event :CLASSIC_2D_ESPAÑOL_15:00,
+        :CLASSIC_2D_ESPAÑOL_15:45,
+        :CLASSIC_2D_ESPAÑOL_17:30,
+        :CLASSIC_2D_ESPAÑOL_17:40,
+        :CLASSIC_2D_SUBTITULADO_20:00,
+        :CLASSIC_2D_SUBTITULADO_23:00,
+        :MS_2D_ESPAÑOL_22:45 ;
+    ns1:name "Cinépolis Neuquén" .
+
+:Cinépolis_Pilar a ns1:MovieTheater ;
+    ns1:event :CLASSIC_2D_ESPAÑOL_16:00,
+        :CLASSIC_2D_ESPAÑOL_16:10,
+        :CLASSIC_2D_ESPAÑOL_17:10,
+        :CLASSIC_2D_ESPAÑOL_17:20,
+        :CLASSIC_2D_ESPAÑOL_19:40,
+        :CLASSIC_2D_SUBTITULADO_20:00 ;
+    ns1:name "Cinépolis Pilar" .
+
+:Cinépolis_Recoleta a ns1:MovieTheater ;
+    ns1:event :CLASSIC_2D_ESPAÑOL_16:10,
+        :CLASSIC_2D_ESPAÑOL_17:15,
+        :CLASSIC_2D_ESPAÑOL_17:40,
+        :CLASSIC_2D_ESPAÑOL_18:50,
+        :CLASSIC_2D_ESPAÑOL_22:20,
+        :CLASSIC_2D_SUBTITULADO_19:50,
+        :CLASSIC_2D_SUBTITULADO_20:00,
+        :CLASSIC_2D_SUBTITULADO_22:40,
+        :CLASSIC_2D_SUBTITULADO_22:50 ;
+    ns1:name "Cinépolis Recoleta" .
+
+:Cinépolis_Rosario a ns1:MovieTheater ;
+    ns1:event :CLASSIC_2D_ESPAÑOL_17:00,
+        :CLASSIC_2D_ESPAÑOL_17:10,
+        :CLASSIC_2D_ESPAÑOL_22:40,
+        :CLASSIC_2D_ESPAÑOL_23:15,
+        :CLASSIC_2D_SUBTITULADO_20:00,
+        :CLASSIC_2D_SUBTITULADO_22:45,
+        :CLASSIC_2D_SUBTITULADO_23:00 ;
+    ns1:name "Cinépolis Rosario" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Gekijouban_Fate/Stay_Night:_Heaven's_Feel_-_III._Spring_Song> a ns1:Movie ;
+    ns1:actor :Ayako_Kawasumi,
+        :Jouji_Nakata,
+        :Kana_Ueda,
+        :Mai_Kadowaki,
+        :Masane_Tsukayama,
+        :Miki_Itō,
+        :Noriaki_Sugiyama,
+        :Noriko_Shitaya,
+        :Tetsu_Inada,
+        :Yū_Asakawa ;
+    ns1:contentRating "ATP" ;
+    ns1:countryOfOrigin "Japón" ;
+    ns1:description "¡La historia de Fate Stay Night Heaven’s Feel llega a su fin!El capítulo final de la trilogía más ambiciosa y oscura de esta franquicia está aquí. Sakura Matou con los pecados que ha cometido se hunde en la oscuridad, Shirou Emiya ha jurado protegerla y detener la Guerra por el Santo Grial, una guerra dónde poderosos Magos y Espíritus Heroicos trabajan juntos para derrotar a los demás, el vencedor obtendrá el Santo Grial, un contenedor que puede hacer realidad cualquier deseo… Pero esta guerra ha corrompido al Grial. ¿Podrá Shirou salvar a Sakura? ¿Cuál será el precio de esto?" ;
+    ns1:director "Tomonori Sudô" ;
+    ns1:duration "123 minutos" ;
     ns1:genre "Acción",
-        "Action",
-        "Action & Adventure",
-        "Adventure",
-        "Aventura",
-        "Fantasy",
+        "Animación",
+        "Drama",
         "Fantasía",
-        "Science Fiction & Fantasy" ;
-    ns1:image :ImageObject_0,
-        "https://m.media-amazon.com/images/M/MV5BYTlhNzJjYzYtNGU3My00ZDI5LTgzZDUtYzllYjU1ZmU0YTgwXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_.jpg",
-        "https://resizing.flixster.com/m8G6eIbecl1KNYf1yd2lt2F5yX8=/740x380/v1.bjsyNTUxODM4O2o7MTg4Mzk7MTIwMDs0MTIyOzIzMTI",
-        "https://static.metacritic.com/images/products/movies/4/9d1a4650bb42f43a0a781bfa70a7772d.jpg" ;
-    ns1:keywords "sequel,superhero,dc extended universe,dc comics,one woman army" ;
-    ns1:name "Wonder Woman 1984" ;
-    ns1:productionCompany :Warner_Bros._Pictures ;
-    ns1:publisher :Warner_Bros._Pictures ;
-    ns1:releasedEvent :PublicationEvent_2020-12-18 ;
-    ns1:review :Review_Amy_Nicholson_2021-01-04T03:37:14-08:00,
-        :Review_Andrew_Galdi_2021-03-11T06:02:25-08:00,
-        :Review_Avaryl_Halley_2021-03-11T05:51:39-08:00,
-        :Review_Brian_Gill_2021-02-10T06:48:34-08:00,
-        :Review_Dan_Tabor_2021-02-05T01:55:00-08:00,
-        :Review_David_Bax_2021-03-23T10:02:10-07:00,
-        :Review_David_Sims_2020-12-28T07:45:33-08:00,
-        :Review_Eddie_Harrison_2021-02-07T19:57:42-08:00,
-        :Review_Eric_Marchen_2021-02-17T02:36:51-08:00,
-        :Review_Ian_Simmons_2021-02-05T19:46:31-08:00,
-        :Review_Jake_Wilson_2020-12-28T07:49:06-08:00,
-        :Review_Jennifer_Ouellette_2021-02-11T02:38:41-08:00,
-        :Review_John_McDonald_2021-01-31T18:14:33-08:00,
-        :Review_Kevin_Carr_2021-04-03T14:11:59-07:00,
-        :Review_Mark_Jackson_2021-02-02T10:00:09-08:00,
-        :Review_Mark_Meszoros_2021-02-13T23:57:56-08:00,
-        :Review_Matt_Neal_2021-01-31T17:01:54-08:00,
-        :Review_Nina_Garin_2021-03-01T08:14:02-08:00,
-        :Review_Rafer_Guzman_2021-01-04T04:59:29-08:00,
-        :Review_Sarah_Ward_2021-02-21T08:36:54-08:00,
-        :Review_Sheri_Flanders_2021-02-01T04:29:30-08:00,
-        :Review_Stephen_Romei_2020-12-29T12:09:48-08:00,
-        :Review_Tony_Medley_2021-02-22T06:02:11-08:00,
-        :Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00,
-        :Review_zeki-4_2021-01-02 ;
-    ns1:trailer :Stream_on_HBO_Max_for_a_Limited_Time,
-        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Wonder_Woman_1984_(Trailer_2)> .
+        "Romance" .
+
+:13:10 a ns1:Schedule ;
+    ns1:startTime "13:10" .
+
+:13:20 a ns1:Schedule ;
+    ns1:startTime "13:20" .
+
+:15:15 a ns1:Schedule ;
+    ns1:startTime "15:15" .
+
+:15:20 a ns1:Schedule ;
+    ns1:startTime "15:20" .
+
+:15:25 a ns1:Schedule ;
+    ns1:startTime "15:25" .
+
+:15:45 a ns1:Schedule ;
+    ns1:startTime "15:45" .
+
+:16:15 a ns1:Schedule ;
+    ns1:startTime "16:15" .
+
+:16:20 a ns1:Schedule ;
+    ns1:startTime "16:20" .
+
+:16:30 a ns1:Schedule ;
+    ns1:startTime "16:30" .
+
+:16:40 a ns1:Schedule ;
+    ns1:startTime "16:40" .
+
+:17:10 a ns1:Schedule ;
+    ns1:startTime "17:10" .
+
+:17:15 a ns1:Schedule ;
+    ns1:startTime "17:15" .
+
+:17:20 a ns1:Schedule ;
+    ns1:startTime "17:20" .
+
+:17:25 a ns1:Schedule ;
+    ns1:startTime "17:25" .
+
+:17:50 a ns1:Schedule ;
+    ns1:startTime "17:50" .
+
+:18:15 a ns1:Schedule ;
+    ns1:startTime "18:15" .
+
+:18:25 a ns1:Schedule ;
+    ns1:startTime "18:25" .
+
+:18:30 a ns1:Schedule ;
+    ns1:startTime "18:30" .
+
+:18:50 a ns1:Schedule ;
+    ns1:startTime "18:50" .
+
+:19:00 a ns1:Schedule ;
+    ns1:startTime "19:00" .
+
+:19:40 a ns1:Schedule ;
+    ns1:startTime "19:40" .
+
+:20:15 a ns1:Schedule ;
+    ns1:startTime "20:15" .
+
+:20:40 a ns1:Schedule ;
+    ns1:startTime "20:40" .
+
+:20th_Fox a ns1:Organization ;
+    ns1:name "20th Fox" .
+
+:22:00 a ns1:Schedule ;
+    ns1:startTime "22:00" .
+
+:22:10 a ns1:Schedule ;
+    ns1:startTime "22:10" .
+
+:22:15 a ns1:Schedule ;
+    ns1:startTime "22:15" .
+
+:22:20 a ns1:Schedule ;
+    ns1:startTime "22:20" .
+
+:22:30 a ns1:Schedule ;
+    ns1:startTime "22:30" .
+
+:23:15 a ns1:Schedule ;
+    ns1:startTime "23:15" .
 
 <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#ABC_Radio_(Australia)> a ns1:Organization ;
     ns1:name "ABC Radio (Australia)" ;
     ns1:url "https://www.rottentomatoes.com/source-2397" .
 
+:Aaron_Taylor-Johnson a ns1:Person ;
+    ns1:name "Aaron Taylor-Johnson" .
+
+:Adam_Brody a ns1:Person ;
+    ns1:name "Adam Brody" .
+
 :AggregateRating_0 a ns1:AggregateRating ;
     ns1:bestRating "10.0" ;
-    ns1:ratingCount 199059 ;
+    ns1:ratingCount 199127 ;
     ns1:ratingValue "5.4" ;
     ns1:worstRating "1.0" .
 
@@ -509,9 +682,24 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:ratingValue "7,6" ;
     ns1:worstRating "0" .
 
+:Akari_Kito a ns1:Person ;
+    ns1:name "Akari Kito" .
+
+:Alberto_Ammann a ns1:Person ;
+    ns1:name "Alberto Ammann" .
+
 :Alex_Delescu a ns1:Person ;
     ns1:name "Alex Delescu" ;
     ns1:url "https://www.metacritic.com/person/alex-delescu" .
+
+:Alexander_Skarsgård a ns1:Person ;
+    ns1:name "Alexander Skarsgård" .
+
+:Alice_Braga a ns1:Person ;
+    ns1:name "Alice Braga" .
+
+:Alison_Brie a ns1:Person ;
+    ns1:name "Alison Brie" .
 
 :Amr_Waked a ns1:Person ;
     ns1:name "Amr Waked" ;
@@ -525,9 +713,24 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Amy Nicholson" ;
     ns1:url "https://www.rottentomatoes.com/critic/amy-nicholson" .
 
+:Andrew_Ellis a ns1:Person ;
+    ns1:name "Andrew Ellis" .
+
 :Andrew_Galdi a ns1:Person ;
     ns1:name "Andrew Galdi" ;
     ns1:url "https://www.rottentomatoes.com/critic/andrew-galdi" .
+
+:Anna_Kendrick a ns1:Person ;
+    ns1:name "Anna Kendrick" .
+
+:Anthony_Ramos a ns1:Person ;
+    ns1:name "Anthony Ramos" .
+
+:Antonio_Banderas a ns1:Person ;
+    ns1:name "Antonio Banderas" .
+
+:Anya_Taylor-Joy a ns1:Person ;
+    ns1:name "Anya Taylor-Joy" .
 
 :Ars_Technica a ns1:Organization ;
     ns1:name "Ars Technica" ;
@@ -541,6 +744,15 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Avaryl Halley" ;
     ns1:url "https://www.rottentomatoes.com/critic/avaryl-halley" .
 
+:Awkwafina a ns1:Person ;
+    ns1:name "Awkwafina" .
+
+:Ayako_Kawasumi a ns1:Person ;
+    ns1:name "Ayako Kawasumi" .
+
+:BF_Paris a ns1:Organization ;
+    ns1:name "BF Paris" .
+
 :Battleship_Pretension a ns1:Organization ;
     ns1:name "Battleship Pretension" ;
     ns1:url "https://www.rottentomatoes.com/source-3090" .
@@ -549,17 +761,509 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Bern Collaco" ;
     ns1:url "https://www.metacritic.com/person/bern-collaco" .
 
+:Blu_Hunt a ns1:Person ;
+    ns1:name "Blu Hunt" .
+
+:Bo_Burnham a ns1:Person ;
+    ns1:name "Bo Burnham" .
+
+:Bobby_Cannavale a ns1:Person ;
+    ns1:name "Bobby Cannavale" .
+
 :Brian_Gill a ns1:Person ;
     ns1:name "Brian Gill" ;
     ns1:url "https://www.rottentomatoes.com/critic/brian-gill" .
+
+:Brian_Tyree_Henry a ns1:Person ;
+    ns1:name "Brian Tyree Henry" .
 
 :Brittney_Aleah a ns1:Person ;
     ns1:name "Brittney Aleah" ;
     ns1:url "https://www.metacritic.com/person/brittney-aleah" .
 
+:Buena_Vista_International a ns1:Organization ;
+    ns1:name "Buena Vista International" .
+
+:CINEMA_CITY_-_SALA_4D_13:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:00 ;
+    ns1:videoFormat "SALA_4D" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_CITY_-_SALA_4D_15:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:30 ;
+    ns1:videoFormat "SALA_4D" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_CITY_-_SALA_4D_18:05 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:05 ;
+    ns1:videoFormat "SALA_4D" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_CITY_-_SALA_4D_20:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:40 ;
+    ns1:videoFormat "SALA_4D" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_CITY_-_SALA_4D_23:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:10 ;
+    ns1:videoFormat "SALA_4D" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_CITY_-_SALA_HD_13:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:10 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_CITY_-_SALA_HD_13:15 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:15 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Promising_young_woman .
+
+:CINEMA_CITY_-_SALA_HD_15:25 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:25 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_CITY_-_SALA_HD_15:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:40 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Promising_young_woman .
+
+:CINEMA_CITY_-_SALA_HD_17:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_CITY_-_SALA_HD_18:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:10 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Promising_young_woman .
+
+:CINEMA_CITY_-_SALA_HD_20:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_CITY_-_SALA_HD_20:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:30 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Promising_young_woman .
+
+:CINEMA_CITY_-_SALA_HD_22:15 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:15 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_CITY_-_SALA_HD_23:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Promising_young_woman .
+
+:CINEMA_OCHO_-_SALA_HD_13:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_OCHO_-_SALA_HD_13:15 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:15 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_OCHO_-_SALA_HD_13:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_OCHO_-_SALA_HD_15:20 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:20 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_OCHO_-_SALA_HD_15:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:40 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_OCHO_-_SALA_HD_16:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_OCHO_-_SALA_HD_17:50 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:50 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_OCHO_-_SALA_HD_18:05 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:05 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_OCHO_-_SALA_HD_19:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :19:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_OCHO_-_SALA_HD_20:15 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:15 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_OCHO_-_SALA_HD_20:20 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:20 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_OCHO_-_SALA_HD_22:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:30 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_OCHO_-_SALA_HD_22:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_OCHO_-_SALA_HD_22:50 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:50 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_PARADISO_-_SALA_HD_13:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong,
+        :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_PARADISO_-_SALA_HD_13:20 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:20 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CINEMA_PARADISO_-_SALA_HD_14:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :14:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :HABITACION_212 .
+
+:CINEMA_PARADISO_-_SALA_HD_15:15 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:15 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_PARADISO_-_SALA_HD_15:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:30 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_PARADISO_-_SALA_HD_15:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:40 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CINEMA_PARADISO_-_SALA_HD_16:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#SCOOBY!> .
+
+:CINEMA_PARADISO_-_SALA_HD_17:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:30 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_PARADISO_-_SALA_HD_18:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong,
+        :HABITACION_212,
+        :Tom_and_Jerry .
+
+:CINEMA_PARADISO_-_SALA_HD_19:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :19:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :LA_FABRICA_DE_SUEÑOS .
+
+:CINEMA_PARADISO_-_SALA_HD_20:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :HABITACION_212 .
+
+:CINEMA_PARADISO_-_SALA_HD_20:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:30 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_PARADISO_-_SALA_HD_20:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :LA_NOCHE_MAGICA .
+
+:CINEMA_PARADISO_-_SALA_HD_22:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :HABITACION_212 .
+
+:CINEMA_PARADISO_-_SALA_HD_22:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Tenet .
+
+:CINEMA_PARADISO_-_SALA_HD_23:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_PARADISO_-_SALA_HD_23:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:10 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :LA_NOCHE_MAGICA .
+
+:CINEMA_ROCHA_-_SALA_HD_13:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_ROCHA_-_SALA_HD_14:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :14:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CINEMA_ROCHA_-_SALA_HD_15:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_ROCHA_-_SALA_HD_16:15 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:15 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CINEMA_ROCHA_-_SALA_HD_16:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_ROCHA_-_SALA_HD_17:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:40 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_ROCHA_-_SALA_HD_18:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:30 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CINEMA_ROCHA_-_SALA_HD_19:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :19:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :RAYA_Y_EL_ULTIMO_DRAGON .
+
+:CINEMA_ROCHA_-_SALA_HD_20:20 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:20 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_ROCHA_-_SALA_HD_20:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_ROCHA_-_SALA_HD_22:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:10 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Wonder_Woman_1984 .
+
+:CINEMA_ROCHA_-_SALA_HD_23:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_ROCHA_-_SALA_HD_23:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:10 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_13:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_13:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :13:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Chaos_Walking .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_14:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :14:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong,
+        :Tom_and_Jerry .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_15:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:30 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_16:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :LOS_INTRUSOS .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_16:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:10 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :TROLLS_2:_WORLD_TOUR .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_17:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_18:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_18:15 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:15 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Chaos_Walking .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_18:25 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:25 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_19:50 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :19:50 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_20:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:30 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :LOS_INTRUSOS,
+        :New_Mutants .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_20:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :EL_SECRETO_DEL_BOSQUE .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_22:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:40 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_22:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:45 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :Chaos_Walking .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_23:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:00 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :New_Mutants .
+
+:CINEMA_SAN_MARTIN_-_SALA_HD_23:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:10 ;
+    ns1:videoFormat "SALA_HD" ;
+    ns1:workPresented :EL_SECRETO_DEL_BOSQUE .
+
+:CLASSIC_2D_ESPAÑOL_15:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:00 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Trolls_2 .
+
+:CLASSIC_2D_ESPAÑOL_16:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:00 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_16:20 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:20 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_16:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:30 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Trolls_2 .
+
+:CLASSIC_2D_ESPAÑOL_16:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:45 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_17:15 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:15 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Trolls_2 .
+
+:CLASSIC_2D_ESPAÑOL_17:25 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:25 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Trolls_2 .
+
+:CLASSIC_2D_ESPAÑOL_17:30 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:30 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_18:50 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:50 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_19:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :19:00 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_19:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :19:40 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_19:50 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :19:50 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_22:20 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:20 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :El_silencio_del_cazador .
+
+:CLASSIC_2D_ESPAÑOL_23:15 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:15 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
+:CLASSIC_2D_SUBTITULADO_19:50 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :19:50 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :On_a_magical_night .
+
+:CLASSIC_2D_SUBTITULADO_22:50 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:50 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Wonder_Woman_1984 .
+
+:Carey_Mulligan a ns1:Person ;
+    ns1:name "Carey Mulligan" .
+
+:Chance_the_Rapper a ns1:Person ;
+    ns1:name "Chance the Rapper" .
+
+:Charlie_Heaton a ns1:Person ;
+    ns1:name "Charlie Heaton" .
+
 :Chicago_Reader a ns1:Organization ;
     ns1:name "Chicago Reader" ;
     ns1:url "https://www.rottentomatoes.com/source-66" .
+
+:Chloë_Grace_Moretz a ns1:Person ;
+    ns1:name "Chloë Grace Moretz" .
 
 :Chris_Pine a ns1:Person ;
     ns1:image "https://resizing.flixster.com/kXDRe1jUWEU8UFkdf8JhRPMUG8s=/660x990/v1.bjs3NTYxMDQ7ajsxODgxODsxMjAwOzY2MDs5OTA" ;
@@ -573,9 +1277,30 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Chris Silcox" ;
     ns1:url "https://www.metacritic.com/person/chris-silcox" .
 
+:Christopher_Mintz-Plasse a ns1:Person ;
+    ns1:name "Christopher Mintz-Plasse" .
+
+:Cinetren a ns1:Organization ;
+    ns1:name "Cinetren" .
+
+:Cinépolis a ns1:Organization ;
+    ns1:name "Cinépolis" .
+
+:Clancy_Brown a ns1:Person ;
+    ns1:name "Clancy Brown" .
+
+:Clemence_Poésy a ns1:Person ;
+    ns1:name "Clemence Poésy" .
+
+:Clémence_Poésy a ns1:Person ;
+    ns1:name "Clémence Poésy" .
+
 :Concrete_Playground a ns1:Organization ;
     ns1:name "Concrete Playground" ;
     ns1:url "https://www.rottentomatoes.com/source-2298" .
+
+:Connie_Britton a ns1:Person ;
+    ns1:name "Connie Britton" .
 
 :Connie_Nielsen a ns1:Person ;
     ns1:image "https://resizing.flixster.com/9Pu5qp5qfehIlclgv8tIbVPGlr0=/2938x3500/v1.cjs1MDM1NztqOzE4NzY1OzEyMDA7MjkzODszNTAw" ;
@@ -587,9 +1312,21 @@ La trama de esta película es una gran misterio. El guión está basado en una h
 :CreativeWork_0 a ns1:CreativeWork ;
     ns1:url "https://www.imdb.com/title/tt7126948/" .
 
+:Cynthia_Erivo a ns1:Person ;
+    ns1:name "Cynthia Erivo" .
+
+:César_Bordón a ns1:Person ;
+    ns1:name "César Bordón" .
+
+:Daisy_Ridley a ns1:Person ;
+    ns1:name "Daisy Ridley" .
+
 :Dan_Tabor a ns1:Person ;
     ns1:name "Dan Tabor" ;
     ns1:url "https://www.rottentomatoes.com/critic/dan-tabor" .
+
+:Daniel_Dae_Kim a ns1:Person ;
+    ns1:name "Daniel Dae Kim" .
 
 :Dave_Callaham a ns1:Person ;
     ns1:name "Dave Callaham" ;
@@ -599,9 +1336,44 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "David Bax" ;
     ns1:url "https://www.rottentomatoes.com/critic/david-bax" .
 
+:David_Oyelowo a ns1:Person ;
+    ns1:name "David Oyelowo" .
+
 :David_Sims a ns1:Person ;
     ns1:name "David Sims" ;
     ns1:url "https://www.rottentomatoes.com/critic/david-sims" .
+
+:Demian_Bichir a ns1:Person ;
+    ns1:name "Demian Bichir" .
+
+:Demon_Slayer_Mugen_Train a ns1:Movie ;
+    ns1:actor :Akari_Kito,
+        :Hiro_Shimono,
+        :Katsuyuki_Konishi,
+        :Kenichi_Suzumura,
+        :Natsuki_Hanae,
+        :Saori_Hayami,
+        :Satoshi_Hino,
+        :Takahiro_Sakurai,
+        :Tomokazu_Seki,
+        :Yoshitsugu_Matsuoka ;
+    ns1:contentRating "N/A" ;
+    ns1:countryOfOrigin "Japón" ;
+    ns1:description "Demon Slayer: Mugen Train cuenta la historia de Tanjiro Kamado, Kyoujurou Rengoku y sus amigos de la Compañía de Cazadores de Demonios (Demon Slayer Corps). Juntos, se unen con uno de los mejores espadachines de la compañía, Kyojuro Rengoku, para investigar una misteriosa serie de desapariciones que han ocurrido dentro del “Tren Infinito”. Poco saben que Enmu, uno de los miembros de las Doce Lunas Demoníacas, también está a bordo y les ha preparado una trampa." ;
+    ns1:director "Haruo Sotozaki" ;
+    ns1:duration "120 minutos" ;
+    ns1:genre "Acción",
+        "Animación",
+        "Aventura",
+        "Drama",
+        "Fantasía" ;
+    ns1:productionCompany :Cinépolis .
+
+:Dennis_Mojen a ns1:Person ;
+    ns1:name "Dennis Mojen" .
+
+:Dimple_Kapadia a ns1:Person ;
+    ns1:name "Dimple Kapadia" .
 
 :ES a ns1:Country ;
     ns1:name "ES" .
@@ -610,9 +1382,33 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Eddie Harrison" ;
     ns1:url "https://www.rottentomatoes.com/critic/eddie-harrison" .
 
+:Eiza_González a ns1:Person ;
+    ns1:name "Eiza González" .
+
+:El_silencio_del_cazador a ns1:Movie ;
+    ns1:actor :Alberto_Ammann,
+        :César_Bordón,
+        :Mercedes_Burgos,
+        :Mora_Recalde,
+        :Pablo_Echarri ;
+    ns1:contentRating "P13R" ;
+    ns1:countryOfOrigin "Argentina" ;
+    ns1:description "Guzmán trabaja en un parque nacional con un grupo pequeño pero comprometido de guardas en alerta, ante la aparición de un animal salvaje que acecha desde la selva. Sara, esposa de Guzmán, es una médica dedicada a la comunidad local. Entre ellos se encuentra un amigo de la infancia de ambos y expareja de Sara. Los celos, las cuestiones no saldadas y las relaciones de poder enfrentarán a los tres hasta llegar a un desenlace sin tregua." ;
+    ns1:director "Martín Desalvo" ;
+    ns1:duration "103 minutos" ;
+    ns1:genre "Drama",
+        "Thriller" ;
+    ns1:productionCompany :Cinetren .
+
+:Elizabeth_Debicki a ns1:Person ;
+    ns1:name "Elizabeth Debicki" .
+
 :Ella_Walker a ns1:Person ;
     ns1:name "Ella Walker" ;
     ns1:url "https://www.metacritic.com/person/ella-walker" .
+
+:Emilia_Schüle a ns1:Person ;
+    ns1:name "Emilia Schüle" .
 
 :Epoch_Times a ns1:Organization ;
     ns1:name "Epoch Times" ;
@@ -630,6 +1426,22 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "FilmWeek (KPCC - NPR Los Angeles)" ;
     ns1:url "https://www.rottentomatoes.com/source-3509" .
 
+:Flula_Borg a ns1:Person ;
+    ns1:name "Flula Borg" .
+
+:Frank_Welker a ns1:Person ;
+    ns1:name "Frank Welker" .
+
+:GC_2D_ESPAÑOL_18:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :18:10 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:GC_2D_ESPAÑOL_20:20 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:20 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
 :Gabriella_Wilde a ns1:Person ;
     ns1:name "Gabriella Wilde" ;
     ns1:url "https://www.metacritic.com/person/gabriella-wilde" .
@@ -646,6 +1458,30 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Geoff Johns" ;
     ns1:url "https://www.imdb.com/name/nm0424315/" .
 
+:Happy_Anderson a ns1:Person ;
+    ns1:name "Happy Anderson" .
+
+:Harrison_Arevalo a ns1:Person ;
+    ns1:name "Harrison Arevalo" .
+
+:Heiner_Lauterbach a ns1:Person ;
+    ns1:name "Heiner Lauterbach" .
+
+:Henry_Zaga a ns1:Person ;
+    ns1:name "Henry Zaga" .
+
+:Hernán_Jiménez a ns1:Person ;
+    ns1:name "Hernán Jiménez" .
+
+:Himesh_Patel a ns1:Person ;
+    ns1:name "Himesh Patel" .
+
+:Hiro_Shimono a ns1:Person ;
+    ns1:name "Hiro Shimono" .
+
+:Ian_Kenny a ns1:Person ;
+    ns1:name "Ian Kenny" .
+
 :Ian_Simmons a ns1:Person ;
     ns1:name "Ian Simmons" ;
     ns1:url "https://www.rottentomatoes.com/critic/ian-simmons" .
@@ -655,6 +1491,12 @@ La trama de esta película es una gran misterio. El guión está basado en una h
 
 <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#ImageObject_https://m.media-amazon.com/images/M/MV5BZjQ0NGM2NGMtMDE1Yi00YzQyLWI1ZWYtMmQ2OWEzZTA5YjEyXkEyXkFqcGdeQWRvb2xpbmhk._V1_.jpg> a ns1:ImageObject ;
     ns1:contentUrl "https://m.media-amazon.com/images/M/MV5BZjQ0NGM2NGMtMDE1Yi00YzQyLWI1ZWYtMmQ2OWEzZTA5YjEyXkEyXkFqcGdeQWRvb2xpbmhk._V1_.jpg" .
+
+:Isabela_Palópoli a ns1:Person ;
+    ns1:name "Isabela Palópoli" .
+
+:Jake_Curran a ns1:Person ;
+    ns1:name "Jake Curran" .
 
 :Jake_Wilson a ns1:Person ;
     ns1:name "Jake Wilson" ;
@@ -668,17 +1510,38 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Jamal Alkhaldi" ;
     ns1:url "https://www.metacritic.com/person/jamal-alkhaldi" .
 
+:James_Corden a ns1:Person ;
+    ns1:name "James Corden" .
+
+:Jamie_Dornan a ns1:Person ;
+    ns1:name "Jamie Dornan" .
+
 :Jeff_Moore a ns1:Person ;
     ns1:name "Jeff Moore" ;
     ns1:url "https://www.metacritic.com/person/jeff-moore" .
+
+:Jeffrey_Corazzini a ns1:Person ;
+    ns1:name "Jeffrey Corazzini" .
+
+:Jennifer_Coolidge a ns1:Person ;
+    ns1:name "Jennifer Coolidge" .
 
 :Jennifer_Ouellette a ns1:Person ;
     ns1:name "Jennifer Ouellette" ;
     ns1:url "https://www.rottentomatoes.com/critic/jennifer-ouellette" .
 
+:Jessica_Henwick a ns1:Person ;
+    ns1:name "Jessica Henwick" .
+
 :Joel_Morris a ns1:Person ;
     ns1:name "Joel Morris" ;
     ns1:url "https://www.metacritic.com/person/joel-morris" .
+
+:John_David_Washington a ns1:Person ;
+    ns1:name "John David Washington" .
+
+:John_David_Washington._Kenneth_Branagh a ns1:Person ;
+    ns1:name "John David Washington. Kenneth Branagh" .
 
 :John_Gettier a ns1:Person ;
     ns1:name "John Gettier" ;
@@ -692,17 +1555,50 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Jonathan Ajayi" ;
     ns1:url "https://www.metacritic.com/person/jonathan-ajayi" .
 
+:Jouji_Nakata a ns1:Person ;
+    ns1:name "Jouji Nakata" .
+
+:Julian_Dennison a ns1:Person ;
+    ns1:name "Julian Dennison" .
+
 :Julian_Ferro a ns1:Person ;
     ns1:name "Julian Ferro" ;
     ns1:url "https://www.metacritic.com/person/julian-ferro" .
+
+:June_Foray a ns1:Person ;
+    ns1:name "June Foray" .
 
 :Justin_Sisk a ns1:Person ;
     ns1:name "Justin Sisk" ;
     ns1:url "https://www.metacritic.com/person/justin-sisk" .
 
+:Justin_Timberlake a ns1:Person ;
+    ns1:name "Justin Timberlake" .
+
 :Kaila_Ingram a ns1:Person ;
     ns1:name "Kaila Ingram" ;
     ns1:url "https://www.metacritic.com/person/kaila-ingram" .
+
+:Kana_Ueda a ns1:Person ;
+    ns1:name "Kana Ueda" .
+
+:Karan_Soni a ns1:Person ;
+    ns1:name "Karan Soni" .
+
+:Katsuyuki_Konishi a ns1:Person ;
+    ns1:name "Katsuyuki Konishi" .
+
+:Kelly_Marie_Tran a ns1:Person ;
+    ns1:name "Kelly Marie Tran" .
+
+:Ken_Duken a ns1:Person ;
+    ns1:name "Ken Duken" .
+
+:Kenichi_Suzumura a ns1:Person ;
+    ns1:name "Kenichi Suzumura" .
+
+:Kenneth_Branagh a ns1:Person ;
+    ns1:name "Kenneth Branagh" .
 
 :Kevin_Carr a ns1:Person ;
     ns1:name "Kevin Carr" ;
@@ -724,6 +1620,57 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Kristoffer Polaha" ;
     ns1:url "https://www.metacritic.com/person/kristoffer-polaha" .
 
+:Kunal_Nayyar a ns1:Person ;
+    ns1:name "Kunal Nayyar" .
+
+:Kurt_Sutter a ns1:Person ;
+    ns1:name "Kurt Sutter" .
+
+:Kyle_Chandler a ns1:Person ;
+    ns1:name "Kyle Chandler" .
+
+:LA_FABRICA_DE_SUEÑOS a ns1:Movie ;
+    ns1:actor :Dennis_Mojen,
+        :Emilia_Schüle,
+        :Heiner_Lauterbach,
+        :Ken_Duken,
+        :Michael_Gwisdek,
+        :Nikolai_Kinski,
+        :Wilfried_Hochholdinger ;
+    ns1:contentRating "Apta todo público" ;
+    ns1:countryOfOrigin "Alemania" ;
+    ns1:description "Durante el verano de 1961, Emil comienza a trabajar como extra en los famosos estudios de cine Babelsberg. Durante el rodaje de una superproducción, se enamora de la bailarina francesa llamada Milou. Cuando por fin conquista a Milou, el rodaje se cancela repentinamente y son obligados a separarse ya que El Muro de Berlín es levantado en agosto de ese año. Años más tarde, Emil trazará un atrevido y arriesgado plan para lograr que el rodaje continúe y reencontrarse con Milou." ;
+    ns1:director "Martin Schreier" ;
+    ns1:duration "127 minutos" ;
+    ns1:genre "Drama romantico" ;
+    ns1:inLanguage "Aleman subtitulada" ;
+    ns1:url "No disponible" .
+
+:La_noche_magica a ns1:Movie ;
+    ns1:actor :Diego_Peretti,
+        :Esteban_Bigliardi,
+        :Hernán_Jiménez,
+        :Isabela_Palópoli,
+        :Laura_López_Moyano,
+        :Natalia_Oreiro,
+        :Pablo_Rago ;
+    ns1:contentRating "P-16" ;
+    ns1:countryOfOrigin "Argentina" ;
+    ns1:description "La Noche Mágica, la película protagonizada por Natalia Oreiro y Diego Peretti, llega a los cines argentinos el 11 de marzo. El film, una innovadora comedia dramática con ritmo y suspenso de thriller, dirigida por Gastón Portal, cuenta también con las actuaciones de Pablo Rago y Esteban Bigliardi. Está producida por Aeroplano. La Noche Mágica transcurre durante Nochebuena en una casa en San Isidro. Kira (Natalia Oreiro) y su amante Cachete (Pablo Rago), se encuentran en el dormitorio cuando oyen llegar a Juan (Esteban Bigliardi), el marido de Kira. Pero cuando Cachete se esconde en el balcón, se encuentra con algo peor; NICOLA (Diego Peretti), un excéntrico ladrón que, como Papa Noel lleva una barba blanca y un gorro rojo, ha venido a robar el domicilio. Nicola procede a esposar a todos los presentes pero el atraco se complica cuando se encuentra con Alicia, la pequeña hija del matrimonio, quien apenas lo ve le extiende una lista de deseos… Una producción de Aeroplano, en coproducción con World Media (Uruguay), DirecTV, Diego Kolankowsky y Silvia Rodriguez; en asociación con Welavit, RBS, Film Suez, Ketama, TeDigoQue y Dk Entertainment." ;
+    ns1:director "Gastón Portal" ;
+    ns1:duration "98 minutos" ;
+    ns1:genre "Thriller" ;
+    ns1:productionCompany :Buena_Vista_International .
+
+:Laura_López_Moyano a ns1:Person ;
+    ns1:name "Laura López Moyano" .
+
+:Laverne_Cox a ns1:Person ;
+    ns1:name "Laverne Cox" .
+
+:Lil_Rel_Howery a ns1:Person ;
+    ns1:name "Lil Rel Howery" .
+
 :Lilly_Aspell a ns1:Person ;
     ns1:name "Lilly Aspell" ;
     ns1:url "https://www.metacritic.com/person/lilly-aspell" .
@@ -740,9 +1687,20 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Lyon Beckwith" ;
     ns1:url "https://www.metacritic.com/person/lyon-beckwith" .
 
+:MS_2D_ESPAÑOL_22:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:45 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Godzilla_vs._Kong .
+
 :Mad_About_Movies_Podcast a ns1:Organization ;
     ns1:name "Mad About Movies Podcast" ;
     ns1:url "https://www.rottentomatoes.com/source-3256" .
+
+:Mads_Mikkelsen a ns1:Person ;
+    ns1:name "Mads Mikkelsen" .
+
+:Mai_Kadowaki a ns1:Person ;
+    ns1:name "Mai Kadowaki" .
 
 :Manoj_Anand a ns1:Person ;
     ns1:name "Manoj Anand" ;
@@ -764,29 +1722,109 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Marla Aaron Wapner" ;
     ns1:url "https://www.metacritic.com/person/marla-aaron-wapner" .
 
+:Martin_Donovan a ns1:Person ;
+    ns1:name "Martin Donovan" .
+
+:Masane_Tsukayama a ns1:Person ;
+    ns1:name "Masane Tsukayama" .
+
 :Matt_Neal a ns1:Person ;
     ns1:name "Matt Neal" ;
     ns1:url "https://www.rottentomatoes.com/critic/matt-neal" .
+
+:Max_Greenfield a ns1:Person ;
+    ns1:name "Max Greenfield" .
+
+:Mel_Blanc a ns1:Person ;
+    ns1:name "Mel Blanc" .
+
+:Mercedes_Burgos a ns1:Person ;
+    ns1:name "Mercedes Burgos" .
+
+:Michael_Caine a ns1:Person ;
+    ns1:name "Michael Caine" .
+
+:Michael_Gwisdek a ns1:Person ;
+    ns1:name "Michael Gwisdek" .
+
+:Michael_Peña a ns1:Person ;
+    ns1:name "Michael Peña" .
+
+:Mickey_Gilmore a ns1:Person ;
+    ns1:name "Mickey Gilmore" .
+
+:Miki_Itō a ns1:Person ;
+    ns1:name "Miki Itō" .
+
+:Millie_Bobby_Brown a ns1:Person ;
+    ns1:name "Millie Bobby Brown" .
+
+:Mirada_Distribution_SRL a ns1:Organization ;
+    ns1:name "Mirada Distribution SRL" .
+
+:Molly_Shannon a ns1:Person ;
+    ns1:name "Molly Shannon" .
 
 :Monica_Haynes a ns1:Person ;
     ns1:name "Monica Haynes" ;
     ns1:url "https://www.metacritic.com/person/monica-haynes" .
 
+:Mora_Recalde a ns1:Person ;
+    ns1:name "Mora Recalde" .
+
 :Natasha_Rothwell a ns1:Person ;
     ns1:name "Natasha Rothwell" ;
     ns1:url "https://www.metacritic.com/person/natasha-rothwell" .
+
+:Natsuki_Hanae a ns1:Person ;
+    ns1:name "Natsuki Hanae" .
 
 :Newsday a ns1:Organization ;
     ns1:name "Newsday" ;
     ns1:url "https://www.rottentomatoes.com/source-338" .
 
+:Nick_Jonas a ns1:Person ;
+    ns1:name "Nick Jonas" .
+
+:Nicky_Jam a ns1:Person ;
+    ns1:name "Nicky Jam" .
+
+:Nikolai_Kinski a ns1:Person ;
+    ns1:name "Nikolai Kinski" .
+
 :Nina_Garin a ns1:Person ;
     ns1:name "Nina Garin" ;
     ns1:url "https://www.rottentomatoes.com/critic/nina-garin" .
 
+:Noriaki_Sugiyama a ns1:Person ;
+    ns1:name "Noriaki Sugiyama" .
+
+:Noriko_Shitaya a ns1:Person ;
+    ns1:name "Noriko Shitaya" .
+
 :Oakley_Bull a ns1:Person ;
     ns1:name "Oakley Bull" ;
     ns1:url "https://www.metacritic.com/person/oakley-bull" .
+
+:On_a_magical_night a ns1:Movie ;
+    ns1:actor :Benjamin_Biolay,
+        :Camille_Cottin,
+        :Carole_Bouquet,
+        :Chiara_Mastroianni,
+        :Harrison_Arevalo,
+        :Marie-Christine_Adam,
+        :Stéphane_Roger,
+        :Vincent_Lacoste ;
+    ns1:contentRating "P-13" ;
+    ns1:countryOfOrigin "Francia" ;
+    ns1:description "Tras 20 años de matrimonio, Maria decide dejar todo atrás y empezar una nueva vida. El primer paso es hospedarse en la habitación 212 de un hotel frente a la casa en la que vivía junto a su pareja. Pero, con el paso del tiempo, comenzará a preguntarse si tomó la decisión correcta…" ;
+    ns1:director "Christophe Honoré" ;
+    ns1:duration "86 minutos" ;
+    ns1:genre "Comedia" ;
+    ns1:productionCompany :Mirada_Distribution_SRL .
+
+:Pablo_Echarri a ns1:Person ;
+    ns1:name "Pablo Echarri" .
 
 :Paul_Ron_Cruz a ns1:Person ;
     ns1:name "Paul Ron Cruz" ;
@@ -936,14 +1974,20 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:ratingValue 1 ;
     ns1:worstRating "-1" .
 
-:Rating_Review_zeki-4_2021-01-02 a ns1:Rating ;
+:Rating_Review_brian-in-80210_2021-02-12 a ns1:Rating ;
     ns1:bestRating "10" ;
-    ns1:ratingValue "4" ;
+    ns1:ratingValue "3" ;
     ns1:worstRating "1" .
 
 :Ravi_Patel a ns1:Person ;
     ns1:name "Ravi Patel" ;
     ns1:url "https://www.metacritic.com/person/ravi-patel" .
+
+:Ray_McKinnon a ns1:Person ;
+    ns1:name "Ray McKinnon" .
+
+:Rebecca_Hall a ns1:Person ;
+    ns1:name "Rebecca Hall" .
 
 :Review_Amy_Nicholson_2021-01-04T03:37:14-08:00 a ns1:Review ;
     ns1:author :Amy_Nicholson ;
@@ -1137,18 +2181,24 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:reviewRating :Rating_Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00 ;
     ns1:url "https://intheirownleague.com/2020/12/29/review-wonder-woman-1984/" .
 
-:Review_zeki-4_2021-01-02 a ns1:Review ;
-    ns1:author :zeki-4 ;
-    ns1:dateCreated "2021-01-02" ;
+:Review_brian-in-80210_2021-02-12 a ns1:Review ;
+    ns1:author :brian-in-80210 ;
+    ns1:dateCreated "2021-02-12" ;
     ns1:inLanguage "English" ;
     ns1:itemReviewed :CreativeWork_0 ;
-    ns1:name "So bad that I almost walked out of my own house!" ;
-    ns1:reviewBody "The first one was fun and well played out. This sequel is a total misfire. Not because it follows the trend of having women being the alpha characters and portraying men as either weak or stupid, but simply because it's a lazy effort. Except a couple of scenes, and hilarious over-the-top acting by Pedro Pascal, I found nothing here. It has \"straight-to-DVD\" written all over it." ;
-    ns1:reviewRating :Rating_Review_zeki-4_2021-01-02 .
+    ns1:name "Wow they let this director work on Star Wars?" ;
+    ns1:reviewBody "Didn't they learn from Rian johnson's fiasco?? WW 1984 is one of the worst movie I have ever seen. Don't waste your time and watch it. It's is very bad. Not worth to turn on the television. Gal Gadot should just take it off." ;
+    ns1:reviewRating :Rating_Review_brian-in-80210_2021-02-12 .
 
 :Rick_Kelvin_Branch a ns1:Person ;
     ns1:name "Rick Kelvin Branch" ;
     ns1:url "https://www.metacritic.com/person/rick-kelvin-branch" .
+
+:Rita_Tushingham a ns1:Person ;
+    ns1:name "Rita Tushingham" .
+
+:Robert_Pattinson a ns1:Person ;
+    ns1:name "Robert Pattinson" .
 
 :Robin_Wright a ns1:Person ;
     ns1:image "https://resizing.flixster.com/s5rTePWBzCqGE8uYUIYqS52D6JU=/1000x1500/v1.bjs3NDQ4MjY7ajsxODgxODsxMjAwOzEwMDA7MTUwMA" ;
@@ -1157,17 +2207,50 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:sameAs "https://www.rottentomatoes.com/celebrity/robin_wright" ;
     ns1:url "https://www.metacritic.com/person/robin-wright" .
 
+:Rosario_Dawson a ns1:Person ;
+    ns1:name "Rosario Dawson" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#SCOOBY!> a ns1:Movie ;
+    ns1:actor :animación ;
+    ns1:contentRating "Apta todo público" ;
+    ns1:countryOfOrigin "EEUU" ;
+    ns1:description """Película animada sobre el dibujito Scooby-Doo que sigue a un perro Gran Danés y sus 4 amigos: Fred, Daphne, Vilma y Shaggy quienes juntos viajan por el mundo resolviendo misterios relacionados con fantasmas y otras fuerzas sobrenaturales.-\r
+Scooby! revela cómo se conocieron los amigos de toda la vida Scooby y Shaggy, y cómo se unieron con los jóvenes detectives Fred, Velma y Daphne para formar Mystery Inc. Ahora, con cientos de casos resueltos y aventuras compartidas, Scooby y la pandilla se enfrentan al misterio más desafiante de todos los tiempos: una trama para liberar Cerberus, el perro fantasma, sobre el mundo. Mientras compiten para detener este "perrocalipsis" global, la pandilla descubre que Scooby tiene un legado secreto y un gran y épico destino que nadie imaginaba.""" ;
+    ns1:director "Tony Cervone" ;
+    ns1:duration "94 minutos" ;
+    ns1:genre "Acción, Aventuras" ;
+    ns1:inLanguage "Castellano" ;
+    ns1:url "No disponible" .
+
+:Sahil_Shroff a ns1:Person ;
+    ns1:name "Sahil Shroff" .
+
+:Sam_Richardson a ns1:Person ;
+    ns1:name "Sam Richardson" .
+
+:Sam_Rockwell a ns1:Person ;
+    ns1:name "Sam Rockwell" .
+
 :San_Diego_Union-Tribune a ns1:Organization ;
     ns1:name "San Diego Union-Tribune" ;
     ns1:url "https://www.rottentomatoes.com/source-503" .
+
+:Saori_Hayami a ns1:Person ;
+    ns1:name "Saori Hayami" .
 
 :Sarah_Ward a ns1:Person ;
     ns1:name "Sarah Ward" ;
     ns1:url "https://www.rottentomatoes.com/critic/sarah-ward" .
 
+:Satoshi_Hino a ns1:Person ;
+    ns1:name "Satoshi Hino" .
+
 :Sheri_Flanders a ns1:Person ;
     ns1:name "Sheri Flanders" ;
     ns1:url "https://www.rottentomatoes.com/critic/sheri-flanders" .
+
+:Shun_Oguri a ns1:Person ;
+    ns1:name "Shun Oguri" .
 
 :Sia_Alipour a ns1:Person ;
     ns1:name "Sia Alipour" ;
@@ -1181,6 +2264,9 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Spencer Trinwith" ;
     ns1:url "https://www.metacritic.com/person/spencer-trinwith" .
 
+:Stacha_Hicks a ns1:Person ;
+    ns1:name "Stacha Hicks" .
+
 :Stephen_Romei a ns1:Person ;
     ns1:name "Stephen Romei" ;
     ns1:url "https://www.rottentomatoes.com/critic/stephen-romei" .
@@ -1193,9 +2279,67 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:thumbnailUrl "https://m.media-amazon.com/images/M/MV5BZjQ0NGM2NGMtMDE1Yi00YzQyLWI1ZWYtMmQ2OWEzZTA5YjEyXkEyXkFqcGdeQWRvb2xpbmhk._V1_.jpg" ;
     ns1:uploadDate "2020-12-07T01:51:07Z" .
 
+:Stéphane_Roger a ns1:Person ;
+    ns1:name "Stéphane Roger" .
+
+:Subrat_Dutta a ns1:Person ;
+    ns1:name "Subrat Dutta" .
+
+:Sylvester_McCoy a ns1:Person ;
+    ns1:name "Sylvester McCoy" .
+
+:T-Pain a ns1:Person ;
+    ns1:name "T-Pain" .
+
+:TROLLS_2:_WORLD_TOUR a ns1:Movie ;
+    ns1:actor :animación ;
+    ns1:contentRating "Apta todo público" ;
+    ns1:countryOfOrigin "EEUU" ;
+    ns1:description "En una aventura que les llevará más allá de todo lo que habían conocido, Poppy y Branch descubren que su tribu de Trolls es solo una de las seis que existen, que el resto están repartidas en seis reinos y consagradas a seis tipos distintos de música: funk, country, tecno, clásica, pop y rock. La reina Bárbara, miembro de la realeza del hard rock, y su padre, el Rey Metal, quieren acabar con el resto de géneros musicales e imponer el reinado del rock. Con el destino del mundo en juego, Poppy y Branch, junto con el resto de la pandilla - Grandullón, Chanelle, Satén, Cooper y Guy Diamante-, visitarán los demás reinos para unir a los Trolls contra los planes de Barb de eclipsarlos a todos." ;
+    ns1:director "Walt Dohrn, David P. Smith" ;
+    ns1:duration "91 minutos" ;
+    ns1:genre "Animación" ;
+    ns1:inLanguage "Castellano" ;
+    ns1:url "No disponible" .
+
+:Takahiro_Sakurai a ns1:Person ;
+    ns1:name "Takahiro Sakurai" .
+
+:Tenet a ns1:Movie ;
+    ns1:actor :Aaron_Taylor-Johnson,
+        :Clemence_Poésy,
+        :Clémence_Poésy,
+        :Dimple_Kapadia,
+        :Elizabeth_Debicki,
+        :Himesh_Patel,
+        :John_David_Washington,
+        :John_David_Washington._Kenneth_Branagh,
+        :Kenneth_Branagh,
+        :Martin_Donovan,
+        :Michael_Caine,
+        :Robert_Pattinson ;
+    ns1:contentRating "Apta mayores de 13 años",
+        "P-13" ;
+    ns1:countryOfOrigin "EEUU",
+        "Reino Unido, Estados Unidos" ;
+    ns1:description "Armado con tan solo una palabra -Tenet- el protagonista de esta historia deberá pelear por la supervivencia del mundo entero en una misión que le lleva a viajar a través del oscuro mundo del espionaje internacional, y cuya experiencia se desdoblará más allá del tiempo lineal.",
+        "Armado solamente con una palabra, Tenet, el protagonista deberá luchar por la supervivencia del mundo entero y evitar la Tercera Guerra Mundial, en una historia de espionaje internacional. La misión se desplegará más allá del tiempo real. No son viajes en el tiempo, es inversión." ;
+    ns1:director "Christopher Nolan" ;
+    ns1:duration "150 minutos",
+        "155 minutos" ;
+    ns1:genre "Acción",
+        "Ciencia Ficción",
+        "Thriller" ;
+    ns1:inLanguage "Inglés subtitulada" ;
+    ns1:productionCompany :Warner ;
+    ns1:url "No disponible" .
+
 :Tessa_Bonham_Jones a ns1:Person ;
     ns1:name "Tessa Bonham Jones" ;
     ns1:url "https://www.metacritic.com/person/tessa-bonham-jones" .
+
+:Tetsu_Inada a ns1:Person ;
+    ns1:name "Tetsu Inada" .
 
 <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#The_Age_(Australia)> a ns1:Organization ;
     ns1:name "The Age (Australia)" ;
@@ -1225,6 +2369,12 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Thomas Clay Strickland" ;
     ns1:url "https://www.metacritic.com/person/thomas-clay-strickland" .
 
+:Thomas_Kee a ns1:Person ;
+    ns1:name "Thomas Kee" .
+
+:Tom_Holland a ns1:Person ;
+    ns1:name "Tom Holland" .
+
 :Tomatometer a ns1:AggregateRating ;
     ns1:bestRating "100" ;
     ns1:description "The Tomatometer rating – based on the published opinions of hundreds of film and television critics – is a trusted measurement of movie and TV programming quality for millions of moviegoers. It represents the percentage of professional critic reviews that are positive for a given film or television show." ;
@@ -1233,6 +2383,9 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:ratingValue "59" ;
     ns1:reviewCount "426" ;
     ns1:worstRating "0" .
+
+:Tomokazu_Seki a ns1:Person ;
+    ns1:name "Tomokazu Seki" .
 
 :Tony_Medley a ns1:Person ;
     ns1:name "Tony Medley" ;
@@ -1246,6 +2399,15 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Valerie Kalfrin" ;
     ns1:url "https://www.rottentomatoes.com/critic/valerie-kalfrin" .
 
+:Vanessa_Curry a ns1:Person ;
+    ns1:name "Vanessa Curry" .
+
+:Wilfried_Hochholdinger a ns1:Person ;
+    ns1:name "Wilfried Hochholdinger" .
+
+:William_Hanna a ns1:Person ;
+    ns1:name "William Hanna" .
+
 :William_Moulton_Marston a ns1:Person ;
     ns1:name "William Moulton Marston" ;
     ns1:url "https://www.imdb.com/name/nm0551376/" .
@@ -1255,6 +2417,15 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:name "Wonder Woman 1984 (Trailer 2)" ;
     ns1:thumbnailUrl "https://content.internetvideoarchive.com/content/hdphotos/13126/013126/013126_820x461_637413475681110755.jpg" ;
     ns1:uploadDate "2020-11-21 17:41:36" .
+
+:Yoshitsugu_Matsuoka a ns1:Person ;
+    ns1:name "Yoshitsugu Matsuoka" .
+
+:Yū_Asakawa a ns1:Person ;
+    ns1:name "Yū Asakawa" .
+
+:brian-in-80210 a ns1:Person ;
+    ns1:name "brian-in-80210" .
 
 :film-authority.com a ns1:Organization ;
     ns1:name "film-authority.com" ;
@@ -1275,17 +2446,253 @@ La trama de esta película es una gran misterio. El guión está basado en una h
 <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0728674/> a ns1:Organization ;
     ns1:url "https://www.imdb.com/company/co0728674/" .
 
-:zeki-4 a ns1:Person ;
-    ns1:name "zeki-4" .
+:Óscar_Jaenada a ns1:Person ;
+    ns1:name "Óscar Jaenada" .
+
+:13:15 a ns1:Schedule ;
+    ns1:startTime "13:15" .
+
+:15:00 a ns1:Schedule ;
+    ns1:startTime "15:00" .
+
+:16:10 a ns1:Schedule ;
+    ns1:startTime "16:10" .
+
+:17:00 a ns1:Schedule ;
+    ns1:startTime "17:00" .
+
+:17:30 a ns1:Schedule ;
+    ns1:startTime "17:30" .
+
+:17:40 a ns1:Schedule ;
+    ns1:startTime "17:40" .
+
+:17:45 a ns1:Schedule ;
+    ns1:startTime "17:45" .
+
+:18:00 a ns1:Schedule ;
+    ns1:startTime "18:00" .
+
+:18:05 a ns1:Schedule ;
+    ns1:startTime "18:05" .
+
+:18:10 a ns1:Schedule ;
+    ns1:startTime "18:10" .
+
+:22:50 a ns1:Schedule ;
+    ns1:startTime "22:50" .
+
+:Benjamin_Biolay a ns1:Person ;
+    ns1:name "Benjamin Biolay" .
+
+:CLASSIC_2D_ESPAÑOL_15:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :15:45 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_16:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:40 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_17:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:00 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry,
+        :Trolls_2 .
+
+:CLASSIC_2D_ESPAÑOL_17:20 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:20 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry,
+        :Trolls_2 .
+
+:CLASSIC_2D_ESPAÑOL_17:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:40 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :La_noche_magica .
+
+:CLASSIC_2D_ESPAÑOL_17:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:45 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry .
+
+:CLASSIC_2D_ESPAÑOL_22:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:40 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Godzilla_vs._Kong,
+        :New_Mutants,
+        :Wonder_Woman_1984 .
+
+:CLASSIC_2D_ESPAÑOL_22:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:45 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :New_Mutants .
+
+:CLASSIC_2D_SUBTITULADO_22:40 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:40 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Godzilla_vs._Kong,
+        :New_Mutants .
+
+:CLASSIC_2D_SUBTITULADO_22:45 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :22:45 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :New_Mutants,
+        :Promising_young_woman .
+
+:CLASSIC_2D_SUBTITULADO_23:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:00 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Godzilla_vs._Kong,
+        :New_Mutants .
+
+:Camille_Cottin a ns1:Person ;
+    ns1:name "Camille Cottin" .
+
+:Carole_Bouquet a ns1:Person ;
+    ns1:name "Carole Bouquet" .
+
+:Chiara_Mastroianni a ns1:Person ;
+    ns1:name "Chiara Mastroianni" .
+
+:Demián_Bichir a ns1:Person ;
+    ns1:name "Demián Bichir" .
+
+:Diego_Peretti a ns1:Person ;
+    ns1:name "Diego Peretti" .
+
+:EL_SECRETO_DEL_BOSQUE a ns1:Movie ;
+    ns1:actor :Sahil_Shroff,
+        :Subrat_Dutta,
+        :Vanessa_Curry ;
+    ns1:contentRating "Apta mayores de 13 años" ;
+    ns1:countryOfOrigin "EEUU" ;
+    ns1:description "Mientras disfrutan de una escapada romántica en la India salvaje, una pareja de Los Angeles accidentalmente es testigo del exorcismo de una niña de 11 años a la cual intentarán rescatar." ;
+    ns1:director "Vikram Jayakumar" ;
+    ns1:duration "87 minutos" ;
+    ns1:genre "Terror" ;
+    ns1:inLanguage "Inglés subtitulada" ;
+    ns1:url "No disponible" .
+
+:Esteban_Bigliardi a ns1:Person ;
+    ns1:name "Esteban Bigliardi" .
+
+:LA_NOCHE_MAGICA a ns1:Movie ;
+    ns1:actor :Diego_Peretti,
+        :Esteban_Bigliardi,
+        :Natalia_Oreiro,
+        :Pablo_Rago ;
+    ns1:contentRating "Apta mayores de 16 años" ;
+    ns1:countryOfOrigin "Argentina" ;
+    ns1:description """Es 24 de diciembre, víspera de Navidad. En una casa tranquila en San Isidro donde vive un matrimonio con su pequeña hija, un ladrón  espera su momento para entrar a robar. Para su sorpresa, se encontrará primero con el amante de la señora de la casa al cual obligará a participar en el robo.\r
+Lo que no sabe, es que la pequeña de la casa al verlo lo confundirá con Papá Noel y le pedirá cumplir su lista de deseos navideños""" ;
+    ns1:director "Gastón Portal" ;
+    ns1:duration "98 minutos" ;
+    ns1:genre "Comedia" ;
+    ns1:inLanguage "Castellano" ;
+    ns1:url "No disponible" .
+
+:LOS_INTRUSOS a ns1:Movie ;
+    ns1:actor :Andrew_Ellis,
+        :Ian_Kenny,
+        :Jake_Curran,
+        :Maisie_Williams,
+        :Rita_Tushingham,
+        :Stacha_Hicks,
+        :Sylvester_McCoy ;
+    ns1:contentRating "Apta mayores de 16 años" ;
+    ns1:countryOfOrigin "Reino Unido - Francia" ;
+    ns1:description "Inglaterra rural, principios de los noventa: los amigos de la infancia Nathan y Terry son inducidos por el sociópata local para robar a los Huggins, un médico anciano y su esposa. La novia de Nathan, Mary, está totalmente en contra del plan, pero al cabo de unas horas se encuentra en el caserón, al lado de la caja fuerte del sótano y de una panda de individuos, a cual más sospechoso." ;
+    ns1:director "Julius Berg" ;
+    ns1:duration "92 minutos" ;
+    ns1:genre "Terror" ;
+    ns1:inLanguage "Inglés subtitulada" ;
+    ns1:url "No disponible" .
+
+:Maisie_Williams a ns1:Person ;
+    ns1:name "Maisie Williams" .
+
+:Marie-Christine_Adam a ns1:Person ;
+    ns1:name "Marie-Christine Adam" .
 
 :Movie_Bitches a ns1:Organization ;
     ns1:name "Movie Bitches" ;
     ns1:url "https://www.rottentomatoes.com/source-3639" .
 
+:Natalia_Oreiro a ns1:Person ;
+    ns1:name "Natalia Oreiro" .
+
+:Pablo_Rago a ns1:Person ;
+    ns1:name "Pablo Rago" .
+
+:UIP a ns1:Organization ;
+    ns1:name "UIP" .
+
+:Vincent_Lacoste a ns1:Person ;
+    ns1:name "Vincent Lacoste" .
+
+:Warner a ns1:Organization ;
+    ns1:name "Warner" .
+
+<https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Warner_Bros.> a ns1:Organization ;
+    ns1:name "Warner Bros." .
+
 :Warner_Bros._Pictures a ns1:Organization ;
     ns1:mainEntityOfPage "https://www.ecartelera.com/empresas/warner-bros/" ;
     ns1:name "Warner Bros. Pictures" ;
     ns1:url "https://www.metacritic.com/company/warner-bros-pictures" .
+
+:13:45 a ns1:Schedule ;
+    ns1:startTime "13:45" .
+
+:14:00 a ns1:Schedule ;
+    ns1:startTime "14:00" .
+
+:15:30 a ns1:Schedule ;
+    ns1:startTime "15:30" .
+
+:15:40 a ns1:Schedule ;
+    ns1:startTime "15:40" .
+
+:16:00 a ns1:Schedule ;
+    ns1:startTime "16:00" .
+
+:16:45 a ns1:Schedule ;
+    ns1:startTime "16:45" .
+
+:19:45 a ns1:Schedule ;
+    ns1:startTime "19:45" .
+
+:19:50 a ns1:Schedule ;
+    ns1:startTime "19:50" .
+
+:20:00 a ns1:Schedule ;
+    ns1:startTime "20:00" .
+
+:20:20 a ns1:Schedule ;
+    ns1:startTime "20:20" .
+
+:20:30 a ns1:Schedule ;
+    ns1:startTime "20:30" .
+
+:20:45 a ns1:Schedule ;
+    ns1:startTime "20:45" .
+
+:22:40 a ns1:Schedule ;
+    ns1:startTime "22:40" .
+
+:CLASSIC_2D_ESPAÑOL_16:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :16:10 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry,
+        :Trolls_2 .
+
+:CLASSIC_2D_ESPAÑOL_17:10 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :17:10 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Tom_and_Jerry,
+        :Trolls_2 .
 
 :Patty_Jenkins a ns1:Person ;
     ns1:mainEntityOfPage "https://www.ecartelera.com/personas/patty-jenkins/" ;
@@ -1293,4 +2700,362 @@ La trama de esta película es una gran misterio. El guión está basado en una h
     ns1:sameAs "https://www.rottentomatoes.com/celebrity/patty_jenkins" ;
     ns1:url "https://www.imdb.com/name/nm0420941/",
         "https://www.metacritic.com/person/patty-jenkins" .
+
+:Wonder_Woman_1984 a ns1:Movie ;
+    ns1:actor :Alex_Delescu,
+        :Amr_Waked,
+        :Amreen_N._Yaqoob,
+        :Bern_Collaco,
+        :Brittney_Aleah,
+        :Chris_Pine,
+        :Chris_Silcox,
+        :Connie_Nielsen,
+        :Ella_Walker,
+        :Gabriella_Wilde,
+        :Gal_Gadot,
+        :Jamaal_Burcher,
+        :Jamal_Alkhaldi,
+        :Jeff_Moore,
+        :Joel_Morris,
+        :John_Gettier,
+        :Jonathan_Ajayi,
+        :Julian_Ferro,
+        :Justin_Sisk,
+        :Kaila_Ingram,
+        :Kristen_Wiig,
+        :Kristoffer_Polaha,
+        :Lilly_Aspell,
+        :Lolita_Marie,
+        :Lynda_Carter,
+        :Lyon_Beckwith,
+        :Manoj_Anand,
+        :Marisol_Correa,
+        :Marla_Aaron_Wapner,
+        :Monica_Haynes,
+        :Natasha_Rothwell,
+        :Oakley_Bull,
+        :Paul_Ron_Cruz,
+        :Pedro_Pascal,
+        :Penelope_Kapudija,
+        :Ravi_Patel,
+        :Rick_Kelvin_Branch,
+        :Robin_Wright,
+        :Sia_Alipour,
+        :Sonia_Goswami,
+        :Spencer_Trinwith,
+        :Tessa_Bonham_Jones,
+        :Thomas_Clay_Strickland ;
+    ns1:aggregateRating :AggregateRating_0,
+        :AggregateRating_1,
+        :AggregateRating_2,
+        :Tomatometer ;
+    ns1:author :Patty_Jenkins ;
+    ns1:character "Antiope",
+        "Barbara Minerva / Cheetah",
+        "Diana Prince / Wonder Woman",
+        "Hippolyta",
+        "Steve Trevor" ;
+    ns1:contentRating "Apta mayores de 13 años",
+        "P-13",
+        "PG-13" ;
+    ns1:countryOfOrigin "EE.UU.",
+        "EEUU",
+        "Estados Unidos" ;
+    ns1:creator :Dave_Callaham,
+        :Geoff_Johns,
+        :Patty_Jenkins,
+        :William_Moulton_Marston,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0002663/>,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0028338/>,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0038332/>,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0283444/>,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0728674/> ;
+    ns1:description """&#39;Wonder Woman 1984&#39; llegará a la pantalla grande el próximo 5 de junio de 2020, de nuevo con la actriz israelí Gal Gadot en el papel de la Mujer Maravilla y Patty Jenkins detrás de las cámaras. La secuela de &#39;Wonder Woman&#39; contará además con el regreso de Chris Pine (&#39;Star Trek. Más allá&#39;) como Steve Trevor. La película sigue a Diana en su vida durante los años 80 en Estados Unidos. En esta ocasión, Diana se enfrentará a nuevos enemigos. Su principal antagonista es la arqueóloga británica Barbara Minerva, que será interpretada por Kristen Wigg (&#39;Cazafantasmas&#39;). La científica tiene un alter ego, la villana Cheetah que tiene una fuerza y agilidad sobrehumanas. Otro enemigo a tener en cuenta será el empresario Maxwel Lord, interpretado por Pedro Pascal (&#39;The Mandalorian&#39;). Este personaje es un arrogante con la habilidad de manipular a otros a su antojo. En los cómics, Max Lord tiene poderes mentales. También aparecen en esta cinta las guerreras amazonas Antiope (Robin Wright) y la Reina Hippolyta (Connie Nielsen).\r
+\r
+La trama de esta película es una gran misterio. El guión está basado en una historia escrita por Patty Jenkins, Geoff Johns (&#39;The Flash&#39;, &#39;Aquaman&#39;) y Dave Callaham (&#39;Zombieland: Mata y remata&#39;). Se espera que tenga protagonismo la tecnología y la vigilancia, teniendo en cuenta el título que hace referencia a la distopía de &#39;1984&#39; de George Orwell.""",
+        "Ambientada en los años 80s. El mayor deseo de Diana Prince parece ser tener devuelta a Steve Trevor. Esto inexplicablemente parece haberse convertido en realidad, pero la enfrentará a dos nuevos villanos: Max Lord y Cheetah",
+        "En 1984, en plena Guerra Fría, Diana Prince, conocida como Wonder Woman, se enfrenta al empresario Maxwell Lord y a su antigua amiga Barbara Minerva / Cheetah, una villana que posee fuerza y agilidad sobrehumanas.",
+        "Fast forward to the 1980s as Wonder Woman’s next big screen adventure finds her facing two all-new foes: Max Lord and The Cheetah.",
+        "Wonder Woman 1984 is a movie starring Gal Gadot, Chris Pine, and Kristen Wiig. Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient..." ;
+    ns1:director :Patty_Jenkins,
+        "Patty Jenkins" ;
+    ns1:duration "150 minutos",
+        "151 minutos",
+        "PT151M",
+        "PT2H31M" ;
+    ns1:genre "Acción",
+        "Action",
+        "Action & Adventure",
+        "Adventure",
+        "Aventura",
+        "Ciencia Ficción",
+        "Fantasy",
+        "Fantasía",
+        "Science Fiction & Fantasy" ;
+    ns1:image :ImageObject_0,
+        "https://m.media-amazon.com/images/M/MV5BYTlhNzJjYzYtNGU3My00ZDI5LTgzZDUtYzllYjU1ZmU0YTgwXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_.jpg",
+        "https://resizing.flixster.com/m8G6eIbecl1KNYf1yd2lt2F5yX8=/740x380/v1.bjsyNTUxODM4O2o7MTg4Mzk7MTIwMDs0MTIyOzIzMTI",
+        "https://static.metacritic.com/images/products/movies/4/9d1a4650bb42f43a0a781bfa70a7772d.jpg" ;
+    ns1:inLanguage "Inglés subtitulada" ;
+    ns1:keywords "sequel,superhero,dc extended universe,dc comics,one woman army" ;
+    ns1:name "Wonder Woman 1984" ;
+    ns1:productionCompany <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Warner_Bros.>,
+        :Warner_Bros._Pictures ;
+    ns1:publisher :Warner_Bros._Pictures ;
+    ns1:releasedEvent :PublicationEvent_2020-12-18 ;
+    ns1:review :Review_Amy_Nicholson_2021-01-04T03:37:14-08:00,
+        :Review_Andrew_Galdi_2021-03-11T06:02:25-08:00,
+        :Review_Avaryl_Halley_2021-03-11T05:51:39-08:00,
+        :Review_Brian_Gill_2021-02-10T06:48:34-08:00,
+        :Review_Dan_Tabor_2021-02-05T01:55:00-08:00,
+        :Review_David_Bax_2021-03-23T10:02:10-07:00,
+        :Review_David_Sims_2020-12-28T07:45:33-08:00,
+        :Review_Eddie_Harrison_2021-02-07T19:57:42-08:00,
+        :Review_Eric_Marchen_2021-02-17T02:36:51-08:00,
+        :Review_Ian_Simmons_2021-02-05T19:46:31-08:00,
+        :Review_Jake_Wilson_2020-12-28T07:49:06-08:00,
+        :Review_Jennifer_Ouellette_2021-02-11T02:38:41-08:00,
+        :Review_John_McDonald_2021-01-31T18:14:33-08:00,
+        :Review_Kevin_Carr_2021-04-03T14:11:59-07:00,
+        :Review_Mark_Jackson_2021-02-02T10:00:09-08:00,
+        :Review_Mark_Meszoros_2021-02-13T23:57:56-08:00,
+        :Review_Matt_Neal_2021-01-31T17:01:54-08:00,
+        :Review_Nina_Garin_2021-03-01T08:14:02-08:00,
+        :Review_Rafer_Guzman_2021-01-04T04:59:29-08:00,
+        :Review_Sarah_Ward_2021-02-21T08:36:54-08:00,
+        :Review_Sheri_Flanders_2021-02-01T04:29:30-08:00,
+        :Review_Stephen_Romei_2020-12-29T12:09:48-08:00,
+        :Review_Tony_Medley_2021-02-22T06:02:11-08:00,
+        :Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00,
+        :Review_brian-in-80210_2021-02-12 ;
+    ns1:trailer :Stream_on_HBO_Max_for_a_Limited_Time,
+        <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Wonder_Woman_1984_(Trailer_2)> ;
+    ns1:url "No disponible" .
+
+:animación a ns1:Person ;
+    ns1:name "animación" .
+
+:13:00 a ns1:Schedule ;
+    ns1:startTime "13:00" .
+
+:23:10 a ns1:Schedule ;
+    ns1:startTime "23:10" .
+
+:Chaos_Walking a ns1:Movie ;
+    ns1:actor :Cynthia_Erivo,
+        :Daisy_Ridley,
+        :David_Oyelowo,
+        :Demián_Bichir,
+        :Kurt_Sutter,
+        :Mads_Mikkelsen,
+        :Nick_Jonas,
+        :Ray_McKinnon,
+        :Tom_Holland,
+        :Óscar_Jaenada ;
+    ns1:contentRating "Apta mayores de 13 años",
+        "P-13" ;
+    ns1:countryOfOrigin "EEUU",
+        "Estados Unidos" ;
+    ns1:description "En Prentisstown, Todd ha crecido creyendo que la \"Masilla\" fue la responsable de liberar un germen que asesinó a todas las mujeres y contagió con el \"ruido\" al resto de los hombres. Tras descubrir un remanso de silencio en un pantano, sus padres adoptivos le obligan a huir lo más rápido que pueda, dejando todo atrás salvo un mapa del Nuevo Mundo y un mensaje, así como un sinfín de preguntas sin responder. Pronto descubre la fuente del silencio: una chica llamada Viola. Los dos deben avisar lo antes posible sobre la inminente llegada de una nave para que el intendente Prentiss pueda preparar un ejército para la guerra.",
+        "En un futuro no muy lejano, en un mundo donde las mujeres han desaparecido y los hombres han sido afectados por “el ruido” – una fuerza que exhibe todos sus pensamientos – Todd Hewitt (Tom Holland) se encuentra con Viola (Daisy Ridley), una joven misteriosa que ha aterrizado en su planeta. Con Viola bajo riesgo, Todd jura protegerla y ponerla fuera de peligro. Para salvarla Todd tendrá que controlar su “ruido”, descubrir su propia fuerza y desbloquear todos los obscuros secretos que guarda su planeta y su comunidad. Del director de Identidad Desconocida (The Bourne Identity) y Al Filo del Mañana (Edge of Tomorrow), basada en la novela bestseller, El Cuchillo en la Mano del escritor Patrick Ness. Tom Holland y Daisy Ridely protagonizan junto con David Oyelowo, Nick Jonas, Mads Mikkelsen y Demián Bichir. Caos: El Inicio (Chaos Walking) llegará a los cines en 2021." ;
+    ns1:director "Doug Liman" ;
+    ns1:duration "109 minutos",
+        "110 minutos" ;
+    ns1:genre "Acción",
+        "Aventura",
+        "Ciencia Ficción",
+        "Thriller" ;
+    ns1:inLanguage "Inglés subtitulada" ;
+    ns1:productionCompany :BF_Paris ;
+    ns1:url "No disponible" .
+
+:HABITACION_212 a ns1:Movie ;
+    ns1:actor :Benjamin_Biolay,
+        :Camille_Cottin,
+        :Carole_Bouquet,
+        :Chiara_Mastroianni,
+        :Marie-Christine_Adam,
+        :Vincent_Lacoste ;
+    ns1:contentRating "Apta mayores de 13 años" ;
+    ns1:countryOfOrigin "Francia" ;
+    ns1:description "Tras 20 años de matrimonio, Maria decide dejarlo todo atrás y empezar una nueva vida. El primer paso es hospedarse en la habitación 212 de un hotel próximo a la casa en la que vivía junto a su familia. Con el paso del tiempo, comienza a preguntarse si ha tomado la decisión correcta." ;
+    ns1:director "Christophe Honoré" ;
+    ns1:duration "87 minutos" ;
+    ns1:genre "Comedia dramática" ;
+    ns1:inLanguage "Francés subtitulado" ;
+    ns1:url "No disponible" .
+
+:CLASSIC_2D_ESPAÑOL_23:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :23:00 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Chaos_Walking,
+        :Godzilla_vs._Kong .
+
+:22:45 a ns1:Schedule ;
+    ns1:startTime "22:45" .
+
+:23:00 a ns1:Schedule ;
+    ns1:startTime "23:00" .
+
+:Promising_young_woman a ns1:Movie ;
+    ns1:actor :Adam_Brody,
+        :Alison_Brie,
+        :Bo_Burnham,
+        :Carey_Mulligan,
+        :Christopher_Mintz-Plasse,
+        :Clancy_Brown,
+        :Connie_Britton,
+        :Jennifer_Coolidge,
+        :Laverne_Cox,
+        :Max_Greenfield,
+        :Molly_Shannon,
+        :Sam_Richardson ;
+    ns1:contentRating "ATP",
+        "Apta mayores de 16 años" ;
+    ns1:countryOfOrigin "EEUU",
+        "Estados Unidos" ;
+    ns1:description "De la innovadora directora Emerald Fennell (Killing Eve) llega una deliciosa nueva visión sobre la venganza. Todos dicen que Cassie (Carey Mulligan) era una prometedora mujer joven...hasta que un misterioso suceso abruptamente descarrilló su futuro. Pero nada en la vida de Cassie es lo que aparenta ser: ella es pícaramente inteligente, atormentadoramente astuta y vive una secreta doble vida por la noche. Ahora, un encuentro inesperado está a punto de darle a Cassie la posibilidad de reparar los errores del pasado en esta fascinante y totalmente divertida historia.",
+        "Una joven mujer traumatizada por un evento trágico ocurrido en su pasado, busca venganza contra los hombres que se cruzaron por su camino." ;
+    ns1:director "Emerald Fennell" ;
+    ns1:duration "113 minutos",
+        "117 minutos" ;
+    ns1:genre "Crimen",
+        "Drama",
+        "Thriller" ;
+    ns1:inLanguage "Inglés subtitulada" ;
+    ns1:productionCompany :UIP ;
+    ns1:url "No disponible" .
+
+:CLASSIC_2D_SUBTITULADO_20:00 a ns1:ScreeningEvent ;
+    ns1:eventSchedule :20:00 ;
+    ns1:videoFormat "2D" ;
+    ns1:workPresented :Demon_Slayer_Mugen_Train .
+
+:Trolls_2 a ns1:Movie ;
+    ns1:actor :Anna_Kendrick,
+        :Anthony_Ramos,
+        :Chance_the_Rapper,
+        :Flula_Borg,
+        :James_Corden,
+        :Jamie_Dornan,
+        :Justin_Timberlake,
+        :Karan_Soni,
+        :Kunal_Nayyar,
+        :Sam_Rockwell ;
+    ns1:contentRating "N/A" ;
+    ns1:countryOfOrigin "Estados Unidos" ;
+    ns1:description "En una aventura que les llevará más allá de todo lo que habían conocido, Poppy y Branch descubren que su tribu de Trolls es solo una de las seis que existen, que el resto están repartidas en seis reinos y consagradas a seis tipos distintos de música: funk, country, tecno, clásica, pop y rock. La reina Bárbara, miembro de la realeza del hard rock, y su padre, el Rey Metal, quieren acabar con el resto de géneros musicales e imponer el reinado del rock. Con el destino del mundo en juego, Poppy y Branch, junto con el resto de la pandilla — Grandullón, Chanelle, Satén, Cooper y Guy Diamante—, visitarán los demás reinos para unir a los Trolls contra los planes de Barb de eclipsarlos a todos." ;
+    ns1:director "Walt Dohrn" ;
+    ns1:duration "90 minutos" ;
+    ns1:genre "Animación",
+        "Aventura",
+        "Comedia",
+        "Familia",
+        "Fantasía",
+        "Música" ;
+    ns1:productionCompany :UIP .
+
+:RAYA_Y_EL_ULTIMO_DRAGON a ns1:Movie ;
+    ns1:actor :Awkwafina,
+        :Daniel_Dae_Kim,
+        :Kelly_Marie_Tran ;
+    ns1:contentRating "Apta todo público C/L" ;
+    ns1:countryOfOrigin "EEUU" ;
+    ns1:description "Ambientada en el sudeste asiático, la cinta sigue la historia de Raya, una niña de un gran espíritu aventurero que vive en un reino llamado Kumandra. Este lejano y recóndito territorio está habitado por una civilización milenaria. Cinco son los clanes que forman esta tierra conocida como la del dragón y Raya, con el objetivo de devolver el equilibrio a su tierra, será la encargada de encontrar al último de los dragones en la mayor aventura de su vida." ;
+    ns1:director "Don Hall, Carlos Lopez Estrada, Paul Briggs" ;
+    ns1:duration "114 minutos" ;
+    ns1:genre "Animación" ;
+    ns1:inLanguage "Castellano" ;
+    ns1:url "No disponible" .
+
+:New_Mutants a ns1:Movie ;
+    ns1:actor :Alice_Braga,
+        :Antonio_Banderas,
+        :Anya_Taylor-Joy,
+        :Blu_Hunt,
+        :Charlie_Heaton,
+        :Happy_Anderson,
+        :Henry_Zaga,
+        :Jeffrey_Corazzini,
+        :Maisie_Williams,
+        :Mickey_Gilmore,
+        :Rosario_Dawson,
+        :Thomas_Kee ;
+    ns1:contentRating "Apta mayores de 13 años",
+        "P-13" ;
+    ns1:countryOfOrigin "EEUU",
+        "Estados Unidos" ;
+    ns1:description """Encerrados contra su voluntad en una institución secreta, 5 jóvenes mutantes descubren sus poderosas habilidades. Están bajo el estudio y análisis de la Doctora Cecilia Reyes quién tiene como objetivo curarlos.\r
+Wolfsbane, Cannonball, Magik, Mirage y Sunspot deberán enfrentar sus miedos, poderes y peligros que los rodean para intentar escapar a su pasado y salvarse a si mismos.""",
+        "La historia de los Nuevos Mutantes, un equipo de héroes mutantes formado por los primeros graduados de la escuela de Charles Xavier." ;
+    ns1:director "Josh Boone" ;
+    ns1:duration "98 minutos" ;
+    ns1:genre " Terror",
+        "Acción",
+        "Ciencia Ficción",
+        "Comedia ",
+        "Terror" ;
+    ns1:inLanguage "Inglés subtitulada" ;
+    ns1:productionCompany :20th_Fox ;
+    ns1:url "No disponible" .
+
+:Tom_and_Jerry a ns1:Movie ;
+    ns1:actor :Bobby_Cannavale,
+        :Chloë_Grace_Moretz,
+        :Frank_Welker,
+        :June_Foray,
+        :Lil_Rel_Howery,
+        :Mel_Blanc,
+        :Michael_Peña,
+        :Nicky_Jam,
+        :T-Pain,
+        :William_Hanna,
+        :animación ;
+    ns1:contentRating "ATP",
+        "Apta todo público" ;
+    ns1:countryOfOrigin "EEUU",
+        "Estados Unidos" ;
+    ns1:description """Película del clásico dibujo animado de Tom y Jerry que mezcla live-action con animación. \r
+Jerry se muda al hotel más lujoso de Nueva York justo antes del "casamiento del siglo"; la coordinadora de la ceremonia, desesperada, no tiene más opción que contratar a Tom para eliminar a Jerry. Esto desata una batalla entre gato y ratón que amenaza con destruir la carrera de la coordinadora, la ceremonia e incluso quizás el hotel mismo.\r
+Pero pronto surge un problema más grave: un empleado ambicioso y diabólico que conspira contra los tres.""",
+        "Tom el gato y Jerry el ratón son expulsados de su casa y se trasladan a un elegante hotel de Nueva York, donde una empleada descuidada llamada Kayla perderá su trabajo si no puede desalojar a Jerry antes de una boda de clase alta en el hotel. ¿Su solución? Contratar a Tom para deshacerse del molesto ratón." ;
+    ns1:director "Tim Story" ;
+    ns1:duration "101 minutos" ;
+    ns1:genre "Acción",
+        "Animación",
+        "Aventura",
+        "Comedia",
+        "Familia" ;
+    ns1:inLanguage "Inglés subtitulada" ;
+    ns1:productionCompany :Warner ;
+    ns1:url "No disponible" .
+
+:Godzilla_vs._Kong a ns1:Movie ;
+    ns1:actor :Alexander_Skarsgård,
+        :Brian_Tyree_Henry,
+        :Demian_Bichir,
+        :Demián_Bichir,
+        :Eiza_González,
+        :Jessica_Henwick,
+        :Julian_Dennison,
+        :Kyle_Chandler,
+        :Millie_Bobby_Brown,
+        :Rebecca_Hall,
+        :Shun_Oguri ;
+    ns1:contentRating "Apta mayores de 13 años",
+        "P-13" ;
+    ns1:countryOfOrigin "EEUU",
+        "Estados Unidos" ;
+    ns1:description "Godzilla y Kong, dos de las fuerzas más poderosas de un planeta habitado por todo tipo de aterradoras criaturas, se enfrentan en un espectacular combate que sacude los cimientos de la humanidad. Monarch (Kyle Chandler) se embarca en una misión de alto riesgo y pone rumbo hacia territorios inexplorados para descubrir los orígenes de estos dos titanes, en un último esfuerzo por tratar de salvar a dos bestias que parecen tener las horas contadas sobre la faz de la Tierra.",
+        "Godzilla y Kong, dos de las fuerzas más poderosas de un planeta habitado por todo tipo de aterradoras criaturas, se enfrentan en un espectacular combate que sacude los cimientos de la humanidad. Monarch se embarca en una misión de alto riesgo y pone rumbo hacia territorios inexplorados para descubrir los orígenes de estos dos titanes, en un último esfuerzo por tratar de salvar a dos bestias que parecen tener las horas contadas sobre la faz de la Tierra." ;
+    ns1:director "Adam Wingard" ;
+    ns1:duration "113 minutos",
+        "117 minutos" ;
+    ns1:genre "Acción",
+        "Aventura",
+        "Ciencia Ficción",
+        "Thriller" ;
+    ns1:inLanguage "Inglés subtitulada" ;
+    ns1:productionCompany <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Warner_Bros.> ;
+    ns1:url "No disponible" .
 

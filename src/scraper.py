@@ -1,4 +1,5 @@
 from src.movie import Movie
+from json import load
 from src.birdify import graph_from_tp1
 from src.metadata import Metadata
 from functools import reduce
@@ -36,7 +37,8 @@ class Scraper(object):
             "r",
             encoding="utf8",
         ) as file:
-            movie = movie_graph + graph_from_tp1(file)
+            json = load(file)
+            movie = movie_graph + graph_from_tp1(json)
             file.close()
 
         self.save_movie(movie)

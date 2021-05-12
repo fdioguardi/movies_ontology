@@ -41,21 +41,6 @@
                 "CLASSIC • 2D • ESPAÑOL": [
                     "23:00"
                 ]
-            },
-            "Cinépolis Neuquén": {
-                "CLASSIC • 2D • SUBTITULADO": [
-                    ""
-                ]
-            },
-            "Cinépolis Pilar": {
-                "CLASSIC • 2D • SUBTITULADO": [
-                    ""
-                ]
-            },
-            "Cinépolis Recoleta": {
-                "CLASSIC • 2D • SUBTITULADO": [
-                    ""
-                ]
             }
         },
         "Idioma": "Inglés subtitulada",
@@ -204,13 +189,6 @@
             "Acción",
             "Drama"
         ],
-        "Horarios": {
-            "Cinépolis Recoleta": {
-                "CLASSIC • 2D • SUBTITULADO": [
-                    ""
-                ]
-            }
-        },
         "Origen": "Japón",
         "Sinopsis": "¡La historia de Fate Stay Night Heaven’s Feel llega a su fin!El capítulo final de la trilogía más ambiciosa y oscura de esta franquicia está aquí. Sakura Matou con los pecados que ha cometido se hunde en la oscuridad, Shirou Emiya ha jurado protegerla y detener la Guerra por el Santo Grial, una guerra dónde poderosos Magos y Espíritus Heroicos trabajan juntos para derrotar a los demás, el vencedor obtendrá el Santo Grial, un contenedor que puede hacer realidad cualquier deseo… Pero esta guerra ha corrompido al Grial. ¿Podrá Shirou salvar a Sakura? ¿Cuál será el precio de esto?",
         "Título Original": "Gekijouban Fate/Stay Night: Heaven's Feel - III. Spring Song"
@@ -294,16 +272,6 @@
             "Cinépolis Neuquén": {
                 "MS • 2D • ESPAÑOL": [
                     "22:45"
-                ]
-            },
-            "Cinépolis Pilar": {
-                "CLASSIC • 2D • ESPAÑOL": [
-                    ""
-                ]
-            },
-            "Cinépolis Recoleta": {
-                "CLASSIC • 2D • SUBTITULADO": [
-                    ""
                 ]
             },
             "Cinépolis Rosario": {
@@ -600,11 +568,6 @@
                     "23:00"
                 ]
             },
-            "Cinépolis Pilar": {
-                "CLASSIC • 2D • ESPAÑOL": [
-                    ""
-                ]
-            },
             "Cinépolis Recoleta": {
                 "CLASSIC • 2D • SUBTITULADO": [
                     "22:40"
@@ -655,11 +618,6 @@
             "CINEMA ROCHA - SALA HD": [
                 "CASTELLANO:      22:10"
             ],
-            "Cinépolis Maipú": {
-                "GC • 2D • ESPAÑOL": [
-                    ""
-                ]
-            },
             "Cinépolis Merlo": {
                 "CLASSIC • 2D • ESPAÑOL": [
                     "22:40"
@@ -763,12 +721,7 @@
         "Horarios": {
             "CINEMA PARADISO - SALA HD": [
                 "SUBTITULADA:      22:45"
-            ],
-            "Cinépolis Recoleta": {
-                "CLASSIC • 2D • SUBTITULADO": [
-                    ""
-                ]
-            }
+            ]
         },
         "Idioma": "Inglés subtitulada",
         "Título Original": "Tenet",

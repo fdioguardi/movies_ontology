@@ -187,19 +187,118 @@ def add_key_to_graph_tp1(
     elif key in cheat_sheet.keys():
         if isinstance(value, list):
             for v in value:
-                graph.add((individual, schema[cheat_sheet[key]], Literal(v)))
+                graph.add((movie, schema[cheat_sheet[key]], Literal(v)))
 
         else:
-            graph.add((individual, schema[cheat_sheet[key]], Literal(v)))
+            graph.add((movie, schema[cheat_sheet[key]], Literal(v)))
 
-    else: # habemus horarios
-        add_horarios()
+    else:  # habemus horarios
+        add_timetable(graph, cheat_sheet, movie, movie_ontology, value)
 
-def add_horarios():
-    pass
 
-def add_entity(graph, movie, name, movie_ontology, entity, object_property):
-    individual = movie_ontology[name.replace(" ", "_")]
+def add_timetable(graph, cheat_sheet, movie, movie_ontology, full_timetable):
+    for key, value in full_timetable.items():
+        if isinstance(value, dict):  # es de cinepolis
+
+            # creo el movie theater
+            movie_theater = movie_ontology[key.replace(" ", "_")]
+            graph.add((movie_theater, RDF.type, schema["MovieTheater"]))
+            graph.add((movie_theater, schema["name"], Literal(key)))
+
+            for format, time_list in v.items():
+
+                video_format = format.split(" • ")[1]
+
+                for start_time in time_list:
+
+                    # creo cada screening_event
+                    screening_event = movie_ontology[
+                        format.replace(" • ", "_") + "_" + start_time
+                    ]
+                    graph.add(
+                        (screening_event, RDF.type, schema["ScreeningEvent"])
+                    )
+                    graph.add(
+                        (
+                            screening_event,
+                            schema["videoFormat"],
+                            Literal(video_format),
+                        )
+                    )
+
+                    schedule = movie_ontology[start_time]
+                    graph.add((schedule, RDF.type, schema["Schedule"]))
+                    graph.add(
+                        (schedule, schema["startTime"], Literal(start_time))
+                    )
+
+                    # engancho screening_event con schedule
+                    graph.add(
+                        (screening_event, schema["eventSchedule"], schedule)
+                    )
+
+                    # engancho el screening_event al movie theather
+                    graph.add(movie_theater, schema["event"], screening_event)
+
+                    # engancho el screening_event con la movie
+                    graph.add(
+                        (screening_event, schema["workPresented"], movie)
+                    )
+
+        else:  # es de cinemalaplata
+            # creo el movie theater
+            movie_theater = movie_ontology[key.split(" - ")[0].replace(" ", "_")]
+            graph.add((movie_theater, RDF.type, schema["MovieTheater"]))
+            graph.add((movie_theater, schema["name"], Literal(key.split(" - ")[0])))
+
+            video_format = key.split(" - ")[1].replace(" ", "_")
+
+            for show in value:
+                start_time = show.split(":")[1].strip() + ":" + show.split(":")[2].strip()
+                language = show.split(":")[0].strip()
+
+
+                # creo cada screening_event
+                screening_event = movie_ontology[
+                    key.replace(" ", "_") + "_" + start_time
+                ]
+                graph.add(
+                    (screening_event, RDF.type, schema["ScreeningEvent"])
+                )
+                graph.add(
+                    (
+                        screening_event,
+                        schema["videoFormat"],
+                        Literal(video_format),
+                    )
+                )
+
+                schedule = movie_ontology[start_time]
+                graph.add((schedule, RDF.type, schema["Schedule"]))
+                graph.add(
+                        (schedule, schema["startTime"], Literal(start_time))
+                )
+
+                # engancho screening_event con schedule
+                graph.add(
+                    (screening_event, schema["eventSchedule"], schedule)
+                )
+
+                # engancho el screening_event al movie theather
+                graph.add(movie_theater, schema["event"], screening_event)
+
+                # engancho el screening_event con la movie
+                graph.add(
+                    (screening_event, schema["workPresented"], movie)
+                )
+
+
+
+def add_entity(
+    graph, node, entity_value, movie_ontology, entity, object_property
+):
+    individual = movie_ontology[entity_value.replace(" ", "_")]
     graph.add((individual, RDF.type, schema[entity]))
-    graph.add((individual, schema["name"], Literal(name)))
-    graph.add((movie, schema[object_property], individual))
+    graph.add((individual, schema["name"], Literal(entity_value)))
+    graph.add((node, schema[object_property], individual))
+    return individual

@@ -1,0 +1,24 @@
+¿Qué ventajas supone que hubiese obtenido si en los trabajos anteriores contaba con la información descrita en OWL?
+	
+	La principa ventaja hubiera sido mayor facilidad para almacenar la informacion. No hubiera sido necesario tampoco hardcodear tanto en el scrapeo de los datos de cinema La Plata y cinepolis para almacenar la informacion. Por otro lado, el scrapeo en las paginas de imdb, rottentomatos y las demas paginas con Json-LD fue mucho mas facil al utilizar la base de ese modeloque mantiene cierta estructura
+
+¿Qué ventajas tiene utilizar vocabularios existentes en lugar de crear los propios?
+
+	La ventaja de utilizar esos vocabularios es que permite identificar objetos de informacion de la web como un mismo objeto con los mismos atributos
+
+¿Utilizó solamente clases y propiedades de un único vocabulario?
+
+	En nuestro caso utilizamos unicamente las clases y propiedades de Schema.org y creamos algunas propiedades nuestras
+
+¿Que impacto hubiese tenido al momento de almacenar la información obtenida el contar con un modelo como OWL?
+
+	Hubiera tenido un gran impacto ya que el obtener la informacion se hubiera hecho de forma mucho mas directa y organizada, ya sabiendo la estructura sobre como guardar la informacion.
+
+¿Qué diferencia hay entre utilizar un modelo de objetos para integrar la información que obtuvo (como hizo anteriormente) con utilizar tripletas?
+
+	La diferencia principal, es que la informacion queda ordenada, mas facil de acoplar y sobre todo mayor facilidad de lectura para una maquina que al pasar por el modelo de objetos. Todo es mucho mas ordenado y prolijo
+
+¿Cuán dificil es generar archivos OWL en otros formatos (por ejemplo N3, RDF/XML) a partir de la información que tiene? Y con su scrapper.
+
+	En el caso de la informacion obtenida en el tp2, la generacion de archivos OWL fue mucho mas simple que la creacion de un modelo de objetos, tanto para generarlo a partir de la informacion como con el scraper (donde nos ahorro toda la parte del mergeo de datos).
+	En el caso del tp1 fue muy dificil. Tuvimos que racomodar la informacion que habiamos obtenido de forma que quedara mas parecida a Schema para poder guardarlo en formato OWL y respetando la ontologia que creamos

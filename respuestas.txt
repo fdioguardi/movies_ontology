@@ -1,14 +1,14 @@
 ¿Qué ventajas supone que hubiese obtenido si en los trabajos anteriores contaba con la información descrita en OWL?
 	
-	La principa ventaja hubiera sido mayor facilidad para almacenar la informacion. No hubiera sido necesario tampoco hardcodear tanto en el scrapeo de los datos de cinema La Plata y cinepolis para almacenar la informacion. Por otro lado, el scrapeo en las paginas de imdb, rottentomatos y las demas paginas con Json-LD fue mucho mas facil al utilizar la base de ese modeloque mantiene cierta estructura
+	La principal ventaja hubiera sido mayor facilidad para almacenar e acoplar la informacion. No hubiera sido necesario tampoco hardcodear tanto en el scrapeo de los datos de cinema La Plata y cinepolis para almacenar la informacion.
 
 ¿Qué ventajas tiene utilizar vocabularios existentes en lugar de crear los propios?
 
-	La ventaja de utilizar esos vocabularios es que permite identificar objetos de informacion de la web como un mismo objeto con los mismos atributos
+	La ventaja de utilizar esos vocabularios es que permite identificar objetos de informacion de la web como un mismo objeto con los mismos atributos. Permite ahorrarse el diseño de la ontologia completa
 
 ¿Utilizó solamente clases y propiedades de un único vocabulario?
 
-	En nuestro caso utilizamos unicamente las clases y propiedades de Schema.org y creamos algunas propiedades nuestras
+	En nuestro caso utilizamos unicamente las clases y propiedades de Schema.org y creamos algunas propiedades nuestras, mas que nada data properties
 
 ¿Que impacto hubiese tenido al momento de almacenar la información obtenida el contar con un modelo como OWL?
 
@@ -20,5 +20,6 @@
 
 ¿Cuán dificil es generar archivos OWL en otros formatos (por ejemplo N3, RDF/XML) a partir de la información que tiene? Y con su scrapper.
 
-	En el caso de la informacion obtenida en el tp2, la generacion de archivos OWL fue mucho mas simple que la creacion de un modelo de objetos, tanto para generarlo a partir de la informacion como con el scraper (donde nos ahorro toda la parte del mergeo de datos).
-	En el caso del tp1 fue muy dificil. Tuvimos que racomodar la informacion que habiamos obtenido de forma que quedara mas parecida a Schema para poder guardarlo en formato OWL y respetando la ontologia que creamos
+	En el caso de cambiar de formato, simplemente hay que cambiar el parametro del serializador a uno de los otros y se hace automaticamente
+
+NOTA EXTRA: A pesar de que utilizando el owl se facilita la organizacion de la informacion, hay datos que no permiten crear clases de forma optima debido a que no poseen un identificador unico correcto cargado por la pagina de cienma la plata y cinepolis. Las salas de los cines son un ejemplo de ello. Ademas queriamos aclarar que para el scrapeo del tp1 partimos de lo obtenido en el mismo ya que los cines no poseen cartelera actualmente por covid jaja

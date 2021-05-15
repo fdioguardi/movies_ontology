@@ -20,6 +20,7 @@ class Movie(object):
         )
         graph_from_tree(
             self.data,
+            "Movie",
             None,
             Namespace("https://schema.org/"),
             Namespace(

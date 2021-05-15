@@ -46,11 +46,11 @@ class Scraper(object):
 
     def save_movie(self, movie):
         copy(
-            join(getcwd(), "data", "movie.owl"),
-            join(getcwd(), "data", "output.owl"),
+            join(getcwd(), "data", "template.ttl"),
+            join(getcwd(), "data", "movie.ttl"),
         )
         with open(
-            join(getcwd(), "data", "output.owl"),
+            join(getcwd(), "data", "movie.ttl"),
             "a",
             encoding="utf8",
         ) as file:

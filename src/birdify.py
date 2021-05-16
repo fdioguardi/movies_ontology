@@ -387,6 +387,9 @@ def generate_literal(data_propriety, data_value):
 
     for xsd_type, list_of_proprieties in datatypes.items():
         if data_propriety in list_of_proprieties:
+            if (xsd_type == XSD.double or xsd_type == XSD.integer):
+                data_value = str(data_value).replace(",", ".")
+
             return Literal(data_value, datatype=xsd_type)
 
     return Literal(data_value)

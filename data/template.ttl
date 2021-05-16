@@ -13,291 +13,262 @@
 #################################################################
 
 ###  https://schema.org/actor
-<https://schema.org/actor> rdf:type owl:ObjectProperty ;
-                           rdfs:domain <https://schema.org/Movie> ;
-                           rdfs:range <https://schema.org/Person> .
+<https://schema.org/actor> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/aggregateRating
-<https://schema.org/aggregateRating> rdf:type owl:ObjectProperty ;
-                                     rdfs:domain <https://schema.org/Movie> ;
-                                     rdfs:range <https://schema.org/AggregateRating> .
+<https://schema.org/aggregateRating> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/author
-<https://schema.org/author> rdf:type owl:ObjectProperty ;
-                            rdfs:domain <https://schema.org/Movie> ;
-                            rdfs:range <https://schema.org/Person> .
+<https://schema.org/author> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/creator
-<https://schema.org/creator> rdf:type owl:ObjectProperty ;
-                             rdfs:domain <https://schema.org/Movie> ;
-                             rdfs:range <https://schema.org/Person> .
+<https://schema.org/creator> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/director
-<https://schema.org/director> rdf:type owl:ObjectProperty ;
-                              rdfs:domain <https://schema.org/Movie> ;
-                              rdfs:range <https://schema.org/Person> .
+<https://schema.org/director> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/event
-<https://schema.org/event> rdf:type owl:ObjectProperty ;
-                           rdfs:domain <https://schema.org/MovieTheater> ;
-                           rdfs:range <https://schema.org/ScreeningEvent> .
+<https://schema.org/event> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/eventSchedule
-<https://schema.org/eventSchedule> rdf:type owl:ObjectProperty ;
-                                   rdfs:domain <https://schema.org/ScreeningEvent> ;
-                                   rdfs:range <https://schema.org/Schedule> .
+<https://schema.org/eventSchedule> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/location
-<https://schema.org/location> rdf:type owl:ObjectProperty ;
-                              rdfs:domain <https://schema.org/PublicationEvent> ,
-                                          <https://schema.org/ScreeningEvent> ;
-                              rdfs:range <https://schema.org/Country> ,
-                                         <https://schema.org/MovieTheater> .
+<https://schema.org/location> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/productionCompany
-<https://schema.org/productionCompany> rdf:type owl:ObjectProperty ;
-                                       rdfs:domain <https://schema.org/Movie> ;
-                                       rdfs:range <https://schema.org/Organization> .
+<https://schema.org/productionCompany> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/publisher
-<https://schema.org/publisher> rdf:type owl:ObjectProperty ;
-                               rdfs:domain <https://schema.org/Movie> ;
-                               rdfs:range <https://schema.org/Organization> .
+<https://schema.org/publisher> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/releasedEvent
-<https://schema.org/releasedEvent> rdf:type owl:ObjectProperty ;
-                                   rdfs:domain <https://schema.org/Movie> ;
-                                   rdfs:range <https://schema.org/PublicationEvent> .
+<https://schema.org/releasedEvent> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/review
-<https://schema.org/review> rdf:type owl:ObjectProperty ;
-                            rdfs:domain <https://schema.org/Movie> ;
-                            rdfs:range <https://schema.org/Review> .
+<https://schema.org/review> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/reviewRating
-<https://schema.org/reviewRating> rdf:type owl:ObjectProperty ;
-                                  rdfs:domain <https://schema.org/Review> ;
-                                  rdfs:range <https://schema.org/Rating> .
+<https://schema.org/reviewRating> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/thumbnail
-<https://schema.org/thumbnail> rdf:type owl:ObjectProperty ;
-                               rdfs:domain <https://schema.org/VideoObject> ;
-                               rdfs:range <https://schema.org/ImageObject> .
+<https://schema.org/thumbnail> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/trailer
-<https://schema.org/trailer> rdf:type owl:ObjectProperty ;
-                             rdfs:domain <https://schema.org/Movie> ;
-                             rdfs:range <https://schema.org/VideoObject> .
+<https://schema.org/trailer> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/workPresented
-<https://schema.org/workPresented> rdf:type owl:ObjectProperty ;
-                                   rdfs:domain <https://schema.org/ScreeningEvent> ;
-                                   rdfs:range <https://schema.org/Movie> .
+<https://schema.org/workPresented> rdf:type owl:ObjectProperty .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  https://schema.org/bestRating
-<https://schema.org/bestRating> rdf:type owl:DatatypeProperty ;
-                                rdfs:domain <https://schema.org/AggregateRating> ;
-                                rdfs:range xsd:double ,
-                                           xsd:integer .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/bestRating
+:bestRating rdf:type owl:DatatypeProperty ;
+            rdfs:domain <https://schema.org/AggregateRating> ,
+                        <https://schema.org/Rating> ;
+            rdfs:range xsd:double ,
+                       xsd:integer .
 
 
-###  https://schema.org/character
-<https://schema.org/character> rdf:type owl:DatatypeProperty ;
-                               rdfs:domain <https://schema.org/Movie> ;
-                               rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/character
+:character rdf:type owl:DatatypeProperty ;
+           rdfs:domain <https://schema.org/Movie> ;
+           rdfs:range xsd:string .
 
 
-###  https://schema.org/contentRating
-<https://schema.org/contentRating> rdf:type owl:DatatypeProperty ;
-                                   rdfs:domain <https://schema.org/Movie> ;
-                                   rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/contentRating
+:contentRating rdf:type owl:DatatypeProperty ;
+               rdfs:domain <https://schema.org/Movie> ;
+               rdfs:range xsd:string .
 
 
-###  https://schema.org/contentUrl
-<https://schema.org/contentUrl> rdf:type owl:DatatypeProperty ;
-                                rdfs:domain <https://schema.org/ImageObject> ;
-                                rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/contentUrl
+:contentUrl rdf:type owl:DatatypeProperty ;
+            rdfs:domain <https://schema.org/ImageObject> ;
+            rdfs:range xsd:string .
 
 
-###  https://schema.org/countryOfOrigin
-<https://schema.org/countryOfOrigin> rdf:type owl:DatatypeProperty ;
-                                     rdfs:domain <https://schema.org/Movie> ;
-                                     rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/countryOfOrigin
+:countryOfOrigin rdf:type owl:DatatypeProperty ;
+                 rdfs:domain <https://schema.org/Movie> ;
+                 rdfs:range xsd:string .
 
 
-###  https://schema.org/dateCreated
-<https://schema.org/dateCreated> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://schema.org/Review> ;
-                                 rdfs:range xsd:dateTime .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/dateCreated
+:dateCreated rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://schema.org/Review> ;
+             rdfs:range xsd:dateTime .
 
 
-###  https://schema.org/description
-<https://schema.org/description> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://schema.org/AggregateRating> ,
-                                             <https://schema.org/Movie> ,
-                                             <https://schema.org/VideoObject> ;
-                                 rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/description
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://schema.org/AggregateRating> ,
+                         <https://schema.org/Movie> ,
+                         <https://schema.org/VideoObject> ;
+             rdfs:range xsd:string .
 
 
-###  https://schema.org/duration
-<https://schema.org/duration> rdf:type owl:DatatypeProperty ;
-                              rdfs:domain <https://schema.org/Movie> ,
-                                          <https://schema.org/ScreeningEvent> ;
-                              rdfs:range xsd:dateTimeStamp .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/director
+:director rdf:type owl:DatatypeProperty ;
+          rdfs:domain <https://schema.org/Movie> ;
+          rdfs:range xsd:string .
 
 
-###  https://schema.org/embedUrl
-<https://schema.org/embedUrl> rdf:type owl:DatatypeProperty ;
-                              rdfs:domain <https://schema.org/VideoObject> ;
-                              rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/duration
+:duration rdf:type owl:DatatypeProperty ;
+          rdfs:domain <https://schema.org/Movie> ,
+                      <https://schema.org/ScreeningEvent> ;
+          rdfs:range xsd:string .
 
 
-###  https://schema.org/endTime
-<https://schema.org/endTime> rdf:type owl:DatatypeProperty ;
-                             rdfs:domain <https://schema.org/Schedule> ;
-                             rdfs:range xsd:dateTime .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/embedUrl
+:embedUrl rdf:type owl:DatatypeProperty ;
+          rdfs:domain <https://schema.org/VideoObject> ;
+          rdfs:range xsd:string .
 
 
-###  https://schema.org/genre
-<https://schema.org/genre> rdf:type owl:DatatypeProperty ;
-                           rdfs:domain <https://schema.org/Movie> ;
-                           rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/endTime
+:endTime rdf:type owl:DatatypeProperty ;
+         rdfs:domain <https://schema.org/Schedule> ;
+         rdfs:range xsd:dateTime .
 
 
-###  https://schema.org/image
-<https://schema.org/image> rdf:type owl:DatatypeProperty ;
-                           rdfs:domain <https://schema.org/Movie> ;
-                           rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/genre
+:genre rdf:type owl:DatatypeProperty ;
+       rdfs:domain <https://schema.org/Movie> ;
+       rdfs:range xsd:string .
 
 
-###  https://schema.org/inLanguage
-<https://schema.org/inLanguage> rdf:type owl:DatatypeProperty ;
-                                rdfs:domain <https://schema.org/Movie> ,
-                                            <https://schema.org/ScreeningEvent> ;
-                                rdfs:range xsd:language .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/image
+:image rdf:type owl:DatatypeProperty ;
+       rdfs:domain <https://schema.org/Movie> ;
+       rdfs:range xsd:string .
 
 
-###  https://schema.org/keywords
-<https://schema.org/keywords> rdf:type owl:DatatypeProperty ;
-                              rdfs:domain <https://schema.org/Movie> ;
-                              rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/inLanguage
+:inLanguage rdf:type owl:DatatypeProperty ;
+            rdfs:domain <https://schema.org/Movie> ,
+                        <https://schema.org/ScreeningEvent> ;
+            rdfs:range xsd:language .
 
 
-###  https://schema.org/mainEntityOfPage
-<https://schema.org/mainEntityOfPage> rdf:type owl:DatatypeProperty ;
-                                      rdfs:domain <https://schema.org/Organization> ,
-                                                  <https://schema.org/Person> ;
-                                      rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/keywords
+:keywords rdf:type owl:DatatypeProperty ;
+          rdfs:domain <https://schema.org/Movie> ;
+          rdfs:range xsd:string .
 
 
-###  https://schema.org/name
-<https://schema.org/name> rdf:type owl:DatatypeProperty ;
-                          rdfs:domain <https://schema.org/AggregateRating> ,
-                                      <https://schema.org/Country> ,
-                                      <https://schema.org/Movie> ,
-                                      <https://schema.org/MovieTheater> ,
-                                      <https://schema.org/Organization> ,
-                                      <https://schema.org/Person> ,
-                                      <https://schema.org/VideoObject> ;
-                          rdfs:range xsd:Name .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/mainEntityOfPage
+:mainEntityOfPage rdf:type owl:DatatypeProperty ;
+                  rdfs:domain <https://schema.org/Organization> ,
+                              <https://schema.org/Person> ;
+                  rdfs:range xsd:string .
 
 
-###  https://schema.org/ratingCount
-<https://schema.org/ratingCount> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://schema.org/AggregateRating> ;
-                                 rdfs:range xsd:integer .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain <https://schema.org/AggregateRating> ,
+                  <https://schema.org/Country> ,
+                  <https://schema.org/Movie> ,
+                  <https://schema.org/MovieTheater> ,
+                  <https://schema.org/Organization> ,
+                  <https://schema.org/Person> ,
+                  <https://schema.org/VideoObject> ;
+      rdfs:range xsd:Name .
 
 
-###  https://schema.org/ratingValue
-<https://schema.org/ratingValue> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://schema.org/AggregateRating> ,
-                                             <https://schema.org/Review> ;
-                                 rdfs:range xsd:double ,
-                                            xsd:integer .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/ratingCount
+:ratingCount rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://schema.org/AggregateRating> ;
+             rdfs:range xsd:integer .
 
 
-###  https://schema.org/reviewBody
-<https://schema.org/reviewBody> rdf:type owl:DatatypeProperty ;
-                                rdfs:domain <https://schema.org/Review> ;
-                                rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/ratingValue
+:ratingValue rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://schema.org/AggregateRating> ,
+                         <https://schema.org/Rating> ;
+             rdfs:range xsd:double ,
+                        xsd:integer .
 
 
-###  https://schema.org/reviewCount
-<https://schema.org/reviewCount> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://schema.org/AggregateRating> ;
-                                 rdfs:range xsd:integer .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/reviewBody
+:reviewBody rdf:type owl:DatatypeProperty ;
+            rdfs:domain <https://schema.org/Review> ;
+            rdfs:range xsd:string .
 
 
-###  https://schema.org/sameAs
-<https://schema.org/sameAs> rdf:type owl:DatatypeProperty ;
-                            rdfs:domain <https://schema.org/Person> ;
-                            rdfs:range xsd:anyURI .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/reviewCount
+:reviewCount rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://schema.org/AggregateRating> ;
+             rdfs:range xsd:integer .
 
 
-###  https://schema.org/startDate
-<https://schema.org/startDate> rdf:type owl:DatatypeProperty ;
-                               rdfs:domain <https://schema.org/PublicationEvent> ;
-                               rdfs:range xsd:dateTime .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/sameAs
+:sameAs rdf:type owl:DatatypeProperty ;
+        rdfs:domain <https://schema.org/Person> ;
+        rdfs:range xsd:anyURI .
 
 
-###  https://schema.org/startTime
-<https://schema.org/startTime> rdf:type owl:DatatypeProperty ;
-                               rdfs:domain <https://schema.org/Schedule> ;
-                               rdfs:range xsd:dateTime .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/startDate
+:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain <https://schema.org/PublicationEvent> ;
+           rdfs:range xsd:dateTime .
 
 
-###  https://schema.org/thumbnailUrl
-<https://schema.org/thumbnailUrl> rdf:type owl:DatatypeProperty ;
-                                  rdfs:domain <https://schema.org/VideoObject> ;
-                                  rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/startTime
+:startTime rdf:type owl:DatatypeProperty ;
+           rdfs:domain <https://schema.org/Schedule> ;
+           rdfs:range xsd:dateTime .
 
 
-###  https://schema.org/uploadDate
-<https://schema.org/uploadDate> rdf:type owl:DatatypeProperty ;
-                                rdfs:domain <https://schema.org/VideoObject> ;
-                                rdfs:range xsd:dateTime .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/thumbnailUrl
+:thumbnailUrl rdf:type owl:DatatypeProperty ;
+              rdfs:domain <https://schema.org/VideoObject> ;
+              rdfs:range xsd:string .
 
 
-###  https://schema.org/url
-<https://schema.org/url> rdf:type owl:DatatypeProperty ;
-                         rdfs:domain <https://schema.org/Organization> ,
-                                     <https://schema.org/Person> ,
-                                     <https://schema.org/Review> ;
-                         rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/uploadDate
+:uploadDate rdf:type owl:DatatypeProperty ;
+            rdfs:domain <https://schema.org/VideoObject> ;
+            rdfs:range xsd:dateTime .
 
 
-###  https://schema.org/videoFormat
-<https://schema.org/videoFormat> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://schema.org/ScreeningEvent> ;
-                                 rdfs:range xsd:string .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/url
+:url rdf:type owl:DatatypeProperty ;
+     rdfs:domain <https://schema.org/Movie> ;
+     rdfs:range xsd:string .
 
 
-###  https://schema.org/worstRating
-<https://schema.org/worstRating> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://schema.org/AggregateRating> ,
-                                             <https://schema.org/Rating> ;
-                                 rdfs:range xsd:double ,
-                                            xsd:integer .
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/videoFormat
+:videoFormat rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://schema.org/ScreeningEvent> ;
+             rdfs:range xsd:string .
+
+
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/worstRating
+:worstRating rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://schema.org/AggregateRating> ,
+                         <https://schema.org/Rating> ;
+             rdfs:range xsd:double ,
+                        xsd:integer .
 
 
 #################################################################
@@ -356,7 +327,4 @@
 <https://schema.org/VideoObject> rdf:type owl:Class .
 
 
-#################################################################
-#    Individuals
-#################################################################
-
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

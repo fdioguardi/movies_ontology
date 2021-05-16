@@ -1,5 +1,5 @@
 from json import load
-from rdflib.namespace import OWL, RDFS, RDF, XDS
+from rdflib.namespace import OWL, RDFS, RDF, XSD
 from rdflib import Namespace, Graph, Literal
 from src.iri_generator import IRIGenerator
 
@@ -199,7 +199,7 @@ def add_key_to_graph_tp1(
                 graph.add(
                     (
                         movie,
-                        schema[cheat_sheet[key]],
+                        movie_ontology[cheat_sheet[key]],
                         generate_literal(cheat_sheet[key], v),
                     )
                 )
@@ -208,7 +208,7 @@ def add_key_to_graph_tp1(
             graph.add(
                 (
                     movie,
-                    schema[cheat_sheet[key]],
+                    movie_ontology[cheat_sheet[key]],
                     generate_literal(cheat_sheet[key], value),
                 )
             )
@@ -227,7 +227,7 @@ def add_timetable(
             movie_theater = movie_ontology[key.replace(" ", "_")]
             graph.add((movie_theater, RDF.type, schema["MovieTheater"]))
             graph.add(
-                (movie_theater, schema["name"], generate_literal("name", key))
+                (movie_theater, movie_ontology["name"], generate_literal("name", key))
             )
 
             for format, time_list in value.items():
@@ -246,7 +246,7 @@ def add_timetable(
                     graph.add(
                         (
                             screening_event,
-                            schema["videoFormat"],
+                            movie_ontology["videoFormat"],
                             generate_literal("videoFormat", video_format),
                         )
                     )
@@ -256,7 +256,7 @@ def add_timetable(
                     graph.add(
                         (
                             schedule,
-                            schema["startTime"],
+                            movie_ontology["startTime"],
                             generate_literal("start_time", start_time),
                         )
                     )
@@ -285,7 +285,7 @@ def add_timetable(
             graph.add(
                 (
                     movie_theater,
-                    schema["name"],
+                    movie_ontology["name"],
                     generate_literal("name", key.split(" - ")[0]),
                 )
             )
@@ -308,7 +308,7 @@ def add_timetable(
                     graph.add(
                         (
                             screening_event,
-                            schema["videoFormat"],
+                            movie_ontology["videoFormat"],
                             generate_literal("videoFormat", video_format),
                         )
                     )
@@ -318,7 +318,7 @@ def add_timetable(
                     graph.add(
                         (
                             schedule,
-                            schema["startTime"],
+                            movie_ontology["startTime"],
                             generate_literal("startTime", start_time),
                         )
                     )
@@ -345,44 +345,44 @@ def add_entity(
     individual = movie_ontology[entity_value.replace(" ", "_")]
     graph.add((individual, RDF.type, schema[entity]))
     graph.add(
-        (individual, schema["name"], generate_literal("name", entity_value))
+        (individual, movie_ontology["name"], generate_literal("name", entity_value))
     )
     graph.add((node, schema[object_property], individual))
     return individual
 
 
 def generate_literal(data_propriety, data_value):
-    "Defaults to XDS.string"
+    "Defaults to XSD.string"
     datatypes = {
-        XDS.Name: [
+        XSD.Name: [
             "name",
         ],
-        XDS.anyURI: [
+        XSD.anyURI: [
             "sameAs",
         ],
-        XDS.dateTime: [
+        XSD.dateTime: [
             "dateCreated",
             "endTime",
             "startDate",
             "startTime",
             "uploadDate",
         ],
-        XDS.double: [
+        XSD.double: [
             "bestRating",
             "ratingValue",
             "worstRating",
         ],
-        XDS.integer: [
+        XSD.integer: [
             "ratingCount",
             "reviewCount",
         ],
-        XDS.language: [
+        XSD.language: [
             "inLanguage",
         ],
     }
 
-    for xds_type, list_of_proprieties in datatypes.items():
+    for xsd_type, list_of_proprieties in datatypes.items():
         if data_propriety in list_of_proprieties:
-            return Literal(data_value, datatype=xds_type)
+            return Literal(data_value, datatype=xsd_type)
 
     return Literal(data_value)

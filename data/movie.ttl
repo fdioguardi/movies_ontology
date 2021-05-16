@@ -1,4 +1,4 @@
-@prefix : <https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/movie.ttl#> .
+@prefix : <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -38,6 +38,14 @@
 
 ###  https://schema.org/eventSchedule
 <https://schema.org/eventSchedule> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/image
+<https://schema.org/image> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/itemReviewed
+<https://schema.org/itemReviewed> rdf:type owl:ObjectProperty .
 
 
 ###  https://schema.org/location
@@ -80,7 +88,7 @@
 #    Data properties
 #################################################################
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/bestoRaitingo
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#bestRating
 :bestRating rdf:type owl:DatatypeProperty ;
             rdfs:domain <https://schema.org/AggregateRating> ,
                         <https://schema.org/Rating> ;
@@ -88,37 +96,37 @@
                        xsd:integer .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/character
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#character
 :character rdf:type owl:DatatypeProperty ;
            rdfs:domain <https://schema.org/Movie> ;
            rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/contentRating
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#contentRating
 :contentRating rdf:type owl:DatatypeProperty ;
                rdfs:domain <https://schema.org/Movie> ;
                rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/contentUrl
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#contentUrl
 :contentUrl rdf:type owl:DatatypeProperty ;
             rdfs:domain <https://schema.org/ImageObject> ;
             rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/countryOfOrigin
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#countryOfOrigin
 :countryOfOrigin rdf:type owl:DatatypeProperty ;
                  rdfs:domain <https://schema.org/Movie> ;
                  rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/dateCreated
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#dateCreated
 :dateCreated rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/Review> ;
              rdfs:range xsd:dateTime .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/description
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#description
 :description rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/AggregateRating> ,
                          <https://schema.org/Movie> ,
@@ -126,64 +134,65 @@
              rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/director
-:director rdf:type owl:DatatypeProperty ;
-          rdfs:domain <https://schema.org/Movie> ;
-          rdfs:range xsd:string .
-
-
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/duration
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#duration
 :duration rdf:type owl:DatatypeProperty ;
           rdfs:domain <https://schema.org/Movie> ,
                       <https://schema.org/ScreeningEvent> ;
           rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/embedUrl
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#embedUrl
 :embedUrl rdf:type owl:DatatypeProperty ;
           rdfs:domain <https://schema.org/VideoObject> ;
           rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/endTime
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#endTime
 :endTime rdf:type owl:DatatypeProperty ;
          rdfs:domain <https://schema.org/Schedule> ;
          rdfs:range xsd:dateTime .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/genre
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#genre
 :genre rdf:type owl:DatatypeProperty ;
        rdfs:domain <https://schema.org/Movie> ;
        rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/image
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#hasDirector
+:hasDirector rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://schema.org/Movie> ;
+             rdfs:range xsd:string .
+
+
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#image
 :image rdf:type owl:DatatypeProperty ;
-       rdfs:domain <https://schema.org/Movie> ;
+       rdfs:domain <https://schema.org/Movie> ,
+                   <https://schema.org/Person> ;
        rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/inLanguage
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#inLanguage
 :inLanguage rdf:type owl:DatatypeProperty ;
             rdfs:domain <https://schema.org/Movie> ,
                         <https://schema.org/ScreeningEvent> ;
             rdfs:range xsd:language .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/keywords
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#keywords
 :keywords rdf:type owl:DatatypeProperty ;
           rdfs:domain <https://schema.org/Movie> ;
           rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/mainEntityOfPage
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#mainEntityOfPage
 :mainEntityOfPage rdf:type owl:DatatypeProperty ;
                   rdfs:domain <https://schema.org/Organization> ,
                               <https://schema.org/Person> ;
                   rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/name
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#name
 :name rdf:type owl:DatatypeProperty ;
       rdfs:domain <https://schema.org/AggregateRating> ,
                   <https://schema.org/Country> ,
@@ -195,13 +204,13 @@
       rdfs:range xsd:Name .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/ratingCount
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#ratingCount
 :ratingCount rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/AggregateRating> ;
              rdfs:range xsd:integer .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/ratingValue
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#ratingValue
 :ratingValue rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/AggregateRating> ,
                          <https://schema.org/Rating> ;
@@ -209,61 +218,61 @@
                         xsd:integer .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/reviewBody
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#reviewBody
 :reviewBody rdf:type owl:DatatypeProperty ;
             rdfs:domain <https://schema.org/Review> ;
             rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/reviewCount
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#reviewCount
 :reviewCount rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/AggregateRating> ;
              rdfs:range xsd:integer .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/sameAs
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#sameAs
 :sameAs rdf:type owl:DatatypeProperty ;
         rdfs:domain <https://schema.org/Person> ;
         rdfs:range xsd:anyURI .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/startDate
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#startDate
 :startDate rdf:type owl:DatatypeProperty ;
            rdfs:domain <https://schema.org/PublicationEvent> ;
            rdfs:range xsd:dateTime .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/startTime
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#startTime
 :startTime rdf:type owl:DatatypeProperty ;
            rdfs:domain <https://schema.org/Schedule> ;
            rdfs:range xsd:dateTime .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/thumbnailUrl
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#thumbnailUrl
 :thumbnailUrl rdf:type owl:DatatypeProperty ;
               rdfs:domain <https://schema.org/VideoObject> ;
               rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/uploadDate
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#uploadDate
 :uploadDate rdf:type owl:DatatypeProperty ;
             rdfs:domain <https://schema.org/VideoObject> ;
             rdfs:range xsd:dateTime .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/url
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#url
 :url rdf:type owl:DatatypeProperty ;
      rdfs:domain <https://schema.org/Movie> ;
      rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/videoFormat
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#videoFormat
 :videoFormat rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/ScreeningEvent> ;
              rdfs:range xsd:string .
 
 
-###  https://raw.githubusercontent.com/fdioguardi/scenarios_ontology/master/worstRating
+###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#worstRating
 :worstRating rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/AggregateRating> ,
                          <https://schema.org/Rating> ;
@@ -1943,9 +1952,9 @@
     :ratingValue 1e+00 ;
     :worstRating -1e+00 .
 
-:Rating_Review_jayg_58_2021-01-01 a ns1:Rating ;
+:Rating_Review_zeki-4_2021-01-02 a ns1:Rating ;
     :bestRating 1e+01 ;
-    :ratingValue 5e+00 ;
+    :ratingValue 4e+00 ;
     :worstRating 1e+00 .
 
 :Ravi_Patel a ns1:Person ;
@@ -2150,14 +2159,14 @@
     ns1:publisher :Their_Own_League ;
     ns1:reviewRating :Rating_Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00 .
 
-:Review_jayg_58_2021-01-01 a ns1:Review ;
-    :dateCreated "2021-01-01"^^xsd:dateTime ;
+:Review_zeki-4_2021-01-02 a ns1:Review ;
+    :dateCreated "2021-01-02"^^xsd:dateTime ;
     :inLanguage "English"^^xsd:language ;
-    :name "In quarantine, you'll buy anything."^^xsd:Name ;
-    :reviewBody "Very colorful, lots of money spent. Kristin Wiig was a masterpiece of miscasting. She wasn't funny; she wasn't scary, but great costume. The whole plot was a vehicle to resurrect Chris Pine, but there was no real chemistry between them. It made the lines of endearment quite awkward and the embraces seemed forced. All the usual tropes: WW loses some of her powers, so there can be suspense; she plays Spiderman and holds two vehicles apart. Just nothing new and Gad Gadot proves again that she's a glamour model and poses well. She can't act. Still - entertainment in a vacuum of good movies, so watch it and be distracted for TWO AND A HALF hours." ;
-    ns1:author :jayg_58 ;
+    :name "So bad that I almost walked out of my own house!"^^xsd:Name ;
+    :reviewBody "The first one was fun and well played out. This sequel is a total misfire. Not because it follows the trend of having women being the alpha characters and portraying men as either weak or stupid, but simply because it's a lazy effort. Except a couple of scenes, and hilarious over-the-top acting by Pedro Pascal, I found nothing here. It has \"straight-to-DVD\" written all over it." ;
+    ns1:author :zeki-4 ;
     ns1:itemReviewed :CreativeWork_0 ;
-    ns1:reviewRating :Rating_Review_jayg_58_2021-01-01 .
+    ns1:reviewRating :Rating_Review_zeki-4_2021-01-02 .
 
 :Rick_Kelvin_Branch a ns1:Person ;
     rdfs:seeAlso <https://schema.org/https://www.metacritic.com/person/rick-kelvin-branch> ;
@@ -2412,8 +2421,8 @@ Scooby! revela cómo se conocieron los amigos de toda la vida Scooby y Shaggy, y
 <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#https://www.imdb.com/company/co0728674/> a ns1:Organization ;
     rdfs:seeAlso <https://schema.org/https://www.imdb.com/company/co0728674/> .
 
-:jayg_58 a ns1:Person ;
-    :name "jayg_58"^^xsd:Name .
+:zeki-4 a ns1:Person ;
+    :name "zeki-4"^^xsd:Name .
 
 :Óscar_Jaenada a ns1:Person ;
     :name "Óscar Jaenada"^^xsd:Name .
@@ -2811,7 +2820,7 @@ La trama de esta película es una gran misterio. El guión está basado en una h
         :Review_Stephen_Romei_2020-12-29T12:09:48-08:00,
         :Review_Tony_Medley_2021-02-22T06:02:11-08:00,
         :Review_Valerie_Kalfrin_2021-03-20T08:54:50-07:00,
-        :Review_jayg_58_2021-01-01 ;
+        :Review_zeki-4_2021-01-02 ;
     ns1:trailer :Stream_on_HBO_Max_for_a_Limited_Time,
         <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#Wonder_Woman_1984_(Trailer_2)> .
 

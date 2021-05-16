@@ -28,7 +28,7 @@ class Movie(object):
                 + "movies_ontology/master/movie.ttl#"
             ),
             graph,
-      )
+      )[0]
         return graph
 
     def normalize(self, source_url):

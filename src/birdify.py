@@ -8,7 +8,7 @@ def graph_from_tree(
     node, propriety_name, parent_node, schema, movie_ontology, knowledge_graph
 ):
     if not isinstance(node, dict):
-        return generate_literal(propriety_name, node)
+        return generate_literal(propriety_name, node), True
 
     node.pop("@context", None)
     individual = movie_ontology[name_individual(node, parent_node)]
@@ -19,7 +19,7 @@ def graph_from_tree(
 
     add_children(node, schema, movie_ontology, knowledge_graph, individual)
 
-    return individual
+    return individual, False
 
 
 def name_individual(node, parent):
@@ -72,33 +72,29 @@ def add_children(node, schema, movie_ontology, knowledge_graph, individual):
 
         if isinstance(value, list):
             for element in value:
-                knowledge_graph.add(
-                    (
-                        individual,
-                        schema[key],
-                        graph_from_tree(
-                            element,
-                            key,
-                            node,
-                            schema,
-                            movie_ontology,
-                            knowledge_graph,
-                        ),
-                    )
+                val, is_literal = graph_from_tree(
+                    element,
+                    key,
+                    node,
+                    schema,
+                    movie_ontology,
+                    knowledge_graph,
                 )
+                knowledge_graph.add((individual, movie_ontology[key] if is_literal else schema[key], val))
         else:
+            val, is_literal = graph_from_tree(
+                value,
+                key,
+                node,
+                schema,
+                movie_ontology,
+                knowledge_graph,
+            )
             knowledge_graph.add(
                 (
                     individual,
-                    schema[key],
-                    graph_from_tree(
-                        value,
-                        key,
-                        node,
-                        schema,
-                        movie_ontology,
-                        knowledge_graph,
-                    ),
+                    movie_ontology[key] if is_literal else schema[key],
+                    val
                 )
             )
 
@@ -227,7 +223,11 @@ def add_timetable(
             movie_theater = movie_ontology[key.replace(" ", "_")]
             graph.add((movie_theater, RDF.type, schema["MovieTheater"]))
             graph.add(
-                (movie_theater, movie_ontology["name"], generate_literal("name", key))
+                (
+                    movie_theater,
+                    movie_ontology["name"],
+                    generate_literal("name", key),
+                )
             )
 
             for format, time_list in value.items():
@@ -345,7 +345,11 @@ def add_entity(
     individual = movie_ontology[entity_value.replace(" ", "_")]
     graph.add((individual, RDF.type, schema[entity]))
     graph.add(
-        (individual, movie_ontology["name"], generate_literal("name", entity_value))
+        (
+            individual,
+            movie_ontology["name"],
+            generate_literal("name", entity_value),
+        )
     )
     graph.add((node, schema[object_property], individual))
     return individual

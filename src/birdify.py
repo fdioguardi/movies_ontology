@@ -358,18 +358,17 @@ def add_entity(
 def generate_literal(data_propriety, data_value):
     "Defaults to XSD.string"
     datatypes = {
-        XSD.Name: [
-            "name",
-        ],
         XSD.anyURI: [
             "sameAs",
         ],
-        XSD.dateTime: [
+        XSD.date: [
             "dateCreated",
-            "endTime",
             "startDate",
-            "startTime",
             "uploadDate",
+        ],
+        XSD.time: [
+            "endTime",
+            "startTime",
         ],
         XSD.double: [
             "bestRating",
@@ -380,14 +379,11 @@ def generate_literal(data_propriety, data_value):
             "ratingCount",
             "reviewCount",
         ],
-        XSD.language: [
-            "inLanguage",
-        ],
     }
 
     for xsd_type, list_of_proprieties in datatypes.items():
         if data_propriety in list_of_proprieties:
-            if (xsd_type == XSD.double or xsd_type == XSD.integer):
+            if (xsd_type == XSD.double):
                 data_value = str(data_value).replace(",", ".")
 
             return Literal(data_value, datatype=xsd_type)

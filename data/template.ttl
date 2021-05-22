@@ -9,6 +9,18 @@
 <https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#> rdf:type owl:Ontology .
 
 #################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#time
+xsd:time rdf:type rdfs:Datatype .
+
+
+#################################################################
 #    Object Properties
 #################################################################
 
@@ -92,8 +104,7 @@
 :bestRating rdf:type owl:DatatypeProperty ;
             rdfs:domain <https://schema.org/AggregateRating> ,
                         <https://schema.org/Rating> ;
-            rdfs:range xsd:double ,
-                       xsd:integer .
+            rdfs:range xsd:double .
 
 
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#character
@@ -123,7 +134,7 @@
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#dateCreated
 :dateCreated rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/Review> ;
-             rdfs:range xsd:dateTime .
+             rdfs:range xsd:date .
 
 
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#description
@@ -150,7 +161,7 @@
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#endTime
 :endTime rdf:type owl:DatatypeProperty ;
          rdfs:domain <https://schema.org/Schedule> ;
-         rdfs:range xsd:dateTime .
+         rdfs:range xsd:time .
 
 
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#genre
@@ -176,7 +187,7 @@
 :inLanguage rdf:type owl:DatatypeProperty ;
             rdfs:domain <https://schema.org/Movie> ,
                         <https://schema.org/ScreeningEvent> ;
-            rdfs:range xsd:language .
+            rdfs:range xsd:string .
 
 
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#keywords
@@ -201,7 +212,7 @@
                   <https://schema.org/Organization> ,
                   <https://schema.org/Person> ,
                   <https://schema.org/VideoObject> ;
-      rdfs:range xsd:Name .
+      rdfs:range xsd:string .
 
 
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#ratingCount
@@ -214,8 +225,7 @@
 :ratingValue rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/AggregateRating> ,
                          <https://schema.org/Rating> ;
-             rdfs:range xsd:double ,
-                        xsd:integer .
+             rdfs:range xsd:double .
 
 
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#reviewBody
@@ -239,13 +249,13 @@
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#startDate
 :startDate rdf:type owl:DatatypeProperty ;
            rdfs:domain <https://schema.org/PublicationEvent> ;
-           rdfs:range xsd:dateTime .
+           rdfs:range xsd:date .
 
 
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#startTime
 :startTime rdf:type owl:DatatypeProperty ;
            rdfs:domain <https://schema.org/Schedule> ;
-           rdfs:range xsd:dateTime .
+           rdfs:range xsd:time .
 
 
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#thumbnailUrl
@@ -257,7 +267,7 @@
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#uploadDate
 :uploadDate rdf:type owl:DatatypeProperty ;
             rdfs:domain <https://schema.org/VideoObject> ;
-            rdfs:range xsd:dateTime .
+            rdfs:range xsd:date .
 
 
 ###  https://raw.githubusercontent.com/fdioguardi/movies_ontology/master/movie.ttl#url
@@ -276,8 +286,7 @@
 :worstRating rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://schema.org/AggregateRating> ,
                          <https://schema.org/Rating> ;
-             rdfs:range xsd:double ,
-                        xsd:integer .
+             rdfs:range xsd:double .
 
 
 #################################################################
